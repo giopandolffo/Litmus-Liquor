@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contra Oferta — LITMÛS × LAB080</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --lime: #D2FF28;
+      --gray: #111111;
+      --gray-mid: #1a1a1a;
+      --gray-border: #2a2a2a;
+      --gray-text: #888888;
+      --red: #ff4444;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Manrope', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Grain texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.028;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* Layout */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    section {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--gray-border);
+    }
+
+    section:last-of-type { border-bottom: none; }
+
+    /* Header */
+    header {
+      padding: 48px 0 60px;
+      border-bottom: 1px solid var(--gray-border);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 60px;
+    }
+
+    .brand-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--lime);
+      padding: 8px 16px;
+      border-radius: 100px;
+    }
+
+    .date-tag {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--gray-text);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--lime);
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+
+    h1 em {
+      font-style: normal;
+      color: var(--lime);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--gray-text);
+      font-weight: 400;
+      max-width: 540px;
+      line-height: 1.7;
+    }
+
+    /* Section titles */
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--lime);
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 40px;
+      line-height: 1.15;
+    }
+
+    h2 em {
+      font-style: normal;
+      color: var(--lime);
+    }
+
+    /* Tables */
+    .table-wrap {
+      border: 1px solid var(--gray-border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    thead tr {
+      background: var(--gray-mid);
+      border-bottom: 1px solid var(--gray-border);
+    }
+
+    thead th {
+      padding: 14px 20px;
+      text-align: left;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray-text);
+    }
+
+    thead th:last-child { text-align: right; }
+
+    tbody tr {
+      border-bottom: 1px solid var(--gray-border);
+      transition: background 0.15s ease;
+    }
+
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--gray-mid); }
+
+    tbody td {
+      padding: 16px 20px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--white);
+    }
+
+    tbody td:last-child {
+      text-align: right;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+
+    tbody td.muted { color: var(--gray-text); font-weight: 400; }
+    tbody td.pending { color: #f0a500; }
+    tbody td.missing { color: var(--red); }
+
+    .row-highlight td { background: rgba(210, 255, 40, 0.05); }
+    .row-highlight td:last-child { color: var(--lime); }
+
+    .row-total {
+      background: var(--gray-mid) !important;
+      border-top: 1px solid var(--gray-border) !important;
+    }
+
+    .row-total td {
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .row-total td:last-child { color: var(--lime); }
+
+    /* Note box */
+    .note-box {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      background: rgba(255, 68, 68, 0.06);
+      border: 1px solid rgba(255, 68, 68, 0.25);
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-top: 20px;
+    }
+
+    .note-box .icon {
+      font-size: 1.1rem;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .note-box p {
+      font-size: 0.9rem;
+      color: #ff8888;
+      line-height: 1.6;
+    }
+
+    .note-box strong { color: var(--white); }
+
+    /* Info box */
+    .info-box {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      background: rgba(210, 255, 40, 0.05);
+      border: 1px solid rgba(210, 255, 40, 0.2);
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-top: 20px;
+    }
+
+    .info-box p {
+      font-size: 0.9rem;
+      color: #c8f020;
+      line-height: 1.6;
+    }
+
+    .info-box strong { color: var(--white); }
+
+    /* Scope grid */
+    .scope-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .scope-item {
+      border: 1px solid var(--gray-border);
+      border-radius: 10px;
+      padding: 22px 24px;
+      background: var(--gray);
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .scope-item:hover {
+      border-color: rgba(210, 255, 40, 0.3);
+      background: rgba(210, 255, 40, 0.03);
+    }
+
+    .scope-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--lime);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .scope-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+
+    .scope-desc {
+      font-size: 0.82rem;
+      color: var(--gray-text);
+      line-height: 1.6;
+    }
+
+    /* Value anchor */
+    .anchor-block {
+      background: var(--gray);
+      border: 1px solid var(--gray-border);
+      border-radius: 12px;
+      padding: 36px 40px;
+      margin-bottom: 32px;
+    }
+
+    .anchor-vs {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 0;
+    }
+
+    .anchor-option {
+      text-align: center;
+    }
+
+    .anchor-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray-text);
+      margin-bottom: 10px;
+    }
+
+    .anchor-price {
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .anchor-price.agency { color: var(--gray-text); text-decoration: line-through; }
+    .anchor-price.mine { color: var(--lime); }
+
+    .anchor-sub {
+      font-size: 0.8rem;
+      color: var(--gray-text);
+      margin-top: 8px;
+    }
+
+    .anchor-divider {
+      font-size: 1.5rem;
+      color: var(--gray-border);
+      font-weight: 300;
+      text-align: center;
+    }
+
+    /* Proposal box */
+    .proposal-box {
+      border: 1px solid rgba(210, 255, 40, 0.3);
+      border-radius: 12px;
+      padding: 36px 40px;
+      background: rgba(210, 255, 40, 0.03);
+    }
+
+    .proposal-box h3 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      color: var(--lime);
+    }
+
+    .proposal-body {
+      font-size: 1.0rem;
+      line-height: 1.8;
+      color: var(--white);
+      font-weight: 400;
+    }
+
+    .proposal-body strong { color: var(--lime); font-weight: 700; }
+
+    /* Footer */
+    footer {
+      padding: 60px 0;
+      border-top: 1px solid var(--gray-border);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gray-text);
+      letter-spacing: 0.05em;
+    }
+
+    .footer-brand span { color: var(--lime); }
+
+    .footer-contact {
+      font-size: 13px;
+      color: var(--gray-text);
+    }
+
+    .footer-contact a {
+      color: var(--lime);
+      text-decoration: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .container { padding: 0 24px; }
+      section { padding: 60px 0; }
+      .header-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .scope-grid { grid-template-columns: 1fr; }
+      .anchor-vs { grid-template-columns: 1fr; }
+      .anchor-divider { display: none; }
+      .anchor-block, .proposal-box { padding: 24px; }
+      .footer-inner { flex-direction: column; }
+      thead th, tbody td { padding: 12px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <div class="brand-pill">LAB080 × LITMÛS</div>
+        <span class="date-tag">Abril 2026</span>
+      </div>
+      <p class="hero-label">Contra Oferta Comercial</p>
+      <h1>Una agencia completa.<br /><em>Precio de socio.</em></h1>
+      <p class="hero-sub">Análisis de la propuesta actual y una estructura alternativa que protege la utilidad de los socios y alinea los incentivos de todas las partes.</p>
+    </div>
+  </header>
+
+  <!-- SECTION 1: SU PROPUESTA -->
+  <section>
+    <div class="container">
+      <p class="section-label">01 — Propuesta Actual</p>
+      <h2>Lo que está<br />sobre la mesa</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Concepto</th>
+              <th>Estado</th>
+              <th>Monto / Botella</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Costo de fabricación</td>
+              <td class="muted">Confirmado</td>
+              <td>$6.000</td>
+            </tr>
+            <tr>
+              <td>Honorario Giorgio — programación, contenido gráfico y audiovisual</td>
+              <td class="muted">Propuesto</td>
+              <td>$2.000</td>
+            </tr>
+            <tr>
+              <td>Inversión Meta Ads y redes sociales</td>
+              <td class="muted">Propuesto</td>
+              <td>$3.000</td>
+            </tr>
+            <tr>
+              <td>Embalaje, cintas y cajas</td>
+              <td class="pending">Por confirmar</td>
+              <td>$1.000</td>
+            </tr>
+            <tr>
+              <td>Envío Blue Express</td>
+              <td class="pending">Por confirmar</td>
+              <td>$1.000</td>
+            </tr>
+            <tr>
+              <td>Honorario socios (Chino e Italiano)</td>
+              <td class="muted">Propuesto</td>
+              <td>$3.000</td>
+            </tr>
+            <tr class="row-total">
+              <td>PVP Marketplace</td>
+              <td class="muted">—</td>
+              <td>$16.000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note-box">
+        <span class="icon">⚠️</span>
+        <p>
+          <strong>Dos puntos críticos sin resolver:</strong> El envío real por Blue Express o Starken en RM parte desde <strong>$3.500</strong>, no $1.000. Si el cliente no lo paga aparte, la utilidad total baja a <strong>$7.500</strong>, no $10.000. Además, la nota indica que no se ha considerado una <strong>persona de embalaje y despacho</strong>, lo que es un costo operativo real que afecta el modelo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: MI CONTRA PROPUESTA -->
+  <section>
+    <div class="container">
+      <p class="section-label">02 — Contra Oferta</p>
+      <h2>Una estructura que<br /><em>funciona para todos</em></h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Concepto</th>
+              <th>Tipo</th>
+              <th>Monto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Costo de fabricación</td>
+              <td class="muted">Por botella</td>
+              <td>$6.000</td>
+            </tr>
+            <tr class="row-highlight">
+              <td>Fee fijo mensual — agencia creativa + stack IA</td>
+              <td class="muted">Mensual fijo</td>
+              <td>$350.000</td>
+            </tr>
+            <tr class="row-highlight">
+              <td>Comisión Giorgio por botella vendida</td>
+              <td class="muted">Por botella</td>
+              <td>$1.500</td>
+            </tr>
+            <tr>
+              <td>Inversión Meta Ads</td>
+              <td class="muted">Por botella</td>
+              <td>$2.000</td>
+            </tr>
+            <tr>
+              <td>Logística — embalaje + envío (cliente paga despacho aparte)</td>
+              <td class="muted">Por botella</td>
+              <td>$1.500</td>
+            </tr>
+            <tr>
+              <td>Utilidad socios (Chino e Italiano)</td>
+              <td class="muted">Por botella</td>
+              <td>$3.000</td>
+            </tr>
+            <tr class="row-total">
+              <td>PVP Marketplace</td>
+              <td class="muted">—</td>
+              <td>$16.000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="info-box">
+        <p>
+          <strong>La utilidad de los socios se mantiene en $3.000 por botella</strong>, igual que en la propuesta original. La diferencia está en cómo se estructura el trabajo creativo: un fee fijo que cubre la tecnología y un variable que alinea los incentivos con las ventas.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: ALCANCE -->
+  <section>
+    <div class="container">
+      <p class="section-label">03 — Alcance de Trabajo</p>
+      <h2>Lo que incluye<br /><em>el fee mensual</em></h2>
+
+      <div class="scope-grid">
+        <div class="scope-item">
+          <div class="scope-num">01</div>
+          <div class="scope-title">Estrategia y Concepto</div>
+          <div class="scope-desc">Dirección creativa, tono de voz, posicionamiento de campaña y media planning mensual.</div>
+        </div>
+        <div class="scope-item">
+          <div class="scope-num">02</div>
+          <div class="scope-title">Producción IA</div>
+          <div class="scope-desc">Prompt engineering, generación de imagen y video con modelos de IA avanzados. 7 piezas mensuales.</div>
+        </div>
+        <div class="scope-item">
+          <div class="scope-num">03</div>
+          <div class="scope-title">Post-producción</div>
+          <div class="scope-desc">Edición de video, upscaling a 4K, diseño gráfico y armado de piezas estáticas para todos los formatos.</div>
+        </div>
+        <div class="scope-item">
+          <div class="scope-num">04</div>
+          <div class="scope-title">Meta Ads</div>
+          <div class="scope-desc">Configuración, segmentación, monitoreo y optimización continua de campañas en Meta (Facebook e Instagram).</div>
+        </div>
+        <div class="scope-item">
+          <div class="scope-num">05</div>
+          <div class="scope-title">Marketplace</div>
+          <div class="scope-desc">Desarrollo, mantención y auditoría del sitio para asegurar que el embudo de ventas no tenga fugas.</div>
+        </div>
+        <div class="scope-item">
+          <div class="scope-num">06</div>
+          <div class="scope-title">Tráfico y Reportes</div>
+          <div class="scope-desc">Publicación de contenido, análisis de métricas y reporte mensual de performance del canal digital.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: POR QUÉ -->
+  <section>
+    <div class="container">
+      <p class="section-label">04 — El Argumento</p>
+      <h2>El mismo trabajo.<br /><em>Sin el costo de agencia.</em></h2>
+
+      <div class="anchor-block">
+        <div class="anchor-vs">
+          <div class="anchor-option">
+            <div class="anchor-label">Agencia Tradicional</div>
+            <div class="anchor-price agency">$500.000–$1.500.000</div>
+            <div class="anchor-sub">retainer mensual mínimo</div>
+          </div>
+          <div class="anchor-divider">→</div>
+          <div class="anchor-option">
+            <div class="anchor-label">LAB080 para LITMÛS</div>
+            <div class="anchor-price mine">$350.000</div>
+            <div class="anchor-sub">fee fijo mensual + variable por venta</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="proposal-box">
+        <h3>La propuesta en una sola idea</h3>
+        <p class="proposal-body">
+          El contenido que se produce no solo vende en el Marketplace. Cada pieza que funciona en Instagram mueve la aguja en retail y en horeca también. <strong>Ese beneficio cruzado no está en el precio</strong> — está en el crecimiento de la marca completa.<br /><br />
+          La propuesta es arrancar con un <strong>piloto de 3 meses</strong>: fee fijo para cubrir la operación, comisión variable para alinear incentivos, y al mes 3 revisamos los números juntos y ajustamos si es necesario. Sin compromisos de largo plazo hasta que los resultados hablen.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span>LAB080</span> AI Studio — Giorgio Pandolfo
+        </div>
+        <div class="footer-contact">
+          Propuesta preparada para <strong>LITMÛS</strong> · Abril 2026
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
