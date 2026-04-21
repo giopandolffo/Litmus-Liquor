@@ -315,20 +315,58 @@
       line-height: 1.65;
     }
 
-    /* Prompt IA */
-    .prompt-block {
+    /* Visual description */
+    .visual-block {
       background: var(--gray-mid);
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 24px 28px;
     }
 
-    .prompt-text {
-      font-size: 0.82rem;
-      color: #888;
+    .visual-block p {
+      font-size: 0.88rem;
+      color: #aaa;
+      line-height: 1.7;
+    }
+
+    /* Example block */
+    .example-block {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      background: var(--gray);
+      position: relative;
+    }
+
+    .example-block::before {
+      content: '"';
+      position: absolute;
+      top: 12px;
+      left: 20px;
+      font-family: 'Instrument Serif', serif;
+      font-size: 3rem;
+      color: var(--lime);
+      opacity: 0.3;
+      line-height: 1;
+    }
+
+    .example-text {
+      font-size: 0.92rem;
+      color: var(--white);
       line-height: 1.7;
       font-style: italic;
+      padding-left: 8px;
     }
+
+    .example-handle {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 10px;
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    .example-handle span { color: var(--lime); }
 
     /* Idea accents */
     .idea-accent {
@@ -588,9 +626,14 @@
         <div class="psych-principle">Por qué funciona</div>
         <p class="psych-desc">Escribir una frase es lo más simple que existe. Al pedir creatividad en lugar de esfuerzo físico, la gente compite por destacar — no solo por ganar. Cada comentario es una declaración pública de valores que empuja a otros a participar también.</p>
       </div>
-      <div class="prompt-block">
-        <div class="block-label">Copy del post</div>
-        <p class="prompt-text">"LITMÛS cambia de color con una sola gota. El planeta también puede cambiar con una sola acción tuya. ¿Cuál es? Escríbela en los comentarios — en una frase. Los 3 más creativos ganan 2 botellas + 2 árboles nativos. Para participar: sigue a @LitmusLiquor, comparte en Stories y etiqueta a un amigo. #AtreveteAlCambio #DíaDeLaTierra"</p>
+      <div class="visual-block">
+        <div class="block-label">Imagen de campaña</div>
+        <p>Close-up de una copa de cristal con el líquido a mitad de camino entre azul y rosa. De fondo, desenfocado, un bosque nativo. Una sola gota cae al centro de la copa. Iluminación dramática lateral, estilo editorial premium, fondo negro.</p>
+      </div>
+      <div class="example-block">
+        <div class="block-label">Ejemplo de participación</div>
+        <p class="example-text">Si cada uno apaga una luz, el planeta respira. Si cada uno planta una duda, el cambio florece.</p>
+        <p class="example-handle">— @usuario <span>etiquetando a @amigo</span></p>
       </div>
     </div>
   </section>
@@ -651,9 +694,14 @@
         <div class="psych-principle">Por qué funciona</div>
         <p class="psych-desc">Completar "Le digo adiós a ___" es un compromiso público. La gente tiende a cumplir lo que declara ante otros. El contraste gris→color refuerza visualmente la idea de soltar algo viejo para ganar algo nuevo — exactamente lo que hace LITMÛS en cada copa.</p>
       </div>
-      <div class="prompt-block">
-        <div class="block-label">Copy del post</div>
-        <p class="prompt-text">"LITMÛS deja el azul atrás cada vez que lo abres. ¿Qué dejas tú atrás este Día de la Tierra? Completa en los comentarios: 'Este 22 de abril le digo adiós a ___' Los 3 más creativos ganan 2 botellas + 2 árboles nativos. Para participar: sigue a @LitmusLiquor, comparte en Stories y etiqueta a un amigo. #AdiósHábitoGris #DíaDeLaTierra"</p>
+      <div class="visual-block">
+        <div class="block-label">Imagen de campaña</div>
+        <p>Díptico simétrico: izquierda en gris frío — botella LITMÛS sobre tierra seca y agrietada. Derecha en color — misma botella, líquido rosa intenso, tierra negra y fértil con brotes verdes emergiendo. Texto centrado entre las dos mitades: "22 de abril."</p>
+      </div>
+      <div class="example-block">
+        <div class="block-label">Ejemplo de participación</div>
+        <p class="example-text">Este 22 de abril le digo adiós a la bolsa de plástico que llevo al super "por si acaso".</p>
+        <p class="example-handle">— @usuario <span>etiquetando a @amiga</span></p>
       </div>
     </div>
   </section>
@@ -715,9 +763,14 @@
         <div class="psych-principle">Por qué funciona</div>
         <p class="psych-desc">Mostrar una acción propia activa identidad: "soy alguien que cuida el planeta". No pide esfuerzo extraordinario — pide autenticidad. Genera el UGC más genuino y diverso de las tres ideas, y conecta directamente con el Día de la Tierra sin forzarlo.</p>
       </div>
-      <div class="prompt-block">
-        <div class="block-label">Copy del post</div>
-        <p class="prompt-text">"Cada botella de LITMÛS cambia de color. ¿Cómo cambias tú tu huella este Día de la Tierra? Muéstranos — sube una foto o video de tu acción con #MiHuellaLitmûs y etiquétanos. No importa si es grande o pequeño, importa que sea real. Los 3 más creativos ganan 2 botellas + 2 árboles nativos. Para participar: sigue a @LitmusLiquor y etiqueta a un amigo. #DíaDeLaTierra"</p>
+      <div class="visual-block">
+        <div class="block-label">Imagen de campaña</div>
+        <p>Toma cenital de unas manos sosteniendo una copa con el líquido cambiando de azul a rosa. Debajo, visible a través del cristal, tierra húmeda con un brote verde emergiendo. La copa actúa como lupa entre el mundo del licor y la naturaleza. Luz natural cálida de tarde.</p>
+      </div>
+      <div class="example-block">
+        <div class="block-label">Ejemplo de participación</div>
+        <p class="example-text">Hoy caminé al trabajo en vez de manejar. Pequeño cambio, misma lógica que LITMÛS — de gris a color con una sola decisión. 🌱</p>
+        <p class="example-handle">— @usuario <span>#MiHuellaLitmûs @LitmusLiquor, etiquetando a @amigo</span></p>
       </div>
     </div>
   </section>
