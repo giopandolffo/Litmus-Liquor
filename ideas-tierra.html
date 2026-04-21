@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3 Ideas — LITMÛS × Día de la Tierra</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #000;
+      --white: #fff;
+      --lime: #D2FF28;
+      --gray: #111;
+      --gray-mid: #1a1a1a;
+      --border: #222;
+      --muted: #555;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Manrope', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Grain */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.035;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px 56px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-blob {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(210,255,40,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+      top: -100px;
+      right: -100px;
+      animation: pulse 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.15); opacity: 0.7; }
+    }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .logo-pair {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .logo-pair .sep { color: var(--border); }
+    .logo-pair .active { color: var(--lime); }
+
+    .tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--lime);
+      padding: 7px 14px;
+      border-radius: 100px;
+    }
+
+    .hero-body {
+      animation: fadeUp 0.8s 0.15s ease both;
+    }
+
+    .hero-eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      margin-bottom: 0;
+    }
+
+    h1 .serif {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--lime);
+    }
+
+    .hero-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      animation: fadeUp 0.8s 0.3s ease both;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 420px;
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
+    .hero-scroll {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .scroll-line {
+      width: 40px;
+      height: 1px;
+      background: var(--muted);
+      animation: lineExpand 1.5s 1s ease both;
+    }
+
+    @keyframes lineExpand {
+      from { width: 0; } to { width: 40px; }
+    }
+
+    /* ─── IDEA SECTIONS ─── */
+    .idea {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .idea:nth-child(even) .idea-left { order: 2; border-left: 1px solid var(--border); border-right: none; }
+    .idea:nth-child(even) .idea-right { order: 1; }
+
+    .idea-left {
+      padding: 80px 56px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .idea-right {
+      padding: 80px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .idea-number {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--lime);
+      margin-bottom: 32px;
+    }
+
+    .idea-title {
+      font-size: clamp(2.8rem, 4.5vw, 5rem);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      margin-bottom: 16px;
+    }
+
+    .idea-title .serif {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      display: block;
+    }
+
+    .idea-hook {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.7;
+      font-weight: 400;
+      max-width: 360px;
+    }
+
+    .idea-tag-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .channel-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      color: var(--muted);
+    }
+
+    /* Mechanics */
+    .mechanic-block {
+      background: var(--gray);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+    }
+
+    .block-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--lime);
+      margin-bottom: 16px;
+    }
+
+    .mechanic-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      list-style: none;
+    }
+
+    .mechanic-steps li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #ccc;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--lime);
+      margin-top: 1px;
+    }
+
+    /* Psychology pill */
+    .psych-block {
+      border: 1px solid rgba(210,255,40,0.2);
+      border-radius: 12px;
+      padding: 24px 28px;
+      background: rgba(210,255,40,0.03);
+    }
+
+    .psych-principle {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--lime);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .psych-desc {
+      font-size: 0.88rem;
+      color: #aaa;
+      line-height: 1.65;
+    }
+
+    /* Prompt IA */
+    .prompt-block {
+      background: var(--gray-mid);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+    }
+
+    .prompt-text {
+      font-size: 0.82rem;
+      color: #888;
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    /* Idea accents */
+    .idea-accent {
+      position: absolute;
+      pointer-events: none;
+    }
+
+    /* Idea 1 — chain dots */
+    .chain-dots {
+      bottom: 40px;
+      left: 56px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--lime);
+      opacity: 0.4;
+      animation: dotPulse 2s ease-in-out infinite;
+    }
+
+    .dot:nth-child(2) { animation-delay: 0.3s; }
+    .dot:nth-child(3) { animation-delay: 0.6s; }
+    .dot:nth-child(4) { animation-delay: 0.9s; opacity: 0.15; }
+    .dot:nth-child(5) { animation-delay: 1.2s; opacity: 0.08; }
+
+    .dot-line {
+      width: 20px;
+      height: 1px;
+      background: var(--lime);
+      opacity: 0.2;
+    }
+
+    @keyframes dotPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.5); }
+    }
+
+    /* Idea 2 — split bar */
+    .split-bar {
+      position: absolute;
+      top: 0;
+      left: 56px;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, var(--lime), transparent);
+      opacity: 0.3;
+    }
+
+    /* Idea 3 — circle */
+    .circle-accent {
+      position: absolute;
+      bottom: -80px;
+      right: -80px;
+      width: 300px;
+      height: 300px;
+      border: 1px solid rgba(210,255,40,0.08);
+      border-radius: 50%;
+    }
+
+    .circle-accent-inner {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 200px;
+      height: 200px;
+      border: 1px solid rgba(210,255,40,0.12);
+      border-radius: 50%;
+    }
+
+    /* Prize block */
+    .prize-row {
+      display: flex;
+      gap: 12px;
+    }
+
+    .prize-item {
+      flex: 1;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 20px;
+      background: var(--gray);
+      text-align: center;
+    }
+
+    .prize-icon { font-size: 1.6rem; margin-bottom: 8px; }
+
+    .prize-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .prize-value {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-top: 4px;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 48px 56px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .footer-brand span { color: var(--lime); }
+
+    .footer-note {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .hero { padding: 32px 24px; }
+      .idea { grid-template-columns: 1fr; min-height: auto; }
+      .idea:nth-child(even) .idea-left { order: 0; }
+      .idea:nth-child(even) .idea-right { order: 0; }
+      .idea-left, .idea-right { padding: 48px 24px; }
+      .idea-left { border-right: none; border-bottom: 1px solid var(--border); }
+      .idea:nth-child(even) .idea-left { border-left: none; border-bottom: 1px solid var(--border); }
+      footer { padding: 40px 24px; flex-direction: column; align-items: flex-start; }
+      .prize-row { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero">
+    <div class="hero-blob"></div>
+
+    <div class="hero-top">
+      <div class="logo-pair">
+        <span class="active">LITMÛS</span>
+        <span class="sep">×</span>
+        <span>LAB080</span>
+      </div>
+      <span class="tag">Día de la Tierra 2026</span>
+    </div>
+
+    <div class="hero-body">
+      <p class="hero-eyebrow">Campaña — 22 de Abril</p>
+      <h1>
+        3 ideas<br />
+        para <span class="serif">cambiar</span><br />
+        el juego.
+      </h1>
+    </div>
+
+    <div class="hero-bottom">
+      <p class="hero-desc">
+        Tres mecánicas construidas sobre el activo más poderoso de LITMÛS:
+        el cambio de color como símbolo de transformación real.
+      </p>
+      <div class="hero-scroll">
+        <div class="scroll-line"></div>
+        Explorar
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── IDEA 01 ─── -->
+  <section class="idea reveal">
+    <div class="idea-left">
+      <div>
+        <div class="idea-number">01 — La más viral</div>
+        <h2 class="idea-title">
+          La Cadena
+          <span class="serif">del Color</span>
+        </h2>
+        <p class="idea-hook">
+          Una cadena de transformación donde cada persona que "recibe el color"
+          debe pasárselo a alguien más, junto a un desafío de hábito verde personal.
+        </p>
+      </div>
+
+      <div>
+        <div class="idea-tag-row" style="margin-bottom: 24px;">
+          <span class="channel-tag">Reels</span>
+          <span class="channel-tag">Stories</span>
+          <span class="channel-tag">UGC</span>
+          <span class="channel-tag">Viral Chain</span>
+        </div>
+        <div class="prize-row">
+          <div class="prize-item">
+            <div class="prize-icon">🍾</div>
+            <div class="prize-label">Botellas</div>
+            <div class="prize-value">×2</div>
+          </div>
+          <div class="prize-item">
+            <div class="prize-icon">🌱</div>
+            <div class="prize-label">Árboles</div>
+            <div class="prize-value">×2</div>
+          </div>
+          <div class="prize-item">
+            <div class="prize-icon">🏆</div>
+            <div class="prize-label">Ganadores</div>
+            <div class="prize-value">×3</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="idea-accent chain-dots">
+        <div class="dot"></div>
+        <div class="dot-line"></div>
+        <div class="dot"></div>
+        <div class="dot-line"></div>
+        <div class="dot"></div>
+        <div class="dot-line"></div>
+        <div class="dot"></div>
+        <div class="dot-line"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
+
+    <div class="idea-right">
+      <div class="mechanic-block">
+        <div class="block-label">Mecánica</div>
+        <ul class="mechanic-steps">
+          <li>
+            <span class="step-num">1</span>
+            <span>LITMÛS lanza el primer video: alguien vierte la botella, el color cambia de azul a rosa, y dice <em>"Le paso el color a [@persona] — tu desafío: [hábito verde]."</em></span>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <span>La persona etiquetada tiene 48 horas para subir su propio video con LITMÛS (o un vaso del trago), nombrar su cambio y pasar la cadena a alguien más.</span>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <span>Hashtag obligatorio: <strong style="color:var(--white)">#PasoElColor</strong>. LITMÛS repostea los mejores eslabones en Stories diariamente.</span>
+          </li>
+          <li>
+            <span class="step-num">4</span>
+            <span>El 22 de abril, los 3 eslabones con más engagement de la cadena ganan el premio.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="psych-block">
+        <div class="psych-principle">Psicología — Mimetic Desire + Commitment & Consistency</div>
+        <p class="psych-desc">
+          Ser etiquetado públicamente activa el principio de consistencia: rechazar el desafío es "quedarse gris" ante tu comunidad.
+          La cadena crea deseo mimético — ver a otros transformarse hace que quieras transformarte tú también.
+        </p>
+      </div>
+
+      <div class="prompt-block">
+        <div class="block-label">Prompt IA — Imagen de Lanzamiento</div>
+        <p class="prompt-text">
+          Close-up cinematográfico de dos manos pasándose una copa de cristal. En la copa izquierda el líquido es azul profundo. En la copa derecha ya es rosa neón. El traspaso ocurre en el aire: una gota suspendida cambia de color a mitad de camino. Fondo negro con destellos de luz bokeh verde lima. Estilo editorial de lujo, iluminación dramática lateral.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── IDEA 02 ─── -->
+  <section class="idea reveal">
+    <div class="idea-left">
+      <div class="split-bar"></div>
+      <div>
+        <div class="idea-number">02 — La más provocadora</div>
+        <h2 class="idea-title">
+          La Última
+          <span class="serif">Gota Gris</span>
+        </h2>
+        <p class="idea-hook">
+          Una provocación directa: "El planeta tiene un último día gris.
+          ¿Cuál es el tuyo?" La marca construye un muro público que se transforma
+          de gris a color durante el día.
+        </p>
+      </div>
+
+      <div>
+        <div class="idea-tag-row" style="margin-bottom: 24px;">
+          <span class="channel-tag">Posts</span>
+          <span class="channel-tag">Stories</span>
+          <span class="channel-tag">Comentarios</span>
+          <span class="channel-tag">Live Transform</span>
+        </div>
+        <div class="prize-row">
+          <div class="prize-item">
+            <div class="prize-icon">🍾</div>
+            <div class="prize-label">Botellas</div>
+            <div class="prize-value">×2</div>
+          </div>
+          <div class="prize-item">
+            <div class="prize-icon">🌱</div>
+            <div class="prize-label">Árboles</div>
+            <div class="prize-value">×2</div>
+          </div>
+          <div class="prize-item">
+            <div class="prize-icon">🏆</div>
+            <div class="prize-label">Ganadores</div>
+            <div class="prize-value">×3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="idea-right">
+      <div class="mechanic-block">
+        <div class="block-label">Mecánica</div>
+        <ul class="mechanic-steps">
+          <li>
+            <span class="step-num">1</span>
+            <span>El 22 de abril a las 00:00, LITMÛS publica un post completamente gris con el copy: <em>"Hoy enterramos los hábitos grises. ¿Cuál entierras tú? Escríbelo en los comentarios."</em></span>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <span>Cada comentario recibe una respuesta de LITMÛS con el emoji 🩷 — visualmente el feed de comentarios se transforma de texto gris a color durante el día.</span>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <span>A las 22:00, LITMÛS publica el mismo visual ahora en rosa/color vibrante: <em>"Hoy, [número] hábitos grises murieron. El planeta lo va a notar."</em> Anuncia los 3 ganadores.</span>
+          </li>
+          <li>
+            <span class="step-num">4</span>
+            <span>Los ganadores son los 3 comentarios más creativos o emotivos, elegidos por el equipo LITMÛS.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="psych-block">
+        <div class="psych-principle">Psicología — Loss Aversion + Peak-End Rule</div>
+        <p class="psych-desc">
+          "Enterrar un hábito" usa pérdida como motor de acción — es más motivador que "adoptar uno nuevo".
+          La transformación visual del feed (gris → color) crea un arco narrativo con un peak memorable al final del día.
+        </p>
+      </div>
+
+      <div class="prompt-block">
+        <div class="block-label">Prompt IA — Díptico Antes/Después</div>
+        <p class="prompt-text">
+          Dos imágenes simétricas idénticas en composición. Izquierda: una botella LITMÛS solitaria sobre tierra seca agrietada, desaturado, todo en tonos gris frío. Derecha: la misma botella, mismo ángulo, pero el líquido es rosa intenso, la tierra es negra y fértil, y de la base de la botella brotan raíces y pequeños tallos verdes. Texto superpuesto en tipografía sans-serif: "00:00 → 22:00". Fotografía de producto editorial de alto contraste.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── IDEA 03 ─── -->
+  <section class="idea reveal">
+    <div class="idea-left">
+      <div class="circle-accent"></div>
+      <div class="circle-accent-inner"></div>
+      <div>
+        <div class="idea-number">03 — La más profunda</div>
+        <h2 class="idea-title">
+          Sembrar
+          <span class="serif">para Brindar</span>
+        </h2>
+        <p class="idea-hook">
+          Un ritual en dos actos: plantás algo, filmás cómo el color de LITMÛS
+          cambia mientras brindás a la tierra. El cambio en la copa espeja
+          el cambio que acabás de plantar.
+        </p>
+      </div>
+
+      <div>
+        <div class="idea-tag-row" style="margin-bottom: 24px;">
+          <span class="channel-tag">Reels</span>
+          <span class="channel-tag">Ritual</span>
+          <span class="channel-tag">Offline + Online</span>
+          <span class="channel-tag">Emocional</span>
+        </div>
+        <div class="prize-row">
+          <div class="prize-item">
+            <div class="prize-icon">🍾</div>
+            <div class="prize-label">Botellas</div>
+            <div class="prize-value">×2</div>
+          </div>
+          <div class="prize-item">
+            <div class="prize-icon">🌱</div>
+            <div class="prize-label">Árboles</div>
+            <div class="prize-value">×2</div>
+          </div>
+          <div class="prize-item">
+            <div class="prize-icon">🏆</div>
+            <div class="prize-label">Ganadores</div>
+            <div class="prize-value">×3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="idea-right">
+      <div class="mechanic-block">
+        <div class="block-label">Mecánica</div>
+        <ul class="mechanic-steps">
+          <li>
+            <span class="step-num">1</span>
+            <span>Plantás algo — puede ser una semilla en una maceta, un árbol en un parque, una hierba en un vaso. Lo que sea. Filmás ese momento.</span>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <span>En el mismo video, preparás un LITMÛS (o cualquier trago con el licor) y filmás el momento exacto del cambio de color. Ese es tu brindis por la tierra.</span>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <span>En el caption: ¿qué plantaste y por qué? Hashtag <strong style="color:var(--white)">#SembrarParaBrindar</strong> y etiqueta a @LitmusLiquor.</span>
+          </li>
+          <li>
+            <span class="step-num">4</span>
+            <span>LITMÛS elige los 3 videos más auténticos y emotivos. Los ganadores reciben árboles nativos para completar el ritual a escala.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="psych-block">
+        <div class="psych-principle">Psicología — IKEA Effect + Reciprocity + Simbolismo</div>
+        <p class="psych-desc">
+          El esfuerzo físico de plantar aumenta el valor emocional del brindis (IKEA Effect).
+          El simbolismo es poderoso: el mismo cambio que ocurre en la copa ocurre en la tierra.
+          Genera el contenido más auténtico y menos "concurso" — más ritual personal.
+        </p>
+      </div>
+
+      <div class="prompt-block">
+        <div class="block-label">Prompt IA — Visual de Campaña</div>
+        <p class="prompt-text">
+          Toma cenital de unas manos sosteniendo una copa de cristal con líquido cambiando de azul a rosa. Justo debajo de la copa, visible a través del cristal, hay tierra negra húmeda con un pequeño brote verde emergiendo. La copa actúa como lupa o portal entre el mundo del licor y el mundo natural. Iluminación natural suave, sombras largas doradas de tarde. Estética orgánica-premium, fotografía editorial.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="footer-brand">
+      <span>LAB080</span> AI Studio × LITMÛS
+    </div>
+    <div class="footer-note">
+      Campaña Día de la Tierra · Abril 2026
+    </div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => observer.observe(r));
+  </script>
+
+</body>
+</html>
