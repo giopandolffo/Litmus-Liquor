@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auditoría LITMÛS 2026 — LAB080</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --lime: #D2FF28;
+    --black: #000;
+    --white: #fff;
+    --red: #FF3535;
+    --amber: #FFB800;
+    --green: #00E87A;
+    --gray: #888;
+    --gray-dim: #333;
+    --gray-mid: #555;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* GRAIN */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.035'/%3E%3C/svg%3E");
+    opacity: 0.4;
+  }
+
+  /* SCROLL REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* SECTION BASE */
+  section {
+    padding: 100px 64px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Manrope', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--lime);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::after {
+    content: '';
+    height: 1px;
+    width: 48px;
+    background: var(--lime);
+    opacity: 0.5;
+  }
+
+  h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  h2 em {
+    font-style: italic;
+    color: var(--lime);
+  }
+
+  .lead {
+    font-size: 1.1rem;
+    color: var(--gray);
+    max-width: 560px;
+    margin-bottom: 64px;
+    line-height: 1.7;
+  }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, var(--gray-dim) 0%, transparent 100%);
+    margin: 0 64px;
+  }
+
+  /* ─── COVER ─── */
+  #cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 80px 64px;
+    position: relative;
+    max-width: none;
+    overflow: hidden;
+  }
+
+  .cover-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 30%, rgba(210,255,40,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 50% at 20% 80%, rgba(255,53,53,0.04) 0%, transparent 50%);
+  }
+
+  .cover-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cover-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+  }
+
+  .cover-title .accent { color: var(--lime); }
+  .cover-title .sub {
+    display: block;
+    font-size: clamp(1.5rem, 3vw, 2.8rem);
+    color: var(--gray);
+    font-style: italic;
+    margin-top: 8px;
+    letter-spacing: 0;
+  }
+
+  .cover-right {
+    text-align: right;
+    font-size: 12px;
+    color: var(--gray);
+    letter-spacing: 0.08em;
+    line-height: 1.8;
+  }
+
+  .cover-badge {
+    display: inline-block;
+    border: 1px solid var(--gray-dim);
+    padding: 6px 16px;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 16px;
+  }
+
+  .cover-warning {
+    margin-top: 48px;
+    border-top: 1px solid var(--gray-dim);
+    padding-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cover-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .cover-stat-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+
+  .cover-stat-value {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    font-weight: 400;
+    color: var(--white);
+  }
+
+  .cover-stat-value.danger { color: var(--red); }
+  .cover-stat-value.lime { color: var(--lime); }
+
+  /* ─── KPI GRID ─── */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--gray-dim);
+    border: 1px solid var(--gray-dim);
+    margin-bottom: 80px;
+  }
+
+  .kpi-card {
+    background: var(--black);
+    padding: 36px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gray-dim);
+    transition: background 0.3s;
+  }
+
+  .kpi-card.danger::before { background: var(--red); }
+  .kpi-card.good::before { background: var(--green); }
+  .kpi-card.warn::before { background: var(--amber); }
+  .kpi-card.neutral::before { background: var(--lime); }
+
+  .kpi-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 12px;
+  }
+
+  .kpi-value {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .kpi-card.danger .kpi-value { color: var(--red); }
+  .kpi-card.good .kpi-value { color: var(--green); }
+  .kpi-card.warn .kpi-value { color: var(--amber); }
+  .kpi-card.neutral .kpi-value { color: var(--lime); }
+
+  .kpi-note {
+    font-size: 12px;
+    color: var(--gray);
+    line-height: 1.4;
+  }
+
+  /* ─── RECEIPT / COST BREAKDOWN ─── */
+  .receipt-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .receipt {
+    border: 1px solid var(--gray-dim);
+    padding: 40px;
+    position: relative;
+    font-family: 'Manrope', monospace;
+  }
+
+  .receipt::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: 0; right: 0;
+    height: 3px;
+    background: var(--lime);
+  }
+
+  .receipt-header {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--gray-dim);
+  }
+
+  .receipt-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .receipt-row .name { color: var(--gray); }
+  .receipt-row .amount { font-weight: 600; font-family: 'Manrope', sans-serif; }
+  .receipt-row .amount.red { color: var(--red); }
+  .receipt-row .amount.lime { color: var(--lime); }
+
+  .receipt-divider {
+    height: 1px;
+    background: var(--gray-dim);
+    margin: 16px 0;
+  }
+
+  .receipt-total {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 0 8px;
+    font-size: 13px;
+    color: var(--gray);
+    font-weight: 500;
+  }
+
+  .receipt-result {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 24px;
+    background: rgba(255,53,53,0.1);
+    border: 1px solid rgba(255,53,53,0.3);
+    margin-top: 16px;
+  }
+
+  .receipt-result .label {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 700;
+  }
+
+  .receipt-result .value {
+    font-family: 'Instrument Serif', serif;
+    font-size: 2rem;
+    color: var(--red);
+  }
+
+  .receipt-insight {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .insight-block {
+    padding: 28px 32px;
+    border-left: 2px solid var(--gray-dim);
+    transition: border-color 0.3s;
+  }
+
+  .insight-block:hover { border-color: var(--lime); }
+
+  .insight-block .number {
+    font-family: 'Instrument Serif', serif;
+    font-size: 2.8rem;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .insight-block .number.red { color: var(--red); }
+  .insight-block .number.lime { color: var(--lime); }
+  .insight-block .number.amber { color: var(--amber); }
+
+  .insight-block p {
+    font-size: 14px;
+    color: var(--gray);
+    line-height: 1.5;
+  }
+
+  .insight-block strong { color: var(--white); }
+
+  /* ─── CAMPAIGN CHART ─── */
+  .chart-container {
+    margin-bottom: 48px;
+  }
+
+  .chart-row {
+    display: grid;
+    grid-template-columns: 220px 1fr 80px 80px;
+    gap: 16px;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .chart-row:hover { background: rgba(255,255,255,0.02); }
+
+  .chart-name {
+    font-size: 13px;
+    color: var(--white);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .chart-name small {
+    display: block;
+    font-size: 11px;
+    color: var(--gray);
+    margin-top: 2px;
+  }
+
+  .chart-bar-wrap {
+    position: relative;
+    height: 28px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .chart-bar {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 0;
+    border-radius: 2px;
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .chart-bar.lime { background: var(--lime); }
+  .chart-bar.green { background: var(--green); }
+  .chart-bar.amber { background: var(--amber); }
+  .chart-bar.orange { background: #FF8C00; }
+  .chart-bar.red { background: var(--red); }
+  .chart-bar.none { background: var(--gray-dim); }
+
+  .chart-roas {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: right;
+  }
+
+  .chart-spend {
+    font-size: 12px;
+    color: var(--gray);
+    text-align: right;
+  }
+
+  .chart-header {
+    display: grid;
+    grid-template-columns: 220px 1fr 80px 80px;
+    gap: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--gray-dim);
+    margin-bottom: 8px;
+  }
+
+  .chart-header span {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+
+  .chart-header span:nth-child(3),
+  .chart-header span:nth-child(4) { text-align: right; }
+
+  .roas-legend {
+    display: flex;
+    gap: 24px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: var(--gray);
+  }
+
+  .legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  /* ─── PRICING COMPARISON ─── */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--gray-dim);
+    border: 1px solid var(--gray-dim);
+  }
+
+  .pricing-col {
+    background: var(--black);
+    padding: 40px 32px;
+  }
+
+  .pricing-col.recommended {
+    background: rgba(210,255,40,0.04);
+    position: relative;
+  }
+
+  .pricing-col.recommended::before {
+    content: 'RECOMENDADO';
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--lime);
+    background: rgba(210,255,40,0.1);
+    padding: 4px 10px;
+    border: 1px solid rgba(210,255,40,0.3);
+  }
+
+  .pricing-sku {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 8px;
+  }
+
+  .pricing-price {
+    font-family: 'Instrument Serif', serif;
+    font-size: 2.4rem;
+    margin-bottom: 4px;
+  }
+
+  .pricing-price.old {
+    font-size: 1.6rem;
+    color: var(--gray);
+    text-decoration: line-through;
+    opacity: 0.5;
+  }
+
+  .pricing-per {
+    font-size: 12px;
+    color: var(--gray);
+    margin-bottom: 32px;
+  }
+
+  .pricing-bar {
+    margin-bottom: 16px;
+  }
+
+  .pricing-bar-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--gray);
+    margin-bottom: 6px;
+  }
+
+  .pricing-bar-track {
+    height: 6px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .pricing-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    width: 0;
+    transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .pricing-result {
+    margin-top: 32px;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .pricing-result.loss {
+    background: rgba(255,53,53,0.08);
+    border: 1px solid rgba(255,53,53,0.2);
+  }
+
+  .pricing-result.profit {
+    background: rgba(0,232,122,0.08);
+    border: 1px solid rgba(0,232,122,0.2);
+  }
+
+  .pricing-result .r-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gray);
+  }
+
+  .pricing-result .r-value {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.8rem;
+  }
+
+  .pricing-result.loss .r-value { color: var(--red); }
+  .pricing-result.profit .r-value { color: var(--green); }
+
+  /* ─── WEBSITE AUDIT ─── */
+  .audit-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--gray-dim);
+  }
+
+  .audit-item {
+    display: grid;
+    grid-template-columns: 40px 1fr auto;
+    gap: 20px;
+    align-items: center;
+    padding: 20px 28px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    transition: background 0.2s;
+  }
+
+  .audit-item:last-child { border-bottom: none; }
+  .audit-item:hover { background: rgba(255,255,255,0.02); }
+
+  .audit-index {
+    font-size: 12px;
+    color: var(--gray);
+    font-weight: 600;
+  }
+
+  .audit-text strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  .audit-text p {
+    font-size: 12px;
+    color: var(--gray);
+    line-height: 1.4;
+  }
+
+  .audit-severity {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 4px 12px;
+    white-space: nowrap;
+  }
+
+  .audit-severity.critical {
+    color: var(--red);
+    background: rgba(255,53,53,0.1);
+    border: 1px solid rgba(255,53,53,0.25);
+  }
+
+  .audit-severity.high {
+    color: var(--amber);
+    background: rgba(255,184,0,0.1);
+    border: 1px solid rgba(255,184,0,0.25);
+  }
+
+  .audit-severity.medium {
+    color: var(--gray);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--gray-dim);
+  }
+
+  /* ─── RECS ─── */
+  .rec-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--gray-dim);
+    border: 1px solid var(--gray-dim);
+  }
+
+  .rec-card {
+    background: var(--black);
+    padding: 40px 32px;
+    position: relative;
+  }
+
+  .rec-number {
+    font-family: 'Instrument Serif', serif;
+    font-size: 5rem;
+    color: rgba(255,255,255,0.06);
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .rec-icon {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .rec-card h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .rec-card p {
+    font-size: 13px;
+    color: var(--gray);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .rec-impact {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--lime);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .rec-impact::before {
+    content: '↑';
+    font-size: 14px;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    padding: 48px 64px;
+    border-top: 1px solid var(--gray-dim);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: none;
+  }
+
+  .footer-logo {
+    font-family: 'Manrope', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .footer-logo span { color: var(--lime); }
+
+  .footer-note {
+    font-size: 12px;
+    color: var(--gray);
+  }
+
+  /* ─── COUNTER ANIMATION ─── */
+  .counter { display: inline; }
+
+  /* ─── DONUT CHART ─── */
+  .donut-wrap {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+
+  .donut-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .legend-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .legend-name {
+    font-size: 13px;
+    color: var(--white);
+  }
+
+  .legend-pct {
+    font-size: 13px;
+    font-weight: 700;
+    margin-left: auto;
+    padding-left: 24px;
+  }
+
+  /* ─── MOBILE ─── */
+  @media (max-width: 900px) {
+    section { padding: 64px 24px; }
+    #cover { padding: 40px 24px; }
+    .cover-warning { grid-template-columns: 1fr; gap: 24px; }
+    .kpi-grid { grid-template-columns: 1fr 1fr; }
+    .receipt-container { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .rec-grid { grid-template-columns: 1fr; }
+    .chart-row { grid-template-columns: 140px 1fr 60px 60px; }
+    .divider { margin: 0 24px; }
+    footer { flex-direction: column; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════ COVER -->
+<section id="cover">
+  <div class="cover-bg"></div>
+
+  <div class="cover-meta reveal">
+    <div>
+      <div class="cover-badge">Informe Estratégico</div>
+      <h1 class="cover-title">
+        AUDITORÍA<br>
+        <span class="accent">LITMÛS</span>
+        <span class="sub">Análisis de performance & diagnóstico</span>
+      </h1>
+    </div>
+    <div class="cover-right">
+      <div>Preparado por</div>
+      <div style="color:var(--white); font-weight:700; font-size:14px;">LAB080 AI Studio</div>
+      <div style="margin-top:12px;">Abril 2026</div>
+      <div>Cobertura: Mar 2023 — Abr 2026</div>
+    </div>
+  </div>
+
+  <div class="cover-warning reveal reveal-delay-2">
+    <div class="cover-stat">
+      <span class="cover-stat-label">Resultado por botella (Meta Ads)</span>
+      <span class="cover-stat-value danger">-$12.951</span>
+    </div>
+    <div class="cover-stat">
+      <span class="cover-stat-label">ROAS global histórico</span>
+      <span class="cover-stat-value">2.26x</span>
+    </div>
+    <div class="cover-stat">
+      <span class="cover-stat-label">Potencial con correcciones</span>
+      <span class="cover-stat-value lime">3x+</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════ KPIs -->
+<section>
+  <div class="section-label reveal">01 — Estado actual</div>
+  <h2 class="reveal reveal-delay-1">Los <em>números reales</em><br>de la operación</h2>
+  <p class="lead reveal reveal-delay-2">3 años de historial. 399 ventas. $6.1M invertidos en Meta Ads. Esto es lo que muestran los datos.</p>
+
+  <div class="kpi-grid reveal reveal-delay-3">
+    <div class="kpi-card danger">
+      <div class="kpi-label">Pérdida por botella (vía Ads)</div>
+      <div class="kpi-value">-$12.951</div>
+      <div class="kpi-note">Precio venta $15.990 vs costo total $28.941</div>
+    </div>
+    <div class="kpi-card warn">
+      <div class="kpi-label">CAC — Costo por compra</div>
+      <div class="kpi-value">$15.303</div>
+      <div class="kpi-note">Promedio histórico Meta Ads. Casi igual al precio de venta</div>
+    </div>
+    <div class="kpi-card neutral">
+      <div class="kpi-label">Ticket promedio (AOV)</div>
+      <div class="kpi-value">$34.525</div>
+      <div class="kpi-note">Sugiere que se compran packs, no botellas sueltas</div>
+    </div>
+    <div class="kpi-card warn">
+      <div class="kpi-label">ROAS Global</div>
+      <div class="kpi-value">2.26x</div>
+      <div class="kpi-note">Retorno positivo en revenue, negativo en utilidad real</div>
+    </div>
+  </div>
+
+  <div class="kpi-grid reveal reveal-delay-4">
+    <div class="kpi-card neutral">
+      <div class="kpi-label">Gasto total en Ads</div>
+      <div class="kpi-value">$6.1M</div>
+      <div class="kpi-note">14 mar 2023 — 13 abr 2026</div>
+    </div>
+    <div class="kpi-card neutral">
+      <div class="kpi-label">Revenue atribuido</div>
+      <div class="kpi-value">$13.8M</div>
+      <div class="kpi-note">399 compras totales</div>
+    </div>
+    <div class="kpi-card danger">
+      <div class="kpi-label">Gasto perdido (sin conversiones)</div>
+      <div class="kpi-value">$208.493</div>
+      <div class="kpi-note">3.4% del presupuesto en 12 campañas sin ninguna venta</div>
+    </div>
+    <div class="kpi-card danger">
+      <div class="kpi-label">Productos en stock hoy</div>
+      <div class="kpi-value">0</div>
+      <div class="kpi-note">Todos los SKUs muestran "Agotado" en litmus.cl</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════ COSTO -->
+<section>
+  <div class="section-label reveal">02 — El hoyo financiero</div>
+  <h2 class="reveal reveal-delay-1">Por qué la botella<br><em>cuesta más de lo que vale</em></h2>
+  <p class="lead reveal reveal-delay-2">Desglose real de cada peso que sale cuando vendes una botella suelta por Meta Ads.</p>
+
+  <div class="receipt-container">
+    <div class="receipt reveal reveal-delay-2">
+      <div class="receipt-header">Costo real — 1 botella vía Meta Ads</div>
+
+      <div class="receipt-row">
+        <span class="name">COGS (producto)</span>
+        <span class="amount red">$9.038</span>
+      </div>
+      <div class="receipt-row">
+        <span class="name">Envío promedio</span>
+        <span class="amount red">$3.500</span>
+      </div>
+      <div class="receipt-row">
+        <span class="name">Fees / comisiones / IVA</span>
+        <span class="amount red">$1.100</span>
+      </div>
+      <div class="receipt-row">
+        <span class="name" style="color:var(--white); font-weight:600;">CAC — Meta Ads</span>
+        <span class="amount red" style="font-size:1.1em;">$15.303</span>
+      </div>
+
+      <div class="receipt-divider"></div>
+
+      <div class="receipt-total">
+        <span>Costo total</span>
+        <span style="color:var(--white);">$28.941</span>
+      </div>
+      <div class="receipt-total">
+        <span>Precio de venta</span>
+        <span style="color:var(--lime);">$15.990</span>
+      </div>
+
+      <div class="receipt-result">
+        <span class="label">Resultado</span>
+        <span class="value">-$12.951</span>
+      </div>
+    </div>
+
+    <div class="receipt-insight reveal reveal-delay-3">
+      <div class="insight-block">
+        <div class="number red">53%</div>
+        <p>Del costo total de una botella corresponde solo al <strong>CAC de Meta Ads</strong>. El producto en sí cuesta 31%.</p>
+      </div>
+      <div class="insight-block">
+        <div class="number amber">$34.525</div>
+        <p>Es el ticket promedio histórico. Esto significa que <strong>la mayoría compra packs</strong>, no botellas sueltas. Es lo que ha mantenido viva la operación.</p>
+      </div>
+      <div class="insight-block">
+        <div class="number lime">AOV &gt; $50K</div>
+        <p>Es el ticket promedio necesario para que el modelo sea rentable <strong>sin bajar el CAC</strong>. Equivale a empujar Pack x3 como producto principal.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Visual bar: cost vs price -->
+  <div style="margin-top: 64px;" class="reveal">
+    <div class="section-label" style="margin-bottom:16px;">Visualización — costos vs precio de venta</div>
+    <div style="display:flex; flex-direction:column; gap:12px; max-width:700px;">
+
+      <div>
+        <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--gray); margin-bottom:6px;">
+          <span>Precio de venta — $15.990</span><span>$15.990</span>
+        </div>
+        <div style="height:32px; background:rgba(210,255,40,0.15); border:1px solid rgba(210,255,40,0.4); position:relative; overflow:hidden;">
+          <div class="vis-bar" data-w="55" style="position:absolute;left:0;top:0;bottom:0;width:0;background:var(--lime);transition:width 1.2s ease;"></div>
+          <span style="position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:12px;font-weight:700;color:#000;z-index:1;">PRECIO</span>
+        </div>
+      </div>
+
+      <div>
+        <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--gray); margin-bottom:6px;">
+          <span>COGS — $9.038</span><span>31% del costo total</span>
+        </div>
+        <div style="height:24px; background:rgba(255,255,255,0.04); position:relative; overflow:hidden;">
+          <div class="vis-bar" data-w="31" style="position:absolute;left:0;top:0;bottom:0;width:0;background:rgba(255,53,53,0.5);transition:width 1.4s ease;"></div>
+        </div>
+      </div>
+
+      <div>
+        <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--gray); margin-bottom:6px;">
+          <span>Envío — $3.500</span><span>12%</span>
+        </div>
+        <div style="height:24px; background:rgba(255,255,255,0.04); position:relative; overflow:hidden;">
+          <div class="vis-bar" data-w="12" style="position:absolute;left:0;top:0;bottom:0;width:0;background:rgba(255,53,53,0.5);transition:width 1.6s ease;"></div>
+        </div>
+      </div>
+
+      <div>
+        <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--gray); margin-bottom:6px;">
+          <span>Fees — $1.100</span><span>4%</span>
+        </div>
+        <div style="height:24px; background:rgba(255,255,255,0.04); position:relative; overflow:hidden;">
+          <div class="vis-bar" data-w="4" style="position:absolute;left:0;top:0;bottom:0;width:0;background:rgba(255,53,53,0.5);transition:width 1.7s ease;"></div>
+        </div>
+      </div>
+
+      <div>
+        <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--white); margin-bottom:6px; font-weight:700;">
+          <span>CAC Meta Ads — $15.303</span><span>53%</span>
+        </div>
+        <div style="height:32px; background:rgba(255,255,255,0.04); position:relative; overflow:hidden;">
+          <div class="vis-bar" data-w="53" style="position:absolute;left:0;top:0;bottom:0;width:0;background:var(--red);transition:width 1.8s ease;"></div>
+          <span style="position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:11px;font-weight:700;color:var(--white);z-index:1; letter-spacing:0.08em;">CAC — EL PROBLEMA</span>
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; padding:12px 0; border-top:1px solid var(--gray-dim); font-size:13px;">
+        <span style="color:var(--gray);">Costo total</span>
+        <span style="font-weight:700;">$28.941</span>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:center; padding:16px 20px; background:rgba(255,53,53,0.08); border:1px solid rgba(255,53,53,0.3);">
+        <span style="font-size:12px; text-transform:uppercase; letter-spacing:0.1em; color:var(--red);">Pérdida por botella</span>
+        <span style="font-family:'Instrument Serif',serif; font-size:2rem; color:var(--red);">-$12.951</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════ CAMPAÑAS -->
+<section>
+  <div class="section-label reveal">03 — Performance por campaña</div>
+  <h2 class="reveal reveal-delay-1"><em>UGC gana.</em><br>Las comunas pierden.</h2>
+  <p class="lead reveal reveal-delay-2">28 campañas. Solo 5 superan el ROAS de 2x. El formato UGC de Anahí es el claro ganador — su CPP es 26% menor al promedio.</p>
+
+  <div class="chart-container reveal reveal-delay-3">
+    <div class="chart-header">
+      <span>Campaña</span>
+      <span>ROAS</span>
+      <span>ROAS</span>
+      <span>Gasto</span>
+    </div>
+
+    <div class="chart-row" data-roas="4.29" data-max="4.5" data-color="lime">
+      <div class="chart-name">UGC Anahí — Copia<small>Inactiva</small></div>
+      <div class="chart-bar-wrap"><div class="chart-bar lime"></div></div>
+      <div class="chart-roas" style="color:var(--lime);">4.29x</div>
+      <div class="chart-spend">$27.7K</div>
+    </div>
+
+    <div class="chart-row" data-roas="2.93" data-max="4.5" data-color="green">
+      <div class="chart-name">UGC Anahí Campaña<small>Activa ●</small></div>
+      <div class="chart-bar-wrap"><div class="chart-bar green"></div></div>
+      <div class="chart-roas" style="color:var(--green);">2.93x</div>
+      <div class="chart-spend">$957K</div>
+    </div>
+
+    <div class="chart-row" data-roas="2.91" data-max="4.5" data-color="green">
+      <div class="chart-name">UGC Anahí — 2ª Camp.<small>Inactiva</small></div>
+      <div class="chart-bar-wrap"><div class="chart-bar green"></div></div>
+      <div class="chart-roas" style="color:var(--green);">2.91x</div>
+      <div class="chart-spend">$175K</div>
+    </div>
+
+    <div class="chart-row" data-roas="2.55" data-max="4.5" data-color="green">
+      <div class="chart-name">Chile 1<small>Activa ●</small></div>
+      <div class="chart-bar-wrap"><div class="chart-bar green"></div></div>
+      <div class="chart-roas" style="color:var(--green);">2.55x</div>
+      <div class="chart-spend">$3.0M</div>
+    </div>
+
+    <div class="chart-row" data-roas="1.94" data-max="4.5" data-color="amber">
+      <div class="chart-name">New Ads<small>Inactiva</small></div>
+      <div class="chart-bar-wrap"><div class="chart-bar amber"></div></div>
+      <div class="chart-roas" style="color:var(--amber);">1.94x</div>
+      <div class="chart-spend">$856K</div>
+    </div>
+
+    <div class="chart-row" data-roas="1.81" data-max="4.5" data-color="amber">
+      <div class="chart-name">Chile 1 — Copia<small>Inactiva</small></div>
+      <div class="chart-bar-wrap"><div class="chart-bar amber"></div></div>
+      <div class="chart-roas" style="color:var(--amber);">1.81x</div>
+      <div class="chart-spend">$97K</div>
+    </div>
+
+    <div class="chart-row" data-roas="1.55" data-max="4.5" data-color="orange">
+      <div class="chart-name">Las Condes<small>Inactiva — comuna</small></div>
+      <div class="chart-bar-wrap"><div class="chart-bar orange"></div></div>
+      <div class="chart-roas" style="color:#FF8C00;">1.55x</div>
+      <div class="chart-spend">$80K</div>
+    </div>
+
+    <div class="chart-row" data-roas="1.06" data-max="4.5" data-color="orange">
+      <div class="chart-name">Nueva campaña Ventas<small>Inactiva</small></div>
+      <div class="chart-bar-wrap"><div class="chart-bar orange"></div></div>
+      <div class="chart-roas" style="color:#FF8C00;">1.06x</div>
+      <div class="chart-spend">$351K</div>
+    </div>
+
+    <div class="chart-row" data-roas="0.92" data-max="4.5" data-color="red">
+      <div class="chart-name">LA Chile<small>Inactiva</small></div>
+      <div class="chart-bar-wrap"><div class="chart-bar red"></div></div>
+      <div class="chart-roas" style="color:var(--red);">0.92x</div>
+      <div class="chart-spend">$51K</div>
+    </div>
+
+    <div class="chart-row" data-roas="0" data-max="4.5" data-color="none">
+      <div class="chart-name">Ñuñoa<small>Inactiva — sin conversiones</small></div>
+      <div class="chart-bar-wrap"><div class="chart-bar none"></div></div>
+      <div class="chart-roas" style="color:var(--gray);">Sin ventas</div>
+      <div class="chart-spend">$61K</div>
+    </div>
+
+  </div>
+
+  <div class="roas-legend reveal">
+    <div class="legend-item"><div class="legend-dot" style="background:var(--lime);"></div> +4x — Excepcional</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--green);"></div> 2x–4x — Rentable</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--amber);"></div> 1x–2x — Marginal</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#FF8C00;"></div> 1x–1.5x — Pérdida real</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--red);"></div> &lt;1x — Pérdida directa</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--gray-dim);"></div> Sin conversiones</div>
+  </div>
+
+  <!-- Donut: gasto por tipo de campaña -->
+  <div style="margin-top: 64px;" class="reveal">
+    <div class="section-label" style="margin-bottom:24px;">Distribución del gasto — UGC vs Resto</div>
+    <div class="donut-wrap">
+      <svg width="160" height="160" viewBox="0 0 160 160" id="donut-svg">
+        <circle cx="80" cy="80" r="60" fill="none" stroke="#222" stroke-width="24"/>
+        <!-- UGC: $1,159,685 / $6,105,834 = 19% → stroke-dasharray: 19% of 377 = 71.6 -->
+        <circle cx="80" cy="80" r="60" fill="none" stroke="#D2FF28" stroke-width="24"
+          stroke-dasharray="0 377" stroke-dashoffset="94"
+          id="donut-ugc" style="transition: stroke-dasharray 1.4s ease; transform-origin:center; transform:rotate(-90deg)"/>
+        <!-- Chile1: $3,006,825 = 49% → 185 -->
+        <circle cx="80" cy="80" r="60" fill="none" stroke="#00E87A" stroke-width="24"
+          stroke-dasharray="0 377" stroke-dashoffset="94"
+          id="donut-chile1" style="transition: stroke-dasharray 1.6s ease; transform-origin:center; transform:rotate(-90deg)"/>
+        <!-- Perdido: $208,493 = 3.4% → 13 -->
+        <circle cx="80" cy="80" r="60" fill="none" stroke="#FF3535" stroke-width="24"
+          stroke-dasharray="0 377" stroke-dashoffset="94"
+          id="donut-lost" style="transition: stroke-dasharray 1.8s ease; transform-origin:center; transform:rotate(-90deg)"/>
+        <!-- Resto -->
+        <circle cx="80" cy="80" r="60" fill="none" stroke="#333" stroke-width="24"
+          stroke-dasharray="0 377" stroke-dashoffset="94"
+          id="donut-rest" style="transition: stroke-dasharray 2s ease; transform-origin:center; transform:rotate(-90deg)"/>
+        <text x="80" y="76" text-anchor="middle" font-family="Instrument Serif,serif" font-size="22" fill="#fff">$6.1M</text>
+        <text x="80" y="94" text-anchor="middle" font-family="Manrope,sans-serif" font-size="10" fill="#888" letter-spacing="1">TOTAL</text>
+      </svg>
+
+      <div class="donut-legend">
+        <div class="legend-row">
+          <div class="legend-color" style="background:var(--lime);"></div>
+          <span class="legend-name">UGC Anahí (todas variantes)</span>
+          <span class="legend-pct" style="color:var(--lime);">19%</span>
+        </div>
+        <div class="legend-row">
+          <div class="legend-color" style="background:var(--green);"></div>
+          <span class="legend-name">Chile 1 (principal)</span>
+          <span class="legend-pct" style="color:var(--green);">49%</span>
+        </div>
+        <div class="legend-row">
+          <div class="legend-color" style="background:#FF8C00;"></div>
+          <span class="legend-name">New Ads + otras</span>
+          <span class="legend-pct" style="color:#FF8C00;">28.6%</span>
+        </div>
+        <div class="legend-row">
+          <div class="legend-color" style="background:var(--red);"></div>
+          <span class="legend-name">Sin ninguna conversión</span>
+          <span class="legend-pct" style="color:var(--red);">3.4%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════ SITIO WEB -->
+<section>
+  <div class="section-label reveal">04 — Auditoría litmus.cl</div>
+  <h2 class="reveal reveal-delay-1">El sitio tiene<br><em>8 problemas activos</em></h2>
+  <p class="lead reveal reveal-delay-2">Revisión completa del e-commerce en Shopify. Los issues están ordenados por impacto en conversión.</p>
+
+  <div class="audit-list reveal reveal-delay-3">
+    <div class="audit-item">
+      <span class="audit-index">01</span>
+      <div class="audit-text">
+        <strong>Todos los productos en estado "Agotado"</strong>
+        <p>litmus.cl muestra los 3 SKUs como fuera de stock — botella suelta, pack x3 y pack x6. Las campañas activas siguen enviando tráfico pagado a un dead end total.</p>
+      </div>
+      <span class="audit-severity critical">Crítico</span>
+    </div>
+
+    <div class="audit-item">
+      <span class="audit-index">02</span>
+      <div class="audit-text">
+        <strong>CAC ($15.303) casi igual al precio de botella ($15.990)</strong>
+        <p>El modelo de venta unitaria es matemáticamente inviable con el costo de adquisición actual. Cada botella suelta vendida por Meta Ads genera pérdida neta.</p>
+      </div>
+      <span class="audit-severity critical">Crítico</span>
+    </div>
+
+    <div class="audit-item">
+      <span class="audit-index">03</span>
+      <div class="audit-text">
+        <strong>Badge "Oferta" permanente en todos los productos</strong>
+        <p>Los 3 SKUs muestran el badge rojo de descuento de forma permanente. Una marca que siempre está en oferta destruye su percepción de valor premium.</p>
+      </div>
+      <span class="audit-severity high">Alto</span>
+    </div>
+
+    <div class="audit-item">
+      <span class="audit-index">04</span>
+      <div class="audit-text">
+        <strong>Pack x6 subpreciado — $12.091 por botella</strong>
+        <p>El pack de 6 unidades sale a $72.550 ($12.091/u) — por debajo del COGS + envío. A mayor volumen de ventas del pack x6, mayor pérdida acumulada.</p>
+      </div>
+      <span class="audit-severity critical">Crítico</span>
+    </div>
+
+    <div class="audit-item">
+      <span class="audit-index">05</span>
+      <div class="audit-text">
+        <strong>Sin mecanismo de recompra ni lista de espera</strong>
+        <p>No hay suscripción, club, ni captura de email para agotados. Cada recompra vuelve a pagar $15K de CAC desde cero.</p>
+      </div>
+      <span class="audit-severity high">Alto</span>
+    </div>
+
+    <div class="audit-item">
+      <span class="audit-index">06</span>
+      <div class="audit-text">
+        <strong>12 cuotas sin interés — beneficio no destacado</strong>
+        <p>Un pack x3 a $43.990 equivale a $3.665/mes en 12 cuotas. Este mensaje reduce la fricción de precio significativamente y no aparece en el hero ni en el product page.</p>
+      </div>
+      <span class="audit-severity high">Alto</span>
+    </div>
+
+    <div class="audit-item">
+      <span class="audit-index">07</span>
+      <div class="audit-text">
+        <strong>Sin ancla de precio vs competencia</strong>
+        <p>El sitio no menciona que un gin importado cuesta $25K–$35K. LITMÛS a $22.990 es una propuesta de valor clara, pero no está comunicada.</p>
+      </div>
+      <span class="audit-severity medium">Medio</span>
+    </div>
+
+    <div class="audit-item">
+      <span class="audit-index">08</span>
+      <div class="audit-text">
+        <strong>Retargeting saturado — frecuencia 25.8x</strong>
+        <p>La campaña Retarget mostró el mismo anuncio 25 veces promedio a cada persona, logrando ROAS 1.0x. Saturación total de audiencia sin resultado.</p>
+      </div>
+      <span class="audit-severity medium">Medio</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════ PRICING -->
+<section>
+  <div class="section-label reveal">05 — Nuevo modelo de pricing</div>
+  <h2 class="reveal reveal-delay-1">Con estos precios,<br><em>el negocio funciona</em></h2>
+  <p class="lead reveal reveal-delay-2">Comparación entre el modelo actual y el propuesto, manteniendo el COGS y asumiendo una mejora de CAC via mejor creative UGC.</p>
+
+  <div class="pricing-grid reveal reveal-delay-3">
+
+    <div class="pricing-col">
+      <div class="pricing-sku">Botella suelta — Actual</div>
+      <div class="pricing-price old">$15.990</div>
+      <div class="pricing-per">precio actual con "Oferta"</div>
+
+      <div class="pricing-bar">
+        <div class="pricing-bar-label"><span>COGS</span><span>$9.038</span></div>
+        <div class="pricing-bar-track"><div class="pricing-bar-fill" style="background:rgba(255,53,53,0.7);" data-w="56"></div></div>
+      </div>
+      <div class="pricing-bar">
+        <div class="pricing-bar-label"><span>Envío</span><span>$3.500</span></div>
+        <div class="pricing-bar-track"><div class="pricing-bar-fill" style="background:rgba(255,53,53,0.5);" data-w="22"></div></div>
+      </div>
+      <div class="pricing-bar">
+        <div class="pricing-bar-label"><span>CAC</span><span>$15.303</span></div>
+        <div class="pricing-bar-track"><div class="pricing-bar-fill" style="background:rgba(255,53,53,0.9);" data-w="100"></div></div>
+      </div>
+
+      <div class="pricing-result loss">
+        <span class="r-label">Resultado</span>
+        <span class="r-value">-$12.951</span>
+      </div>
+    </div>
+
+    <div class="pricing-col recommended">
+      <div class="pricing-sku">Botella suelta — Propuesto</div>
+      <div class="pricing-price" style="color:var(--lime);">$22.990</div>
+      <div class="pricing-per">precio nuevo (bajo gin importado)</div>
+
+      <div class="pricing-bar">
+        <div class="pricing-bar-label"><span>COGS</span><span>$9.038</span></div>
+        <div class="pricing-bar-track"><div class="pricing-bar-fill" style="background:rgba(0,232,122,0.6);" data-w="39"></div></div>
+      </div>
+      <div class="pricing-bar">
+        <div class="pricing-bar-label"><span>Envío</span><span>$3.500</span></div>
+        <div class="pricing-bar-track"><div class="pricing-bar-fill" style="background:rgba(0,232,122,0.4);" data-w="15"></div></div>
+      </div>
+      <div class="pricing-bar">
+        <div class="pricing-bar-label"><span>CAC</span><span>$15.303</span></div>
+        <div class="pricing-bar-track"><div class="pricing-bar-fill" style="background:rgba(255,184,0,0.7);" data-w="67"></div></div>
+      </div>
+
+      <div class="pricing-result loss">
+        <span class="r-label">Resultado</span>
+        <span class="r-value">-$4.951</span>
+      </div>
+      <div style="font-size:11px; color:var(--gray); margin-top:8px;">Mejora $8K/botella. Aún requiere bajar CAC.</div>
+    </div>
+
+    <div class="pricing-col recommended">
+      <div class="pricing-sku">Pack x3 — Propuesto (héroe)</div>
+      <div class="pricing-price" style="color:var(--lime);">$59.990</div>
+      <div class="pricing-per">$19.997/botella · envío gratis</div>
+
+      <div class="pricing-bar">
+        <div class="pricing-bar-label"><span>COGS x3</span><span>$27.114</span></div>
+        <div class="pricing-bar-track"><div class="pricing-bar-fill" style="background:rgba(0,232,122,0.6);" data-w="45"></div></div>
+      </div>
+      <div class="pricing-bar">
+        <div class="pricing-bar-label"><span>Envío</span><span>$0</span></div>
+        <div class="pricing-bar-track"><div class="pricing-bar-fill" style="background:rgba(0,232,122,0.2);" data-w="0"></div></div>
+      </div>
+      <div class="pricing-bar">
+        <div class="pricing-bar-label"><span>CAC mejorado</span><span>$12.000</span></div>
+        <div class="pricing-bar-track"><div class="pricing-bar-fill" style="background:rgba(255,184,0,0.5);" data-w="20"></div></div>
+      </div>
+
+      <div class="pricing-result profit">
+        <span class="r-label">Resultado</span>
+        <span class="r-value">+$17.576</span>
+      </div>
+      <div style="font-size:11px; color:var(--lime); margin-top:8px;">Primer modelo rentable. Este debe ser el producto principal.</div>
+    </div>
+
+  </div>
+
+  <div style="margin-top:32px; padding:24px 32px; border:1px solid rgba(210,255,40,0.2); background:rgba(210,255,40,0.03);" class="reveal reveal-delay-4">
+    <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.15em; color:var(--lime); margin-bottom:12px;">Supuesto clave</div>
+    <p style="font-size:14px; color:var(--gray); line-height:1.6;">El CAC "mejorado" de $12.000 asume escalar creativos UGC con al menos 2–3 nuevos creadores en formato Anahí. La campaña UGC Anahí-Copia logró CPP de <strong style="color:var(--white);">$9.241</strong> con ROAS 4.29x. Ese es el benchmark a replicar.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════ RECS -->
+<section>
+  <div class="section-label reveal">06 — Próximos pasos</div>
+  <h2 class="reveal reveal-delay-1">Tres acciones.<br><em>En este orden.</em></h2>
+  <p class="lead reveal reveal-delay-2">No hay que hacer todo al mismo tiempo. Estas son las palancas de mayor impacto, ordenadas por urgencia.</p>
+
+  <div class="rec-grid reveal reveal-delay-3">
+
+    <div class="rec-card">
+      <div class="rec-number">1</div>
+      <div class="rec-icon">📦</div>
+      <h3>Reponer stock y ajustar precios</h3>
+      <p>Activar inventario esta semana. Pausar campañas activas hasta tener stock disponible. Subir botella suelta a $22.990, pack x3 a $59.990, eliminar badge "Oferta" permanente. Establecer pack x3 como producto principal.</p>
+      <div class="rec-impact">Impacto inmediato en conversión</div>
+    </div>
+
+    <div class="rec-card">
+      <div class="rec-number">2</div>
+      <div class="rec-icon">🎬</div>
+      <h3>Escalar UGC con 3 nuevos creadores</h3>
+      <p>La campaña UGC Anahí logró ROAS 4.29x y CPP $9.241. Producir mínimo 3 nuevos creadores en el mismo formato. Meta: bajar CAC de $15.303 a $10.000–$12.000. Eliminar campañas por comuna (Ñuñoa, Las Condes, Stgo Oriente).</p>
+      <div class="rec-impact">Reducir CAC 20–35%</div>
+    </div>
+
+    <div class="rec-card">
+      <div class="rec-number">3</div>
+      <div class="rec-icon">🔄</div>
+      <h3>Construir canal orgánico de recompra</h3>
+      <p>Activar lista de espera con email capture cuando hay agotado. Crear secuencia post-compra de 3 emails (receta + historia + siguiente pedido). El objetivo es que la 2ª compra no pague CAC. Una base de 200 clientes activos = $0 en adquisición.</p>
+      <div class="rec-impact">Eliminar CAC en recompras</div>
+    </div>
+
+  </div>
+
+  <!-- Proyección -->
+  <div style="margin-top:64px;" class="reveal">
+    <div class="section-label" style="margin-bottom:24px;">Proyección — si se implementan las 3 acciones</div>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--gray-dim); border:1px solid var(--gray-dim);">
+
+      <div style="background:var(--black); padding:32px 24px;">
+        <div style="font-size:10px; text-transform:uppercase; letter-spacing:0.15em; color:var(--gray); margin-bottom:12px;">AOV objetivo</div>
+        <div style="font-family:'Instrument Serif',serif; font-size:2rem; color:var(--lime);">$59.990</div>
+        <div style="font-size:12px; color:var(--gray); margin-top:8px;">Pack x3 como default de compra</div>
+      </div>
+
+      <div style="background:var(--black); padding:32px 24px;">
+        <div style="font-size:10px; text-transform:uppercase; letter-spacing:0.15em; color:var(--gray); margin-bottom:12px;">CAC objetivo</div>
+        <div style="font-family:'Instrument Serif',serif; font-size:2rem; color:var(--amber);">$12.000</div>
+        <div style="font-size:12px; color:var(--gray); margin-top:8px;">Escalando formato UGC ganador</div>
+      </div>
+
+      <div style="background:var(--black); padding:32px 24px;">
+        <div style="font-size:10px; text-transform:uppercase; letter-spacing:0.15em; color:var(--gray); margin-bottom:12px;">ROAS objetivo</div>
+        <div style="font-family:'Instrument Serif',serif; font-size:2rem; color:var(--green);">3.5x–4x</div>
+        <div style="font-size:12px; color:var(--gray); margin-top:8px;">Basado en benchmark UGC Anahí</div>
+      </div>
+
+      <div style="background:rgba(0,232,122,0.05); padding:32px 24px; border-left:2px solid var(--green);">
+        <div style="font-size:10px; text-transform:uppercase; letter-spacing:0.15em; color:var(--green); margin-bottom:12px;">Resultado por venta</div>
+        <div style="font-family:'Instrument Serif',serif; font-size:2rem; color:var(--green);">+$17K</div>
+        <div style="font-size:12px; color:var(--gray); margin-top:8px;">Pack x3 a $59.990 con CAC $12K</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════ FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">LAB<span>080</span> AI Studio</div>
+    <div style="font-size:11px; color:var(--gray); margin-top:4px;">giorgiopandolffo@gmail.com</div>
+  </div>
+  <div class="footer-note" style="text-align:center;">
+    Auditoría LITMÛS · Abril 2026<br>
+    Datos: Meta Ads Manager + litmus.cl
+  </div>
+  <div style="text-align:right;">
+    <div style="font-family:'Instrument Serif',serif; font-size:1.1rem; color:var(--gray);">Confidencial</div>
+    <div style="font-size:11px; color:var(--gray-mid); margin-top:4px;">Chino e Italiano · uso interno</div>
+  </div>
+</footer>
+
+<script>
+// ─── INTERSECTION OBSERVER — REVEALS ───
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => revealObserver.observe(el));
+
+// ─── CAMPAIGN BARS ───
+const chartRows = document.querySelectorAll('.chart-row[data-roas]');
+const chartObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const row = entry.target;
+      const roas = parseFloat(row.dataset.roas);
+      const max = parseFloat(row.dataset.max);
+      const bar = row.querySelector('.chart-bar');
+      if (bar) {
+        setTimeout(() => {
+          bar.style.width = (roas / max * 100) + '%';
+        }, 100);
+      }
+      chartObserver.unobserve(row);
+    }
+  });
+}, { threshold: 0.1 });
+chartRows.forEach(row => chartObserver.observe(row));
+
+// ─── PRICING BARS ───
+const pricingBars = document.querySelectorAll('.pricing-bar-fill[data-w]');
+const pricingObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.width = entry.target.dataset.w + '%';
+      pricingObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+pricingBars.forEach(bar => pricingObserver.observe(bar));
+
+// ─── VIS BARS ───
+const visBars = document.querySelectorAll('.vis-bar[data-w]');
+const visObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.width = entry.target.dataset.w + '%';
+      visObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+visBars.forEach(bar => visObserver.observe(bar));
+
+// ─── DONUT CHART ───
+const donutEl = document.getElementById('donut-svg');
+if (donutEl) {
+  const donutObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const C = 377; // 2 * π * 60
+        // UGC: 19%
+        const ugc = document.getElementById('donut-ugc');
+        const chile1 = document.getElementById('donut-chile1');
+        const lost = document.getElementById('donut-lost');
+        const rest = document.getElementById('donut-rest');
+
+        const ugcPct = 0.19 * C;
+        const chile1Pct = 0.49 * C;
+        const lostPct = 0.034 * C;
+        const restPct = 0.286 * C;
+
+        setTimeout(() => {
+          ugc.setAttribute('stroke-dasharray', `${ugcPct} ${C - ugcPct}`);
+          ugc.setAttribute('stroke-dashoffset', `${C * 0.25}`);
+        }, 200);
+
+        setTimeout(() => {
+          chile1.setAttribute('stroke-dasharray', `${chile1Pct} ${C - chile1Pct}`);
+          chile1.setAttribute('stroke-dashoffset', `${C * 0.25 - ugcPct}`);
+        }, 400);
+
+        setTimeout(() => {
+          lost.setAttribute('stroke-dasharray', `${lostPct} ${C - lostPct}`);
+          lost.setAttribute('stroke-dashoffset', `${C * 0.25 - ugcPct - chile1Pct}`);
+        }, 600);
+
+        setTimeout(() => {
+          rest.setAttribute('stroke-dasharray', `${restPct} ${C - restPct}`);
+          rest.setAttribute('stroke-dashoffset', `${C * 0.25 - ugcPct - chile1Pct - lostPct}`);
+        }, 800);
+
+        donutObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  donutObserver.observe(donutEl);
+}
+</script>
+</body>
+</html>
