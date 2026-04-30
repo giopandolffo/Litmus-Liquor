@@ -1397,11 +1397,335 @@
 
 <div class="divider"></div>
 
-<!-- ═══════════════════════════════════════════════════════ SITIO WEB -->
+<!-- ═══════════════════════════════════════════════════════ GEOGRAFÍA DE VENTAS -->
 <section>
-  <div class="section-label reveal">06 — Auditoría litmus.cl</div>
+  <div class="section-label reveal">06 — Geografía de ventas · Junio 2025</div>
+  <h2 class="reveal reveal-delay-1">LITMÛS llega a<br><em>todo Chile</em></h2>
+  <p class="lead reveal reveal-delay-2">Análisis de despachos reales de junio 2025. La Región Metropolitana domina el volumen, pero hay presencia en 12 regiones del país — un activo que Meta Ads debe segmentar mejor.</p>
+
+  <!-- Region bar chart -->
+  <div class="reveal reveal-delay-3" style="margin-bottom:48px">
+    <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--gray);margin-bottom:20px;font-family:Manrope,sans-serif;">Pedidos por región — junio 2025</div>
+    <div id="regions-chart" style="display:flex;flex-direction:column;gap:10px;"></div>
+  </div>
+
+  <!-- RM top comunas -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:48px">
+
+    <div class="reveal">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--lime);margin-bottom:20px;font-family:Manrope,sans-serif;border-bottom:1px solid rgba(210,255,40,0.2);padding-bottom:12px;">Top comunas · RM</div>
+      <div id="comunas-rm-chart" style="display:flex;flex-direction:column;gap:8px;"></div>
+    </div>
+
+    <div class="reveal reveal-delay-1">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--amber);margin-bottom:20px;font-family:Manrope,sans-serif;border-bottom:1px solid rgba(255,184,0,0.2);padding-bottom:12px;">Ciudades destacadas · Regiones</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--amber);flex-shrink:0"></div>
+          <div style="flex:1">
+            <div style="font-family:Manrope,sans-serif;font-size:13px;font-weight:700;color:#fff;">Temuco</div>
+            <div style="font-family:Manrope,sans-serif;font-size:11px;color:var(--gray);">Araucanía · 4+ pedidos</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--amber);flex-shrink:0"></div>
+          <div style="flex:1">
+            <div style="font-family:Manrope,sans-serif;font-size:13px;font-weight:700;color:#fff;">Viña del Mar + Concon</div>
+            <div style="font-family:Manrope,sans-serif;font-size:11px;color:var(--gray);">Valparaíso · 3 pedidos</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--amber);flex-shrink:0"></div>
+          <div style="flex:1">
+            <div style="font-family:Manrope,sans-serif;font-size:13px;font-weight:700;color:#fff;">Concepción + Talcahuano</div>
+            <div style="font-family:Manrope,sans-serif;font-size:11px;color:var(--gray);">Biobío · 3 pedidos</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--amber);flex-shrink:0"></div>
+          <div style="flex:1">
+            <div style="font-family:Manrope,sans-serif;font-size:13px;font-weight:700;color:#fff;">Puerto Montt + P. Varas</div>
+            <div style="font-family:Manrope,sans-serif;font-size:11px;color:var(--gray);">Los Lagos · 2 pedidos</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--amber);flex-shrink:0"></div>
+          <div style="flex:1">
+            <div style="font-family:Manrope,sans-serif;font-size:13px;font-weight:700;color:#fff;">Iquique</div>
+            <div style="font-family:Manrope,sans-serif;font-size:11px;color:var(--gray);">Tarapacá · 2 pedidos</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--amber);flex-shrink:0"></div>
+          <div style="flex:1">
+            <div style="font-family:Manrope,sans-serif;font-size:13px;font-weight:700;color:#fff;">Antofagasta</div>
+            <div style="font-family:Manrope,sans-serif;font-size:11px;color:var(--gray);">Antofagasta · 2 pedidos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Insight callout -->
+  <div class="reveal" style="background:rgba(210,255,40,0.05);border:1px solid rgba(210,255,40,0.2);border-radius:8px;padding:24px 28px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start">
+    <div style="font-size:32px;line-height:1">📍</div>
+    <div>
+      <div style="font-family:Manrope,sans-serif;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--lime);margin-bottom:8px;">Oportunidad táctica</div>
+      <p style="font-family:Manrope,sans-serif;font-size:14px;color:rgba(255,255,255,0.8);line-height:1.6;margin:0;">Meta Ads está segmentado a nivel nacional sin distinción. Con Temuco mostrando la mayor concentración fuera de RM, hay base para crear un AdSet específico Araucanía + Eje Sur. La Región Metropolitana debe segmentarse por las comunas de mayor conversión: Las Condes, Ñuñoa y Providencia lideran el volume. Misma inversión, mejor retorno.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════ SITIO WEB SEVEN SWEEPS -->
+<section>
+  <div class="section-label reveal">07 — Auditoría litmus.cl · Seven Sweeps</div>
+  <h2 class="reveal reveal-delay-1">El sitio puntúa<br><em>6.1 / 10</em></h2>
+  <p class="lead reveal reveal-delay-2">Panel de 5 expertos evaluó litmus.cl con el framework Seven Sweeps. Dos dimensiones destacan positivamente — identidad de marca y prueba social. Cuatro tienen gaps críticos de conversión.</p>
+
+  <!-- Score por dimensión -->
+  <div class="reveal reveal-delay-3" style="margin-bottom:48px">
+    <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--gray);margin-bottom:20px;font-family:Manrope,sans-serif;">Score por dimensión · 0–10</div>
+    <div id="dimensions-chart" style="display:flex;flex-direction:column;gap:12px;"></div>
+  </div>
+
+  <!-- Seven Sweeps hallazgos -->
+  <div style="margin-bottom:48px">
+    <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--gray);margin-bottom:24px;font-family:Manrope,sans-serif;">Hallazgos por sweep</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+
+      <div class="reveal" style="border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:20px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <div style="font-family:Manrope,sans-serif;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#fff;">Sweep 1 · Claridad</div>
+          <div style="font-size:10px;font-weight:700;font-family:Manrope,sans-serif;background:rgba(255,184,0,0.15);color:var(--amber);border-radius:4px;padding:2px 8px;">6/10</div>
+        </div>
+        <div style="font-family:Manrope,sans-serif;font-size:12px;color:rgba(255,255,255,0.7);line-height:1.7;">
+          <div style="color:var(--green);margin-bottom:4px;">✓ Propuesta de valor visible en hero</div>
+          <div style="color:var(--green);margin-bottom:4px;">✓ Copy diferenciado vs importados</div>
+          <div style="color:var(--amber);margin-bottom:4px;">⚠ CTA del hero no es de compra directa</div>
+          <div style="color:var(--red);">✕ Sin urgencia ni razón para actuar hoy</div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1" style="border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:20px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <div style="font-family:Manrope,sans-serif;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#fff;">Sweep 2 · Prueba Social</div>
+          <div style="font-size:10px;font-weight:700;font-family:Manrope,sans-serif;background:rgba(0,232,122,0.15);color:var(--green);border-radius:4px;padding:2px 8px;">8/10</div>
+        </div>
+        <div style="font-family:Manrope,sans-serif;font-size:12px;color:rgba(255,255,255,0.7);line-height:1.7;">
+          <div style="color:var(--green);margin-bottom:4px;">✓ Reviews y ratings presentes</div>
+          <div style="color:var(--green);margin-bottom:4px;">✓ UGC integrado en página</div>
+          <div style="color:var(--amber);">⚠ Rating no está visible en la parte superior del PDP</div>
+        </div>
+      </div>
+
+      <div class="reveal" style="border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:20px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <div style="font-family:Manrope,sans-serif;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#fff;">Sweep 3 · Conversión / CTA</div>
+          <div style="font-size:10px;font-weight:700;font-family:Manrope,sans-serif;background:rgba(255,53,53,0.15);color:var(--red);border-radius:4px;padding:2px 8px;">5/10</div>
+        </div>
+        <div style="font-family:Manrope,sans-serif;font-size:12px;color:rgba(255,255,255,0.7);line-height:1.7;">
+          <div style="color:var(--red);margin-bottom:4px;">✕ Hero CTA no lleva a compra directa</div>
+          <div style="color:var(--red);margin-bottom:4px;">✕ Sin cuotas visibles en la vista principal</div>
+          <div style="color:var(--amber);">⚠ Fricción alta en el checkout flow</div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1" style="border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:20px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <div style="font-family:Manrope,sans-serif;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#fff;">Sweep 4 · SEO</div>
+          <div style="font-size:10px;font-weight:700;font-family:Manrope,sans-serif;background:rgba(255,53,53,0.15);color:var(--red);border-radius:4px;padding:2px 8px;">4/10</div>
+        </div>
+        <div style="font-family:Manrope,sans-serif;font-size:12px;color:rgba(255,255,255,0.7);line-height:1.7;">
+          <div style="color:var(--red);margin-bottom:4px;">✕ Sin blog ni contenido orgánico</div>
+          <div style="color:var(--red);margin-bottom:4px;">✕ Meta descriptions sin optimizar</div>
+          <div style="color:var(--red);">✕ Sin schema markup para producto</div>
+        </div>
+      </div>
+
+      <div class="reveal" style="border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:20px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <div style="font-family:Manrope,sans-serif;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#fff;">Sweep 5 · Identidad de Marca</div>
+          <div style="font-size:10px;font-weight:700;font-family:Manrope,sans-serif;background:rgba(0,232,122,0.15);color:var(--green);border-radius:4px;padding:2px 8px;">8/10</div>
+        </div>
+        <div style="font-family:Manrope,sans-serif;font-size:12px;color:rgba(255,255,255,0.7);line-height:1.7;">
+          <div style="color:var(--green);margin-bottom:4px;">✓ Look & feel premium consistente</div>
+          <div style="color:var(--green);margin-bottom:4px;">✓ Fotografía de producto de calidad</div>
+          <div style="color:var(--green);">✓ Branding coherente entre ads y sitio</div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1" style="border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:20px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <div style="font-family:Manrope,sans-serif;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#fff;">Sweep 6 · Reducción de Riesgo</div>
+          <div style="font-size:10px;font-weight:700;font-family:Manrope,sans-serif;background:rgba(255,53,53,0.15);color:var(--red);border-radius:4px;padding:2px 8px;">5/10</div>
+        </div>
+        <div style="font-family:Manrope,sans-serif;font-size:12px;color:rgba(255,255,255,0.7);line-height:1.7;">
+          <div style="color:var(--amber);margin-bottom:4px;">⚠ Política de devolución poco visible</div>
+          <div style="color:var(--red);margin-bottom:4px;">✕ Sin garantía explícita de satisfacción</div>
+          <div style="color:var(--red);">✕ Sin trust badges en checkout</div>
+        </div>
+      </div>
+
+      <div class="reveal" style="border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:20px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <div style="font-family:Manrope,sans-serif;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#fff;">Sweep 7 · Email / Retención</div>
+          <div style="font-size:10px;font-weight:700;font-family:Manrope,sans-serif;background:rgba(255,53,53,0.15);color:var(--red);border-radius:4px;padding:2px 8px;">4/10</div>
+        </div>
+        <div style="font-family:Manrope,sans-serif;font-size:12px;color:rgba(255,255,255,0.7);line-height:1.7;">
+          <div style="color:var(--red);margin-bottom:4px;">✕ Sin pop-up de captura de email</div>
+          <div style="color:var(--red);margin-bottom:4px;">✕ Sin flujo de post-compra automatizado</div>
+          <div style="color:var(--red);">✕ Sin programa de fidelización o suscripción</div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1" style="border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:20px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <div style="font-family:Manrope,sans-serif;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#fff;">Sweep 8 · Product Page (PDP)</div>
+          <div style="font-size:10px;font-weight:700;font-family:Manrope,sans-serif;background:rgba(255,184,0,0.15);color:var(--amber);border-radius:4px;padding:2px 8px;">6/10</div>
+        </div>
+        <div style="font-family:Manrope,sans-serif;font-size:12px;color:rgba(255,255,255,0.7);line-height:1.7;">
+          <div style="color:var(--green);margin-bottom:4px;">✓ Descripción de producto elaborada</div>
+          <div style="color:var(--amber);margin-bottom:4px;">⚠ Sin comparador entre SKUs</div>
+          <div style="color:var(--red);">✕ 12 cuotas no están destacadas en el PDP</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Expert panel -->
+  <div class="reveal" style="margin-bottom:48px">
+    <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--gray);margin-bottom:20px;font-family:Manrope,sans-serif;">Panel de expertos · promedio 6.0/10</div>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div style="display:flex;align-items:center;gap:16px;">
+        <div style="font-family:Manrope,sans-serif;font-size:12px;color:var(--gray);width:180px;flex-shrink:0;">Conversion copywriter</div>
+        <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:28px;overflow:hidden;position:relative;">
+          <div class="expert-bar" data-w="60" style="position:absolute;inset:0;width:0;background:var(--lime);transition:width 1.2s cubic-bezier(.4,0,.2,1);border-radius:4px;"></div>
+        </div>
+        <div style="font-family:Manrope,sans-serif;font-size:13px;font-weight:800;color:var(--lime);width:32px;text-align:right;flex-shrink:0;">6</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <div style="font-family:Manrope,sans-serif;font-size:12px;color:var(--gray);width:180px;flex-shrink:0;">UX / CRO specialist</div>
+        <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:28px;overflow:hidden;position:relative;">
+          <div class="expert-bar" data-w="50" style="position:absolute;inset:0;width:0;background:var(--amber);transition:width 1.2s cubic-bezier(.4,0,.2,1);border-radius:4px;"></div>
+        </div>
+        <div style="font-family:Manrope,sans-serif;font-size:13px;font-weight:800;color:var(--amber);width:32px;text-align:right;flex-shrink:0;">5</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <div style="font-family:Manrope,sans-serif;font-size:12px;color:var(--gray);width:180px;flex-shrink:0;">Brand strategist</div>
+        <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:28px;overflow:hidden;position:relative;">
+          <div class="expert-bar" data-w="80" style="position:absolute;inset:0;width:0;background:var(--green);transition:width 1.2s cubic-bezier(.4,0,.2,1);border-radius:4px;"></div>
+        </div>
+        <div style="font-family:Manrope,sans-serif;font-size:13px;font-weight:800;color:var(--green);width:32px;text-align:right;flex-shrink:0;">8</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <div style="font-family:Manrope,sans-serif;font-size:12px;color:var(--gray);width:180px;flex-shrink:0;">SEO specialist</div>
+        <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:28px;overflow:hidden;position:relative;">
+          <div class="expert-bar" data-w="40" style="position:absolute;inset:0;width:0;background:var(--red);transition:width 1.2s cubic-bezier(.4,0,.2,1);border-radius:4px;"></div>
+        </div>
+        <div style="font-family:Manrope,sans-serif;font-size:13px;font-weight:800;color:var(--red);width:32px;text-align:right;flex-shrink:0;">4</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <div style="font-family:Manrope,sans-serif;font-size:12px;color:var(--gray);width:180px;flex-shrink:0;">Cliente objetivo (mujer 28)</div>
+        <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:28px;overflow:hidden;position:relative;">
+          <div class="expert-bar" data-w="70" style="position:absolute;inset:0;width:0;background:var(--lime);transition:width 1.2s cubic-bezier(.4,0,.2,1);border-radius:4px;"></div>
+        </div>
+        <div style="font-family:Manrope,sans-serif;font-size:13px;font-weight:800;color:var(--lime);width:32px;text-align:right;flex-shrink:0;">7</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Action plan -->
+  <div class="reveal" style="margin-bottom:16px">
+    <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--gray);margin-bottom:24px;font-family:Manrope,sans-serif;">Plan de acción · 8 cambios concretos</div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+
+      <div style="display:grid;grid-template-columns:auto 1fr auto;align-items:start;gap:16px;padding:16px 20px;border:1px solid rgba(255,53,53,0.3);border-radius:8px;background:rgba(255,53,53,0.05);">
+        <div style="font-family:Manrope,sans-serif;font-size:11px;font-weight:800;color:var(--red);width:20px;padding-top:1px;">01</div>
+        <div>
+          <div style="font-family:Manrope,sans-serif;font-size:13px;font-weight:700;color:#fff;margin-bottom:4px;">CTA en hero → "Comprar ahora"</div>
+          <div style="font-family:Manrope,sans-serif;font-size:12px;color:var(--gray);">Cambiar el CTA actual por un botón directo al PDP o al cart. El primer click debe ser de compra, no de scroll.</div>
+        </div>
+        <span style="font-family:Manrope,sans-serif;font-size:10px;font-weight:700;background:rgba(255,53,53,0.2);color:var(--red);border-radius:4px;padding:3px 8px;white-space:nowrap;flex-shrink:0;">Alta prioridad</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:auto 1fr auto;align-items:start;gap:16px;padding:16px 20px;border:1px solid rgba(255,53,53,0.3);border-radius:8px;background:rgba(255,53,53,0.05);">
+        <div style="font-family:Manrope,sans-serif;font-size:11px;font-weight:800;color:var(--red);width:20px;padding-top:1px;">02</div>
+        <div>
+          <div style="font-family:Manrope,sans-serif;font-size:13px;font-weight:700;color:#fff;margin-bottom:4px;">Rating visible al top del PDP</div>
+          <div style="font-family:Manrope,sans-serif;font-size:12px;color:var(--gray);">Subir las estrellas y el número de reviews arriba del fold. La prueba social debe estar antes del precio.</div>
+        </div>
+        <span style="font-family:Manrope,sans-serif;font-size:10px;font-weight:700;background:rgba(255,53,53,0.2);color:var(--red);border-radius:4px;padding:3px 8px;white-space:nowrap;flex-shrink:0;">Alta prioridad</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:auto 1fr auto;align-items:start;gap:16px;padding:16px 20px;border:1px solid rgba(255,53,53,0.3);border-radius:8px;background:rgba(255,53,53,0.05);">
+        <div style="font-family:Manrope,sans-serif;font-size:11px;font-weight:800;color:var(--red);width:20px;padding-top:1px;">03</div>
+        <div>
+          <div style="font-family:Manrope,sans-serif;font-size:13px;font-weight:700;color:#fff;margin-bottom:4px;">12 cuotas visible en el PDP y en el cart</div>
+          <div style="font-family:Manrope,sans-serif;font-size:12px;color:var(--gray);">Pack x3 a $43.990 = $3.665/mes. Este mensaje debe aparecer bajo el precio de todos los SKUs. Reduce la objeción de precio de inmediato.</div>
+        </div>
+        <span style="font-family:Manrope,sans-serif;font-size:10px;font-weight:700;background:rgba(255,53,53,0.2);color:var(--red);border-radius:4px;padding:3px 8px;white-space:nowrap;flex-shrink:0;">Alta prioridad</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:auto 1fr auto;align-items:start;gap:16px;padding:16px 20px;border:1px solid rgba(255,53,53,0.3);border-radius:8px;background:rgba(255,53,53,0.05);">
+        <div style="font-family:Manrope,sans-serif;font-size:11px;font-weight:800;color:var(--red);width:20px;padding-top:1px;">04</div>
+        <div>
+          <div style="font-family:Manrope,sans-serif;font-size:13px;font-weight:700;color:#fff;margin-bottom:4px;">Pop-up de captura de email (exit intent)</div>
+          <div style="font-family:Manrope,sans-serif;font-size:12px;color:var(--gray);">Instalar un pop-up con oferta de 10% o regalo al suscribirse. El tráfico pagado que no convierte se transforma en lista de retargeting gratuita.</div>
+        </div>
+        <span style="font-family:Manrope,sans-serif;font-size:10px;font-weight:700;background:rgba(255,53,53,0.2);color:var(--red);border-radius:4px;padding:3px 8px;white-space:nowrap;flex-shrink:0;">Alta prioridad</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:auto 1fr auto;align-items:start;gap:16px;padding:16px 20px;border:1px solid rgba(255,184,0,0.2);border-radius:8px;background:rgba(255,184,0,0.04);">
+        <div style="font-family:Manrope,sans-serif;font-size:11px;font-weight:800;color:var(--amber);width:20px;padding-top:1px;">05</div>
+        <div>
+          <div style="font-family:Manrope,sans-serif;font-size:13px;font-weight:700;color:#fff;margin-bottom:4px;">Ancla de precio vs gin importado</div>
+          <div style="font-family:Manrope,sans-serif;font-size:12px;color:var(--gray);">Agregar un badge o línea de copy: "El gin chileno que compite con los de $30.000". El anclaje convierte $22.990 en una ganga relativa.</div>
+        </div>
+        <span style="font-family:Manrope,sans-serif;font-size:10px;font-weight:700;background:rgba(255,184,0,0.2);color:var(--amber);border-radius:4px;padding:3px 8px;white-space:nowrap;flex-shrink:0;">Media prioridad</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:auto 1fr auto;align-items:start;gap:16px;padding:16px 20px;border:1px solid rgba(255,184,0,0.2);border-radius:8px;background:rgba(255,184,0,0.04);">
+        <div style="font-family:Manrope,sans-serif;font-size:11px;font-weight:800;color:var(--amber);width:20px;padding-top:1px;">06</div>
+        <div>
+          <div style="font-family:Manrope,sans-serif;font-size:13px;font-weight:700;color:#fff;margin-bottom:4px;">Flow de email post-compra automatizado</div>
+          <div style="font-family:Manrope,sans-serif;font-size:12px;color:var(--gray);">3 emails: confirmación con receta de cóctel, seguimiento a los 14 días, oferta de recompra pack x3. Klaviyo o Shopify Email. Sin costo de CAC para la segunda venta.</div>
+        </div>
+        <span style="font-family:Manrope,sans-serif;font-size:10px;font-weight:700;background:rgba(255,184,0,0.2);color:var(--amber);border-radius:4px;padding:3px 8px;white-space:nowrap;flex-shrink:0;">Media prioridad</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:auto 1fr auto;align-items:start;gap:16px;padding:16px 20px;border:1px solid rgba(255,184,0,0.2);border-radius:8px;background:rgba(255,184,0,0.04);">
+        <div style="font-family:Manrope,sans-serif;font-size:11px;font-weight:800;color:var(--amber);width:20px;padding-top:1px;">07</div>
+        <div>
+          <div style="font-family:Manrope,sans-serif;font-size:13px;font-weight:700;color:#fff;margin-bottom:4px;">Trust badges + garantía en checkout</div>
+          <div style="font-family:Manrope,sans-serif;font-size:12px;color:var(--gray);">Agregar íconos de pago seguro, política de devolución y una línea de garantía de satisfacción. Reduce drop-off en el paso final de compra.</div>
+        </div>
+        <span style="font-family:Manrope,sans-serif;font-size:10px;font-weight:700;background:rgba(255,184,0,0.2);color:var(--amber);border-radius:4px;padding:3px 8px;white-space:nowrap;flex-shrink:0;">Media prioridad</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:auto 1fr auto;align-items:start;gap:16px;padding:16px 20px;border:1px solid rgba(255,255,255,0.06);border-radius:8px;background:rgba(255,255,255,0.02);">
+        <div style="font-family:Manrope,sans-serif;font-size:11px;font-weight:800;color:var(--gray);width:20px;padding-top:1px;">08</div>
+        <div>
+          <div style="font-family:Manrope,sans-serif;font-size:13px;font-weight:700;color:#fff;margin-bottom:4px;">SEO básico: meta descriptions + schema markup</div>
+          <div style="font-family:Manrope,sans-serif;font-size:12px;color:var(--gray);">Optimizar los títulos y metas de producto para keywords como "gin chileno" y "gin artesanal Chile". Agregar schema de producto para aparecer con estrellas en Google.</div>
+        </div>
+        <span style="font-family:Manrope,sans-serif;font-size:10px;font-weight:700;background:rgba(255,255,255,0.08);color:var(--gray);border-radius:4px;padding:3px 8px;white-space:nowrap;flex-shrink:0;">Baja prioridad</span>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════ SITIO WEB ISSUES OPERACIONALES -->
+<section>
+  <div class="section-label reveal">08 — Issues operacionales litmus.cl</div>
   <h2 class="reveal reveal-delay-1">El sitio tiene<br><em>8 problemas activos</em></h2>
-  <p class="lead reveal reveal-delay-2">Revisión completa del e-commerce en Shopify. Los issues están ordenados por impacto en conversión.</p>
+  <p class="lead reveal reveal-delay-2">Revisión operacional del e-commerce en Shopify. Issues que necesitan acción inmediata antes de escalar cualquier inversión publicitaria.</p>
 
   <div class="audit-list reveal reveal-delay-3">
     <div class="audit-item">
@@ -1482,7 +1806,7 @@
 
 <!-- ═══════════════════════════════════════════════════════ PRICING -->
 <section>
-  <div class="section-label reveal">06 — Nuevo modelo de pricing</div>
+  <div class="section-label reveal">09 — Nuevo modelo de pricing</div>
 
   <h2 class="reveal reveal-delay-1">Con estos precios,<br><em>el negocio funciona</em></h2>
   <p class="lead reveal reveal-delay-2">Comparación entre el modelo actual y el propuesto, manteniendo el COGS y asumiendo una mejora de CAC via mejor creative UGC.</p>
@@ -1575,7 +1899,7 @@
 
 <!-- ═══════════════════════════════════════════════════════ $2M -->
 <section>
-  <div class="section-label reveal">07 — La ruta a $2 millones</div>
+  <div class="section-label reveal">10 — La ruta a $2 millones</div>
   <h2 class="reveal reveal-delay-1">De $242K actuales<br><em>a $2.000.000 líquidos</em></h2>
   <p class="lead reveal reveal-delay-2">No es un salto imposible. Son tres palancas específicas que ya existen en el negocio — solo hay que activarlas en el orden correcto.</p>
 
@@ -1665,7 +1989,7 @@
 
 <!-- ═══════════════════════════════════════════════════════ RECS -->
 <section>
-  <div class="section-label reveal">08 — Próximos pasos</div>
+  <div class="section-label reveal">11 — Próximos pasos</div>
   <h2 class="reveal reveal-delay-1">Tres acciones.<br><em>En este orden.</em></h2>
   <p class="lead reveal reveal-delay-2">No hay que hacer todo al mismo tiempo. Estas son las palancas de mayor impacto, ordenadas por urgencia.</p>
 
@@ -1848,6 +2172,129 @@ if (donutEl) {
   }, { threshold: 0.3 });
   donutObserver.observe(donutEl);
 }
+
+// ─── Geographic sales charts ─────────────────────────────────────────────────
+(function() {
+  const regions = [
+    { name: 'Región Metropolitana', orders: 98, pct: 100 },
+    { name: 'Araucanía',            orders: 5,  pct: 5  },
+    { name: 'Valparaíso',           orders: 4,  pct: 4  },
+    { name: 'Biobío',               orders: 4,  pct: 4  },
+    { name: 'Los Lagos',            orders: 3,  pct: 3  },
+    { name: 'Tarapacá',             orders: 2,  pct: 2  },
+    { name: 'Antofagasta',          orders: 2,  pct: 2  },
+    { name: 'Maule',                orders: 2,  pct: 2  },
+    { name: 'Coquimbo',             orders: 2,  pct: 2  },
+    { name: 'Atacama',              orders: 2,  pct: 2  },
+    { name: 'Los Ríos',             orders: 1,  pct: 1  },
+    { name: 'Magallanes',           orders: 1,  pct: 1  },
+  ];
+
+  const regEl = document.getElementById('regions-chart');
+  if (regEl) {
+    regions.forEach(r => {
+      const isRM = r.name === 'Región Metropolitana';
+      const row = document.createElement('div');
+      row.style.cssText = 'display:flex;align-items:center;gap:12px;';
+      row.innerHTML = `
+        <div style="font-family:Manrope,sans-serif;font-size:12px;color:${isRM ? '#fff' : 'var(--gray)'};width:180px;flex-shrink:0;font-weight:${isRM ? 700 : 400}">${r.name}</div>
+        <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:${isRM ? 36 : 28}px;overflow:hidden;position:relative;">
+          <div class="reg-bar" data-w="${r.pct}" style="position:absolute;inset:0;width:0;background:${isRM ? 'var(--lime)' : 'rgba(210,255,40,0.35)'};transition:width 1.2s cubic-bezier(.4,0,.2,1);border-radius:4px;"></div>
+        </div>
+        <div style="font-family:Manrope,sans-serif;font-size:${isRM ? 14 : 12}px;font-weight:${isRM ? 800 : 600};color:${isRM ? 'var(--lime)' : 'var(--gray)'};width:24px;text-align:right;flex-shrink:0;">${r.orders}</div>`;
+      regEl.appendChild(row);
+    });
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        regEl.querySelectorAll('.reg-bar').forEach(b => { b.style.width = b.dataset.w + '%'; });
+        obs.unobserve(e.target);
+      });
+    }, { threshold: 0.2 });
+    obs.observe(regEl);
+  }
+
+  const comunasRM = [
+    { name: 'Las Condes',   orders: 14 },
+    { name: 'Ñuñoa',        orders: 11 },
+    { name: 'Providencia',  orders: 10 },
+    { name: 'Santiago',     orders: 9  },
+    { name: 'La Florida',   orders: 7  },
+    { name: 'Vitacura',     orders: 6  },
+    { name: 'San Miguel',   orders: 5  },
+    { name: 'Lo Barnechea', orders: 4  },
+    { name: 'Peñalolén',    orders: 4  },
+    { name: 'Huechuraba',   orders: 3  },
+  ];
+  const maxC = Math.max(...comunasRM.map(c => c.orders));
+
+  const comEl = document.getElementById('comunas-rm-chart');
+  if (comEl) {
+    comunasRM.forEach(c => {
+      const pct = Math.round((c.orders / maxC) * 100);
+      const row = document.createElement('div');
+      row.style.cssText = 'display:flex;align-items:center;gap:10px;';
+      row.innerHTML = `
+        <div style="font-family:Manrope,sans-serif;font-size:12px;color:rgba(255,255,255,0.8);width:110px;flex-shrink:0;">${c.name}</div>
+        <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:3px;height:22px;overflow:hidden;position:relative;">
+          <div class="com-bar" data-w="${pct}" style="position:absolute;inset:0;width:0;background:var(--lime);transition:width 1.2s cubic-bezier(.4,0,.2,1);border-radius:3px;opacity:0.8;"></div>
+        </div>
+        <div style="font-family:Manrope,sans-serif;font-size:12px;font-weight:700;color:var(--lime);width:20px;text-align:right;flex-shrink:0;">${c.orders}</div>`;
+      comEl.appendChild(row);
+    });
+
+    const obs2 = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        comEl.querySelectorAll('.com-bar').forEach(b => { b.style.width = b.dataset.w + '%'; });
+        obs2.unobserve(e.target);
+      });
+    }, { threshold: 0.2 });
+    obs2.observe(comEl);
+  }
+})();
+
+// ─── Seven Sweeps dimension scores ───────────────────────────────────────────
+(function() {
+  const dims = [
+    { name: 'Identidad de marca',  score: 8, color: 'var(--green)' },
+    { name: 'Prueba social',        score: 8, color: 'var(--green)' },
+    { name: 'Claridad',             score: 6, color: 'var(--lime)'  },
+    { name: 'PDP (Product Page)',   score: 6, color: 'var(--lime)'  },
+    { name: 'Conversión / CTA',     score: 5, color: 'var(--amber)' },
+    { name: 'Reducción de riesgo',  score: 5, color: 'var(--amber)' },
+    { name: 'SEO',                  score: 4, color: 'var(--red)'   },
+    { name: 'Email / Retención',    score: 4, color: 'var(--red)'   },
+  ];
+
+  const dimEl = document.getElementById('dimensions-chart');
+  if (dimEl) {
+    dims.forEach(d => {
+      const pct = (d.score / 10) * 100;
+      const row = document.createElement('div');
+      row.style.cssText = 'display:flex;align-items:center;gap:16px;';
+      row.innerHTML = `
+        <div style="font-family:Manrope,sans-serif;font-size:12px;color:rgba(255,255,255,0.8);width:170px;flex-shrink:0;">${d.name}</div>
+        <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:4px;height:30px;overflow:hidden;position:relative;">
+          <div class="dim-bar" data-w="${pct}" style="position:absolute;inset:0;width:0;background:${d.color};transition:width 1.2s cubic-bezier(.4,0,.2,1);border-radius:4px;opacity:0.85;"></div>
+        </div>
+        <div style="font-family:Manrope,sans-serif;font-size:14px;font-weight:800;color:${d.color};width:28px;text-align:right;flex-shrink:0;">${d.score}</div>`;
+      dimEl.appendChild(row);
+    });
+
+    const obs3 = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        dimEl.querySelectorAll('.dim-bar').forEach(b => { b.style.width = b.dataset.w + '%'; });
+        // also trigger expert bars
+        document.querySelectorAll('.expert-bar').forEach(b => { b.style.width = b.dataset.w + '%'; });
+        obs3.unobserve(e.target);
+      });
+    }, { threshold: 0.2 });
+    obs3.observe(dimEl);
+  }
+})();
 
 // ─── Monthly performance charts ───────────────────────────────────────────────
 (function() {
