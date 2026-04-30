@@ -1282,9 +1282,124 @@
 
 <div class="divider"></div>
 
+<!-- ═══════════════════════════════════════════════════════ VENTAS POR MES -->
+<section>
+  <div class="section-label reveal">05 — Performance mensual</div>
+  <h2 class="reveal reveal-delay-1">Diciembre es el <em>único mes rentable.</em><br>Los demás queman plata.</h2>
+  <p class="lead reveal reveal-delay-2">9 meses de operación real (mayo 2025 – enero 2026). El patrón muestra exactamente cuándo escalar Meta Ads y cuándo pausar.</p>
+
+  <!-- ── CHART 1: BOTELLAS POR MES ── -->
+  <div class="reveal reveal-delay-3" style="margin-bottom:64px;">
+    <div class="section-label" style="margin-bottom:20px;">Botellas vendidas por mes</div>
+    <div id="bottles-chart" style="display:flex; align-items:flex-end; gap:6px; height:180px; border-bottom:1px solid var(--gray-dim); padding-bottom:0; position:relative;">
+    </div>
+    <div id="bottles-labels" style="display:flex; gap:6px; margin-top:10px;"></div>
+    <div style="display:flex; gap:24px; margin-top:16px; flex-wrap:wrap;">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--lime);"></div> Único mes rentable</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--amber);"></div> Volumen medio</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--red);"></div> Volumen bajo / alta pérdida</div>
+    </div>
+  </div>
+
+  <!-- ── CHART 2: AD SPEND vs REVENUE ── -->
+  <div class="reveal" style="margin-bottom:64px;">
+    <div class="section-label" style="margin-bottom:20px;">Ad Spend vs Revenue por mes (CLP)</div>
+    <div id="spend-revenue-chart" style="display:flex; flex-direction:column; gap:12px;"></div>
+    <div style="display:flex; gap:24px; margin-top:16px;">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--lime); border-radius:2px;"></div> Revenue</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--red); border-radius:2px;"></div> Ad Spend</div>
+    </div>
+  </div>
+
+  <!-- ── CHART 3: ROAS POR MES ── -->
+  <div class="reveal" style="margin-bottom:64px;">
+    <div class="section-label" style="margin-bottom:20px;">ROAS real por mes (Revenue ÷ Ad Spend)</div>
+    <div style="padding:16px 0; border-bottom:1px solid var(--gray-dim); margin-bottom:12px; display:flex; justify-content:space-between;">
+      <span style="font-size:10px; text-transform:uppercase; letter-spacing:0.15em; color:var(--gray);">Mes</span>
+      <span style="font-size:10px; text-transform:uppercase; letter-spacing:0.15em; color:var(--gray);">ROAS</span>
+    </div>
+    <div id="roas-chart" style="display:flex; flex-direction:column; gap:10px;"></div>
+    <div style="margin-top:20px; padding:16px 24px; background:rgba(210,255,40,0.04); border:1px solid rgba(210,255,40,0.2);">
+      <p style="font-size:13px; color:var(--gray); line-height:1.6;"><strong style="color:var(--white);">Regla de oro:</strong> ROAS 3x+ es el mínimo para escalar presupuesto. Mayo (5.4x) y Diciembre (3.2x) son los únicos meses eficientes. Noviembre gastó $839K en ads con ROAS 2.1x — pérdida garantizada.</p>
+    </div>
+  </div>
+
+  <!-- ── RESULTADO POR MES (profit/loss) ── -->
+  <div class="reveal" style="margin-bottom:64px;">
+    <div class="section-label" style="margin-bottom:20px;">Resultado neto por mes (utilidad o pérdida)</div>
+    <div id="resultado-chart" style="display:flex; flex-direction:column; gap:8px;"></div>
+  </div>
+
+  <!-- ── BEST vs WORST CARDS ── -->
+  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:var(--gray-dim); border:1px solid var(--gray-dim);" class="reveal">
+
+    <div style="background:rgba(210,255,40,0.04); padding:36px 32px; border-top:3px solid var(--lime);">
+      <div style="font-size:10px; text-transform:uppercase; letter-spacing:0.15em; color:var(--lime); margin-bottom:16px;">Mejor mes — Diciembre 2025</div>
+      <div style="font-family:'Instrument Serif',serif; font-size:2.8rem; color:var(--lime); line-height:1; margin-bottom:12px;">+$258K</div>
+      <div style="font-size:13px; color:var(--gray); line-height:1.7;">
+        171 botellas vendidas<br>
+        Revenue: $2.642M<br>
+        Ad Spend: $833K<br>
+        ROAS: 3.2x<br>
+        <strong style="color:var(--white);">¿Por qué funcionó?</strong> Regalos de Navidad, compras de packs, mayor disposición a pagar. Es el modelo que hay que replicar en todo el año.
+      </div>
+    </div>
+
+    <div style="background:rgba(255,53,53,0.04); padding:36px 32px; border-top:3px solid var(--red);">
+      <div style="font-size:10px; text-transform:uppercase; letter-spacing:0.15em; color:var(--red); margin-bottom:16px;">Peor resultado — Noviembre 2025</div>
+      <div style="font-family:'Instrument Serif',serif; font-size:2.8rem; color:var(--red); line-height:1; margin-bottom:12px;">-$263K</div>
+      <div style="font-size:13px; color:var(--gray); line-height:1.7;">
+        114 botellas vendidas<br>
+        Revenue: $1.744M<br>
+        Ad Spend: $839K<br>
+        ROAS: 2.1x<br>
+        <strong style="color:var(--white);">¿Por qué falló?</strong> Se gastó casi tanto como Diciembre en ads pero sin el volumen navideño. Cada peso gastado en Noviembre fue un error de timing.
+      </div>
+    </div>
+
+    <div style="background:rgba(255,184,0,0.03); padding:36px 32px; border-top:3px solid var(--amber);">
+      <div style="font-size:10px; text-transform:uppercase; letter-spacing:0.15em; color:var(--amber); margin-bottom:16px;">Meses muertos — Agosto / Septiembre</div>
+      <div style="font-family:'Instrument Serif',serif; font-size:2.8rem; color:var(--amber); line-height:1; margin-bottom:12px;">38 / 24</div>
+      <div style="font-size:13px; color:var(--gray); line-height:1.7;">
+        Botellas vendidas en Ago / Sep<br>
+        Revenue: $648K / $418K<br>
+        Ad Spend: $290K / $181K<br>
+        ROAS: 2.2x / 2.3x<br>
+        <strong style="color:var(--white);">Acción:</strong> Pausar o reducir ads al mínimo en agosto y septiembre. Usar ese presupuesto para escalar en octubre-diciembre.
+      </div>
+    </div>
+  </div>
+
+  <!-- Recomendación estacional -->
+  <div style="margin-top:32px; display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--gray-dim); border:1px solid var(--gray-dim);" class="reveal">
+    <div style="background:var(--black); padding:24px 20px; border-top:2px solid var(--red);">
+      <div style="font-size:10px; text-transform:uppercase; letter-spacing:0.12em; color:var(--red); margin-bottom:8px;">Temporada baja</div>
+      <div style="font-size:14px; font-weight:700; margin-bottom:6px;">Ago — Sep</div>
+      <div style="font-size:12px; color:var(--gray);">Reducir ads al 20%. Foco en retención de clientes existentes.</div>
+    </div>
+    <div style="background:var(--black); padding:24px 20px; border-top:2px solid var(--amber);">
+      <div style="font-size:10px; text-transform:uppercase; letter-spacing:0.12em; color:var(--amber); margin-bottom:8px;">Pre-temporada</div>
+      <div style="font-size:14px; font-weight:700; margin-bottom:6px;">Oct — Nov</div>
+      <div style="font-size:12px; color:var(--gray);">Subir gradualmente. Testear creativos UGC nuevos. No escalar antes de tener ROAS 3x+.</div>
+    </div>
+    <div style="background:rgba(210,255,40,0.04); padding:24px 20px; border-top:2px solid var(--lime);">
+      <div style="font-size:10px; text-transform:uppercase; letter-spacing:0.12em; color:var(--lime); margin-bottom:8px;">Peak</div>
+      <div style="font-size:14px; font-weight:700; margin-bottom:6px;">Dic — Ene</div>
+      <div style="font-size:12px; color:var(--gray);">Escalar al máximo con UGC + packs de regalo. Es cuando el mercado compra.</div>
+    </div>
+    <div style="background:var(--black); padding:24px 20px; border-top:2px solid var(--green);">
+      <div style="font-size:10px; text-transform:uppercase; letter-spacing:0.12em; color:var(--green); margin-bottom:8px;">Eficiencia</div>
+      <div style="font-size:14px; font-weight:700; margin-bottom:6px;">May — Jun</div>
+      <div style="font-size:12px; color:var(--gray);">ROAS histórico 5.4x en mayo. Menor presupuesto, mejor retorno. No inflar spend.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- ═══════════════════════════════════════════════════════ SITIO WEB -->
 <section>
-  <div class="section-label reveal">05 — Auditoría litmus.cl</div>
+  <div class="section-label reveal">06 — Auditoría litmus.cl</div>
   <h2 class="reveal reveal-delay-1">El sitio tiene<br><em>8 problemas activos</em></h2>
   <p class="lead reveal reveal-delay-2">Revisión completa del e-commerce en Shopify. Los issues están ordenados por impacto en conversión.</p>
 
@@ -1733,6 +1848,172 @@ if (donutEl) {
   }, { threshold: 0.3 });
   donutObserver.observe(donutEl);
 }
+
+// ─── Monthly performance charts ───────────────────────────────────────────────
+(function() {
+  const months = [
+    { label:'May', bottles:18,  revenue:243050,   adSpend:44625,  resultado:-59335,  roas:5.4 },
+    { label:'Jun', bottles:147, revenue:2420076,  adSpend:712908, resultado:-206047, roas:3.4 },
+    { label:'Jul', bottles:121, revenue:2034070,  adSpend:824618, resultado:-25638,  roas:2.5 },
+    { label:'Ago', bottles:38,  revenue:648880,   adSpend:290768, resultado:-97313,  roas:2.2 },
+    { label:'Sep', bottles:24,  revenue:418890,   adSpend:181422, resultado:-31126,  roas:2.3 },
+    { label:'Oct', bottles:74,  revenue:1186570,  adSpend:412822, resultado:-13153,  roas:2.9 },
+    { label:'Nov', bottles:114, revenue:1744760,  adSpend:839532, resultado:-263485, roas:2.1 },
+    { label:'Dic', bottles:171, revenue:2642600,  adSpend:833539, resultado:258102,  roas:3.2 },
+    { label:'Ene', bottles:82,  revenue:1310930,  adSpend:599730, resultado:-293227, roas:2.2 },
+  ];
+
+  const maxBottles = Math.max(...months.map(m => m.bottles));
+  const maxRevenue = Math.max(...months.map(m => m.revenue));
+  const maxRoas    = Math.max(...months.map(m => m.roas));
+  const maxAbs     = Math.max(...months.map(m => Math.abs(m.resultado)));
+  const fmt        = n => '$' + Math.abs(Math.round(n)).toLocaleString('es-CL');
+
+  // ── Bottles chart ────────────────────────────────────────────────────────────
+  const bottlesEl = document.getElementById('bottles-chart');
+  if (bottlesEl) {
+    bottlesEl.style.cssText = 'display:flex;align-items:flex-end;gap:6px;height:180px;padding-bottom:0;position:relative;border-bottom:1px solid rgba(255,255,255,0.08)';
+    months.forEach(m => {
+      const targetH = Math.round((m.bottles / maxBottles) * 160);
+      const col = document.createElement('div');
+      col.style.cssText = 'display:flex;flex-direction:column;align-items:center;flex:1;gap:4px';
+      col.innerHTML = `
+        <span style="font-family:Manrope,sans-serif;font-size:10px;color:var(--gray);font-weight:600">${m.bottles}</span>
+        <div class="month-bar" data-h="${targetH}" style="width:100%;height:0;background:var(--lime);transition:height 1s cubic-bezier(.4,0,.2,1);border-radius:3px 3px 0 0"></div>
+        <span style="font-family:Manrope,sans-serif;font-size:10px;color:var(--gray);margin-top:6px">${m.label}</span>`;
+      bottlesEl.appendChild(col);
+    });
+
+    // add month-labels row below (already in HTML as #bottles-labels — skip, just animate bars)
+    const labelsEl = document.getElementById('bottles-labels');
+    if (labelsEl) labelsEl.remove(); // cleanup old placeholder
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        bottlesEl.querySelectorAll('.month-bar').forEach(bar => {
+          bar.style.height = bar.dataset.h + 'px';
+        });
+        obs.unobserve(entry.target);
+      });
+    }, { threshold: 0.2 });
+    obs.observe(bottlesEl);
+  }
+
+  // ── Spend vs Revenue chart ───────────────────────────────────────────────────
+  const srEl = document.getElementById('spend-revenue-chart');
+  if (srEl) {
+    srEl.style.cssText = 'display:flex;flex-direction:column;gap:10px';
+    months.forEach(m => {
+      const revPct  = Math.round((m.revenue  / maxRevenue) * 100);
+      const spndPct = Math.round((m.adSpend  / maxRevenue) * 100);
+      const row = document.createElement('div');
+      row.innerHTML = `
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:2px">
+          <span style="font-family:Manrope,sans-serif;font-size:11px;color:var(--gray);width:28px;flex-shrink:0">${m.label}</span>
+          <div style="flex:1;display:flex;flex-direction:column;gap:3px">
+            <div class="sr-bar" data-w="${revPct}" style="height:8px;width:0;background:var(--lime);border-radius:2px;transition:width 1s cubic-bezier(.4,0,.2,1)"></div>
+            <div class="sr-bar" data-w="${spndPct}" style="height:8px;width:0;background:var(--red);opacity:0.75;border-radius:2px;transition:width 1s cubic-bezier(.4,0,.2,1)"></div>
+          </div>
+          <span style="font-family:Manrope,sans-serif;font-size:10px;color:var(--gray);width:70px;text-align:right;flex-shrink:0">${fmt(m.revenue)}</span>
+        </div>`;
+      srEl.appendChild(row);
+    });
+    // legend
+    const leg = document.createElement('div');
+    leg.style.cssText = 'display:flex;gap:16px;margin-top:4px';
+    leg.innerHTML = `
+      <span style="font-family:Manrope,sans-serif;font-size:10px;color:var(--gray);display:flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:4px;background:var(--lime);border-radius:2px"></span>Revenue</span>
+      <span style="font-family:Manrope,sans-serif;font-size:10px;color:var(--gray);display:flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:4px;background:var(--red);border-radius:2px"></span>Ad Spend</span>`;
+    srEl.appendChild(leg);
+
+    const obs2 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        srEl.querySelectorAll('.sr-bar').forEach(bar => {
+          bar.style.width = bar.dataset.w + '%';
+        });
+        obs2.unobserve(entry.target);
+      });
+    }, { threshold: 0.2 });
+    obs2.observe(srEl);
+  }
+
+  // ── ROAS chart ───────────────────────────────────────────────────────────────
+  const roasEl = document.getElementById('roas-chart');
+  if (roasEl) {
+    roasEl.style.cssText = 'display:flex;flex-direction:column;gap:8px';
+    months.forEach(m => {
+      const pct = Math.round((m.roas / maxRoas) * 100);
+      const color = m.roas >= 3 ? 'var(--green)' : m.roas >= 2.5 ? 'var(--amber)' : 'var(--red)';
+      const row = document.createElement('div');
+      row.innerHTML = `
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="font-family:Manrope,sans-serif;font-size:11px;color:var(--gray);width:28px;flex-shrink:0">${m.label}</span>
+          <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:2px;height:10px;overflow:hidden">
+            <div class="roas-bar" data-w="${pct}" style="height:100%;width:0;background:${color};border-radius:2px;transition:width 1s cubic-bezier(.4,0,.2,1)"></div>
+          </div>
+          <span style="font-family:Manrope,sans-serif;font-size:11px;font-weight:700;color:${color};width:36px;text-align:right;flex-shrink:0">${m.roas}x</span>
+        </div>`;
+      roasEl.appendChild(row);
+    });
+    // threshold line annotation
+    const note = document.createElement('div');
+    note.style.cssText = 'font-family:Manrope,sans-serif;font-size:10px;color:var(--gray);margin-top:4px';
+    note.textContent = '▲ umbral rentable: 3.0x';
+    roasEl.appendChild(note);
+
+    const obs3 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        roasEl.querySelectorAll('.roas-bar').forEach(bar => {
+          bar.style.width = bar.dataset.w + '%';
+        });
+        obs3.unobserve(entry.target);
+      });
+    }, { threshold: 0.2 });
+    obs3.observe(roasEl);
+  }
+
+  // ── Resultado chart ──────────────────────────────────────────────────────────
+  const resEl = document.getElementById('resultado-chart');
+  if (resEl) {
+    resEl.style.cssText = 'display:flex;flex-direction:column;gap:8px';
+    months.forEach(m => {
+      const pct   = Math.round((Math.abs(m.resultado) / maxAbs) * 45); // max 45% of container width
+      const isPos = m.resultado >= 0;
+      const color = isPos ? 'var(--green)' : 'var(--red)';
+      const label = (isPos ? '+' : '-') + fmt(m.resultado);
+      const row = document.createElement('div');
+      row.innerHTML = `
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="font-family:Manrope,sans-serif;font-size:11px;color:var(--gray);width:28px;flex-shrink:0">${m.label}</span>
+          <div style="flex:1;display:flex;align-items:center;justify-content:center;gap:2px;height:12px">
+            <div style="flex:1;display:flex;justify-content:flex-end">
+              ${!isPos ? `<div class="res-bar" data-w="${pct}" style="height:10px;width:0;background:var(--red);border-radius:2px 0 0 2px;transition:width 1s cubic-bezier(.4,0,.2,1)"></div>` : ''}
+            </div>
+            <div style="width:1px;background:rgba(255,255,255,0.2);height:14px;flex-shrink:0"></div>
+            <div style="flex:1;display:flex;justify-content:flex-start">
+              ${isPos ? `<div class="res-bar" data-w="${pct}" style="height:10px;width:0;background:var(--green);border-radius:0 2px 2px 0;transition:width 1s cubic-bezier(.4,0,.2,1)"></div>` : ''}
+            </div>
+          </div>
+          <span style="font-family:Manrope,sans-serif;font-size:10px;font-weight:700;color:${color};width:90px;text-align:right;flex-shrink:0">${label}</span>
+        </div>`;
+      resEl.appendChild(row);
+    });
+
+    const obs4 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        resEl.querySelectorAll('.res-bar').forEach(bar => {
+          bar.style.width = bar.dataset.w + '%';
+        });
+        obs4.unobserve(entry.target);
+      });
+    }, { threshold: 0.2 });
+    obs4.observe(resEl);
+  }
+})();
 </script>
 </body>
 </html>
