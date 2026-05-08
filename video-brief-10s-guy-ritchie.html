@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Brief — 10s Guy Ritchie Style · LITMÛS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--lime:#D2FF28;--black:#000;--white:#fff;--red:#FF3535;--amber:#FFB800;--green:#00E87A;--gray:#888;--dim:#333;--m2:#555}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Manrope',sans-serif;font-size:15px;line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.035'/%3E%3C/svg%3E");opacity:0.4}
+
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+section{padding:80px 64px;max-width:1200px;margin:0 auto}
+.sl{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--lime);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.sl::after{content:'';height:1px;width:48px;background:var(--lime);opacity:.5}
+h2{font-family:'Instrument Serif',serif;font-size:clamp(2rem,4.5vw,3.4rem);font-weight:400;line-height:1.1;margin-bottom:12px}
+h2 em{font-style:italic;color:var(--lime)}
+.lead{font-size:1rem;color:var(--gray);max-width:600px;margin-bottom:48px;line-height:1.7}
+
+/* COVER */
+#cover{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:80px 64px;position:relative;max-width:none;overflow:hidden}
+.cb{position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 30%,rgba(210,255,40,0.05) 0%,transparent 60%),radial-gradient(ellipse 40% 40% at 80% 80%,rgba(255,53,53,0.03) 0%,transparent 50%)}
+.cm{display:flex;justify-content:space-between;align-items:flex-end;position:relative;z-index:1}
+.ct{font-family:'Instrument Serif',serif;font-size:clamp(3rem,8vw,7rem);font-weight:400;line-height:.92;letter-spacing:-.02em}
+.ct .accent{color:var(--lime)}
+.ct .sub{display:block;font-size:clamp(1.2rem,2.5vw,2.2rem);color:var(--gray);font-style:italic;margin-top:8px}
+.cr{text-align:right;font-size:11px;color:var(--gray);letter-spacing:.08em;line-height:1.8}
+.cb2{display:inline-block;border:1px solid var(--dim);padding:5px 14px;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gray);margin-bottom:14px}
+.cw{margin-top:40px;border-top:1px solid var(--dim);padding-top:28px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;z-index:1}
+.cs{display:flex;flex-direction:column;gap:3px}
+.csl{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray)}
+.csv{font-family:'Instrument Serif',serif;font-size:clamp(1.4rem,2.5vw,2.2rem);font-weight:400;color:var(--white)}
+.csv.l{color:var(--lime)}
+
+/* STORYBOARD */
+.storyboard{display:flex;flex-direction:column;gap:0}
+.shot{display:grid;grid-template-columns:80px 140px 1fr;gap:24px;padding:24px 0;border-top:1px solid var(--dim);align-items:start}
+.shot:last-child{border-bottom:1px solid var(--dim);padding-bottom:48px}
+.shot-num{font-family:'Instrument Serif',serif;font-size:2rem;color:var(--lime);line-height:1}
+.shot-time{font-size:9px;color:var(--gray);margin-top:4px;letter-spacing:.05em}
+.shot-visual{aspect-ratio:16/9;background:var(--dim);border:1px solid var(--dim);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.shot-visual .badge{position:absolute;bottom:6px;left:6px;font-size:7px;padding:2px 6px;background:rgba(0,0,0,.7);color:var(--gray);letter-spacing:.08em;text-transform:uppercase;border-radius:2px}
+.shot h3{font-family:'Instrument Serif',serif;font-size:1.2rem;font-weight:400;line-height:1.2;margin-bottom:6px}
+.shot h3 em{color:var(--lime);font-style:italic}
+.shot p{font-size:.85rem;color:var(--gray);line-height:1.6;margin-bottom:6px}
+.shot .tech{display:flex;gap:6px;flex-wrap:wrap}
+.shot .tech span{font-size:8px;padding:3px 8px;border:1px solid var(--dim);border-radius:2px;color:var(--m2);letter-spacing:.05em}
+.shot .tech span.hl{border-color:rgba(210,255,40,.2);color:var(--lime)}
+
+/* COPY */
+.copy-card{border:1px solid var(--dim);padding:32px;margin-top:12px;position:relative}
+.copy-card::before{content:'';position:absolute;top:-1px;left:0;right:0;height:2px;background:var(--lime)}
+.copy-card .line{font-size:1.6rem;font-family:'Instrument Serif',serif;line-height:1.3;margin-bottom:8px}
+.copy-card .line.accent{color:var(--lime)}
+.copy-card .line.sub{color:var(--gray);font-size:1rem}
+.copy-card .note{font-size:.78rem;color:var(--m2);margin-top:16px;padding-top:16px;border-top:1px solid var(--dim)}
+
+.div{height:1px;background:linear-gradient(90deg,var(--dim) 0%,transparent 100%);margin:0 64px}
+
+@media(max-width:768px){
+  section{padding:48px 24px}
+  .cm{flex-direction:column;align-items:flex-start;gap:20px}
+  .cr{text-align:left}
+  .cw{grid-template-columns:repeat(2,1fr)}
+  .shot{grid-template-columns:1fr;gap:16px}
+  #cover{padding:48px 24px}
+  .div{margin:0 24px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ COVER ═══ -->
+<section id="cover">
+  <div class="cb"></div>
+  <div class="cm">
+    <div>
+      <div class="cb2">LAB080 × LITM&circ;S</div>
+      <div class="ct">
+        10 Segundos<br>
+        <span class="accent">Guy Ritchie</span>
+        <span class="sub">Video campa&ntilde;a D&iacute;a de la Madre &middot; Golden Ticket</span>
+      </div>
+    </div>
+    <div class="cr">
+      Mayo 2026<br>
+      12 planos &middot; Edici&oacute;n r&aacute;pida<br>
+      Copas vintage &middot; Vestuario Agatha Lui de la Prada<br>
+      Target: Mujeres +18
+    </div>
+  </div>
+  <div class="cw">
+    <div class="cs"><span class="csl">Duraci&oacute;n</span><span class="csv l">10 seg</span><span style="font-size:11px;color:var(--gray)">12 planos</span></div>
+    <div class="cs"><span class="csl">Formato</span><span class="csv">Reel / Tiktok</span><span style="font-size:11px;color:var(--gray)">9:16 vertical</span></div>
+    <div class="cs"><span class="csl">Vestuario</span><span class="csv">Relajado</span><span style="font-size:11px;color:var(--gray)">Colores Agatha Lui de la Prada</span></div>
+    <div class="cs"><span class="csl">Mec&aacute;nica</span><span class="csv l">Golden Ticket</span><span style="font-size:11px;color:var(--gray)">Tarjeta dentro del Pack x3</span></div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- ═══ COPY ═══ -->
+<section>
+  <div class="sl reveal">Copy del video</div>
+  <h2 class="reveal d1">Texto en <em>pantalla</em></h2>
+  <p class="lead reveal d2">M&aacute;ximo 2 l&iacute;neas. Aparece en los &uacute;ltimos 2 segundos. El video cuenta la historia solo con im&aacute;genes.</p>
+
+  <div class="reveal">
+    <div class="copy-card">
+      <div class="line">Este a&ntilde;o, mam&aacute; no solo recibe un regalo.</div>
+      <div class="line accent">Recibe un a&ntilde;o entero.</div>
+      <div class="line sub">Pack x3 participa por Golden Ticket &middot; 1 a&ntilde;o de Litm&ucirc;s gratis</div>
+      <div class="note">Aparece en frame 10&ndash;12 (segundos 8&ndash;10). Tipograf&iacute;a: Manrope Bold. Animaci&oacute;n: fade con ligero slide up. Sin emojis. Sin exclamaciones. El tono es confidente, no necesitamos gritar.</div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- ═══ STORYBOARD ═══ -->
+<section>
+  <div class="sl reveal">Storyboard &middot; 12 planos en 10 segundos</div>
+  <h2 class="reveal d1">Edici&oacute;n <em>Guy Ritchie</em></h2>
+  <p class="lead reveal d2">Cada plano dura ~0.8 seg. Transiciones r&aacute;pidas, whip pans, zoom in/out bruscos. C&aacute;mara en mano con estabilizaci&oacute;n suave. Ritmo crescendo: arranca tranquilo y acelera.</p>
+
+  <div class="storyboard">
+
+    <!-- SHOT 01 -->
+    <div class="shot reveal">
+      <div><div class="shot-num">01</div><div class="shot-time">0.0s &rarr; 0.8s</div></div>
+      <div class="shot-visual" style="background:linear-gradient(135deg,#2a1a3a,#1a0d2e);"><span style="font-size:2rem;opacity:.3">🎬</span><span class="badge">Wide</span></div>
+      <div>
+        <h3>Plano general <em>estiloso</em></h3>
+        <p>Tres amigas sentadas en un living vintage. Sillones de terciopelo, luz c&aacute;lida, cuadros en la pared. Copas de LITM&circ;S en la mesa. Ellas visten colores tierra, crudo, verde oliva (estilo Agatha Lui de la Prada). Relajadas, conversando. La c&aacute;mara las capta desde un &aacute;ngulo ligeramente contrapicado.</p>
+        <div class="tech"><span class="hl">Wide shot</span><span>Contrapicado</span><span>Luz c&aacute;lida</span><span>Vintage</span></div>
+      </div>
+    </div>
+
+    <!-- SHOT 02 -->
+    <div class="shot reveal">
+      <div><div class="shot-num">02</div><div class="shot-time">0.8s &rarr; 1.6s</div></div>
+      <div class="shot-visual" style="background:linear-gradient(135deg,#1a2a1a,#0d1a0d);"><span style="font-size:2rem;opacity:.3">🎥</span><span class="badge">Over shoulder</span></div>
+      <div>
+        <h3>Over shoulder <em>sirviendo</em></h3>
+        <p>Sobre el hombro de una mujer, vemos a otra servir LITM&circ;S desde la botella. El l&iacute;quido azul profundo cae en c&aacute;mara lenta. La copa es de cristal vintage, pesada, con tallado. El hielo tintinea al recibir el l&iacute;quido.</p>
+        <div class="tech"><span class="hl">Over shoulder</span><span>Camara lenta</span><span>Botella</span><span>Hielo</span></div>
+      </div>
+    </div>
+
+    <!-- SHOT 03 -->
+    <div class="shot reveal">
+      <div><div class="shot-num">03</div><div class="shot-time">1.6s &rarr; 2.4s</div></div>
+      <div class="shot-visual" style="background:linear-gradient(135deg,#1a1a2a,#0d0d1a);"><span style="font-size:2rem;opacity:.3">🔍</span><span class="badge">Zoom in</span></div>
+      <div>
+        <h3>Zoom in <em>lento</em></h3>
+        <p>Primer&iacute;simo plano del l&iacute;quido azul cayendo a la copa. C&aacute;mara lenta extrema. El l&iacute;quido golpea el hielo y salpica en c&aacute;mara superlenta. Se ve la textura del l&iacute;quido, casi aceitosa, densa.</p>
+        <div class="tech"><span class="hl">Macro</span><span>Camara superlenta</span><span>Liquido</span><span>Hielo</span></div>
+      </div>
+    </div>
+
+    <!-- SHOT 04 -->
+    <div class="shot reveal">
+      <div><div class="shot-num">04</div><div class="shot-time">2.4s &rarr; 3.2s</div></div>
+      <div class="shot-visual" style="background:linear-gradient(135deg,#2a1a0a,#1a0d00);"><span style="font-size:2rem;opacity:.3">🍋</span><span class="badge">Close up</span></div>
+      <div>
+        <h3>La mano <em>exprime</em></h3>
+        <p>Primer plano de manos femeninas. U&ntilde;as cortas, naturales, sin esmalte llamativo. Una mano sostiene medio lim&oacute;n verde. La otra lo exprime. El jugo cae en la copa. Se ve el l&iacute;quido empezar a cambiar de color.</p>
+        <div class="tech"><span class="hl">Close up</span><span>Manos</span><span>Limon</span><span>Jugo cayendo</span></div>
+      </div>
+    </div>
+
+    <!-- SHOT 05 -->
+    <div class="shot reveal">
+      <div><div class="shot-num">05</div><div class="shot-time">3.2s &rarr; 4.0s</div></div>
+      <div class="shot-visual" style="background:linear-gradient(135deg,#3a1a3a,#2a0d2a);"><span style="font-size:2rem;opacity:.3">🔄</span><span class="badge">Whip pan</span></div>
+      <div>
+        <h3>Giro de copa, <em>cambio de color</em></h3>
+        <p>Una mujer gira la copa con un movimiento r&aacute;pido. Whip pan hacia la copa en movimiento. El l&iacute;quido pasa de azul profundo a violeta/morado. Se ve la transici&oacute;n de color en vivo. Es el momento m&aacute;gico del video.</p>
+        <div class="tech"><span class="hl">Whip pan</span><span>Giro</span><span>Cambio de color</span><span>Azul a violeta</span></div>
+      </div>
+    </div>
+
+    <!-- SHOT 06 -->
+    <div class="shot reveal">
+      <div><div class="shot-num">06</div><div class="shot-time">4.0s &rarr; 4.8s</div></div>
+      <div class="shot-visual" style="background:linear-gradient(135deg,#2a2a1a,#1a1a0d);"><span style="font-size:2rem;opacity:.3">🍸</span><span class="badge">Worm view</span></div>
+      <div>
+        <h3>Copa desde <em>abajo</em></h3>
+        <p>Worm view (plano desde el suelo) de la copa. Se ve el l&iacute;quido violeta desde abajo, la luz lo atraviesa. Al fondo, las siluetas borrosas de las mujeres riendo. Efecto cinematogr&aacute;fico, casi subjetivo.</p>
+        <div class="tech"><span class="hl">Worm view</span><span>Contraluz</span><span>Copa</span><span>Siluetas</span></div>
+      </div>
+    </div>
+
+    <!-- SHOT 07 -->
+    <div class="shot reveal">
+      <div><div class="shot-num">07</div><div class="shot-time">4.8s &rarr; 5.6s</div></div>
+      <div class="shot-visual" style="background:linear-gradient(135deg,#1a1a1a,#0d0d0d);"><span style="font-size:2rem;opacity:.3">👀</span><span class="badge">Dutch angle</span></div>
+      <div>
+        <h3>Dutch angle <em>risa</em></h3>
+        <p>Plano holand&eacute;s (c&aacute;mara inclinada) de una mujer riendo, copa en mano. El fondo est&aacute; en movimiento (c&aacute;mara en mano). La risa es genuina, espont&aacute;nea. El l&iacute;quido violeta se mueve en la copa.</p>
+        <div class="tech"><span class="hl">Dutch angle</span><span>Risa</span><span>Camara en mano</span><span>Copa en movimiento</span></div>
+      </div>
+    </div>
+
+    <!-- SHOT 08 -->
+    <div class="shot reveal">
+      <div><div class="shot-num">08</div><div class="shot-time">5.6s &rarr; 6.4s</div></div>
+      <div class="shot-visual" style="background:linear-gradient(135deg,#3a2a1a,#2a1a0d);"><span style="font-size:2rem;opacity:.3">✋</span><span class="badge">POV</span></div>
+      <div>
+        <h3>Punto de vista <em>brindis</em></h3>
+        <p>C&aacute;mara subjetiva (POV) de una mujer alzando su copa para chocar con otra. Se ve su propia mano sosteniendo la copa violeta, y la otra copa acerc&aacute;ndose. El tintineo de cristal. Justo antes del brindis.</p>
+        <div class="tech"><span class="hl">POV</span><span>Brindis</span><span>Copas chocando</span><span>Tintineo</span></div>
+      </div>
+    </div>
+
+    <!-- SHOT 09 -->
+    <div class="shot reveal">
+      <div><div class="shot-num">09</div><div class="shot-time">6.4s &rarr; 7.2s</div></div>
+      <div class="shot-visual" style="background:linear-gradient(135deg,#1a2a2a,#0d1a1a);"><span style="font-size:2rem;opacity:.3">📦</span><span class="badge">Rack focus</span></div>
+      <div>
+        <h3>Pack x3 con <em>rack focus</em></h3>
+        <p>Plano del Pack x3 sobre la mesa. Rack focus: empieza desenfocado y se enfoca r&aacute;pidamente. En primer plano borroso, una mano femenina se acerca para abrirlo. La luz incide en el badge &ldquo;Participa por 1 a&ntilde;o gratis&rdquo;.</p>
+        <div class="tech"><span class="hl">Rack focus</span><span>Pack x3</span><span>Badge dorado</span><span>Mano acercandose</span></div>
+      </div>
+    </div>
+
+    <!-- SHOT 10 -->
+    <div class="shot reveal">
+      <div><div class="shot-num">10</div><div class="shot-time">7.2s &rarr; 8.0s</div></div>
+      <div class="shot-visual" style="background:linear-gradient(135deg,#2a1a1a,#1a0d0d);"><span style="font-size:2rem;opacity:.3">💌</span><span class="badge">Close up</span></div>
+      <div>
+        <h3>El sobre <em>dorado</em></h3>
+        <p>Primer plano del sobre dorado siendo abierto. Dedos femeninos deslizan la solapa. La tarjeta dorada se ve: &ldquo;1 a&ntilde;o de LITM&circ;S GRATIS&rdquo;. Luz dorada incide sobre la tarjeta. C&aacute;mara lenta sutil.</p>
+        <div class="tech"><span class="hl">Close up</span><span>Sobre dorado</span><span>Tarjeta</span><span>Luz dorada</span></div>
+      </div>
+    </div>
+
+    <!-- SHOT 11 -->
+    <div class="shot reveal">
+      <div><div class="shot-num">11</div><div class="shot-time">8.0s &rarr; 8.8s</div></div>
+      <div class="shot-visual" style="background:linear-gradient(135deg,#1a1a2a,#0d0d1a);"><span style="font-size:2rem;opacity:.3">🎭</span><span class="badge">Reaction</span></div>
+      <div>
+        <h3>Reacci&oacute;n <em>genuina</em></h3>
+        <p>Plano medio de una mujer leyendo la tarjeta. Su expresi&oacute;n cambia de curiosidad a sorpresa genuina. Mira a sus amigas. Sonr&iacute;e. Sostiene la tarjeta dorada junto a su copa violeta. La composici&oacute;n es asim&eacute;trica.</p>
+        <div class="tech"><span class="hl">Plano medio</span><span>Reaccion</span><span>Tarjeta + copa</span><span>Composicion asimetrica</span></div>
+      </div>
+    </div>
+
+    <!-- SHOT 12 -->
+    <div class="shot reveal">
+      <div><div class="shot-num">12</div><div class="shot-time">8.8s &rarr; 10.0s</div></div>
+      <div class="shot-visual" style="background:linear-gradient(135deg,#2a1a3a,#0d0d1a);"><span style="font-size:2rem;opacity:.3">🎯</span><span class="badge">CTA</span></div>
+      <div>
+        <h3>CTA + <em>cierre</em></h3>
+        <p>Pantalla en negro. Texto en dos l&iacute;neas, tipograf&iacute;a Manrope Bold: &ldquo;Este a&ntilde;o, mam&aacute; no solo recibe un regalo. Recibe un a&ntilde;o entero.&rdquo; Abajo, en tama&ntilde;o menor: &ldquo;Pack x3 participa por Golden Ticket &middot; 1 a&ntilde;o de Litm&ucirc;s gratis&rdquo;. Fade a logo LITM&circ;S + CTA &ldquo;Comprar Pack x3&rdquo;.</p>
+        <div class="tech"><span class="hl">Texto en pantalla</span><span>Fade</span><span>Logo</span><span>CTA</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- ═══ TECH SPECS ═══ -->
+<section>
+  <div class="sl reveal">Especificaciones t&eacute;cnicas</div>
+  <h2 class="reveal d1">Direcci&oacute;n de <em>arte</em></h2>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;" class="reveal">
+    <div>
+      <div style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--lime);margin-bottom:16px;">Look &amp; Feel</div>
+      <ul style="list-style:none;font-size:.85rem;color:var(--gray);line-height:2;">
+        <li>&bull; Paleta: tierra, crudo, verde oliva, violeta</li>
+        <li>&bull; Copas vintage gruesas, estilo a&ntilde;os 70</li>
+        <li>&bull; Iluminaci&oacute;n c&aacute;lida, dorada, sin luz fr&iacute;a</li>
+        <li>&bull; Texturas: terciopelo, madera, vidrio</li>
+        <li>&bull; Vestuario: relajado, colores Agatha Lui</li>
+        <li>&bull; Sin maquillaje recargado, natural</li>
+      </ul>
+    </div>
+    <div>
+      <div style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--lime);margin-bottom:16px;">C&aacute;mara &amp; Edici&oacute;n</div>
+      <ul style="list-style:none;font-size:.85rem;color:var(--gray);line-height:2;">
+        <li>&bull; 24 fps &mdash; cine look</li>
+        <li>&bull; C&aacute;mara en mano con estabilizaci&oacute;n suave</li>
+        <li>&bull; Lentes: 35mm, 50mm, macro para el l&iacute;quido</li>
+        <li>&bull; Edici&oacute;n: cortes r&aacute;pidos, whip pans</li>
+        <li>&bull; C&aacute;mara lenta en shots 3, 6, 10</li>
+        <li>&bull; Color grading: tonos c&aacute;lidos, realce del violeta</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="reveal" style="margin-top:40px;padding:24px;border:1px solid var(--dim);">
+    <div style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--lime);margin-bottom:12px;">Referencia visual</div>
+    <p style="font-size:.85rem;color:var(--gray);line-height:1.6;">Los videos existentes en la carpeta (<em>magnific_*.mp4</em>) muestran el estilo de c&aacute;mara en mano, tomas con comida/bebida, y setting social que buscamos. Usar como referencia de iluminaci&oacute;n y tono. El video final debe sentirse m&aacute;s pulido, con mejor direcci&oacute;n de arte, manteniendo la espontaneidad.</p>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- ═══ FOOTER ═══ -->
+<section style="padding:60px 64px;max-width:none;">
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;">
+    <div>
+      <div style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gray);margin-bottom:6px;">Producci&oacute;n</div>
+      <div style="font-family:'Instrument Serif',serif;font-size:1.6rem;">LAB080 × LITM&circ;S</div>
+    </div>
+    <div style="text-align:right;font-size:11px;color:var(--gray);line-height:1.8;">
+      12 planos &middot; 10 segundos &middot; Edici&oacute;n Guy Ritchie<br>
+      Formato: 9:16 vertical &middot; Meta Ads / Instagram Reels
+    </div>
+  </div>
+</section>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
