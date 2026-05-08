@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10 Ideas Creativas — Día de la Madre · LITMÛS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--lime:#D2FF28;--black:#000;--white:#fff;--red:#FF3535;--amber:#FFB800;--green:#00E87A;--gray:#888;--dim:#333;--m2:#555}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Manrope',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.035'/%3E%3C/svg%3E");opacity:0.4}
+
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+section{padding:100px 64px;max-width:1200px;margin:0 auto}
+.sl{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--lime);margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.sl::after{content:'';height:1px;width:48px;background:var(--lime);opacity:.5}
+h2{font-family:'Instrument Serif',serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:400;line-height:1.15;margin-bottom:16px}
+h2 em{font-style:italic;color:var(--lime)}
+.lead{font-size:1.1rem;color:var(--gray);max-width:560px;margin-bottom:64px;line-height:1.7}
+
+/* COVER */
+#cover{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:80px 64px;position:relative;max-width:none;overflow:hidden}
+.cb{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 70% 30%,rgba(210,255,40,0.06) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 20% 80%,rgba(255,53,53,0.04) 0%,transparent 50%)}
+.cm{display:flex;justify-content:space-between;align-items:flex-end;position:relative;z-index:1}
+.ct{font-family:'Instrument Serif',serif;font-size:clamp(3.5rem,9vw,8rem);font-weight:400;line-height:.95;letter-spacing:-.02em}
+.ct .accent{color:var(--lime)}
+.ct .sub{display:block;font-size:clamp(1.5rem,3vw,2.8rem);color:var(--gray);font-style:italic;margin-top:8px;letter-spacing:0}
+.cr{text-align:right;font-size:12px;color:var(--gray);letter-spacing:.08em;line-height:1.8}
+.cb2{display:inline-block;border:1px solid var(--dim);padding:6px 16px;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--gray);margin-bottom:16px}
+.cw{margin-top:48px;border-top:1px solid var(--dim);padding-top:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px;position:relative;z-index:1}
+.cs{display:flex;flex-direction:column;gap:4px}
+.csl{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray)}
+.csv{font-family:'Instrument Serif',serif;font-size:clamp(1.8rem,3.5vw,3rem);font-weight:400;color:var(--white)}
+.csv.l{color:var(--lime)}
+
+/* IDEAS */
+.ideas{display:flex;flex-direction:column;gap:0}
+.idea{display:grid;grid-template-columns:240px 1fr;gap:40px;padding:40px 0;border-top:1px solid var(--dim);align-items:start}
+.idea:last-child{border-bottom:1px solid var(--dim);padding-bottom:60px}
+.idea-num{font-family:'Instrument Serif',serif;font-size:2.6rem;color:var(--lime);line-height:1}
+.idea-tag{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--gray);margin-top:6px}
+.idea h3{font-family:'Instrument Serif',serif;font-size:1.8rem;font-weight:400;line-height:1.2;margin-bottom:8px}
+.idea h3 em{color:var(--lime);font-style:italic}
+.idea p{font-size:.92rem;color:var(--gray);line-height:1.7;margin-bottom:12px}
+.idea .brief{font-size:.82rem;color:var(--m2);line-height:1.6;padding:14px 18px;border-left:2px solid var(--lime);background:rgba(210,255,40,.02);margin-top:8px}
+.idea .brief strong{color:var(--white)}
+.idea .mood{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.idea .mood span{font-size:9px;padding:3px 10px;border:1px solid var(--dim);border-radius:2px;color:var(--gray);letter-spacing:.05em}
+
+.cat{display:inline-block;font-size:9px;padding:3px 10px;border-radius:2px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:10px}
+.cat.gold{background:rgba(255,184,0,.1);color:var(--amber);border:1px solid rgba(255,184,0,.2)}
+.cat.dict{background:rgba(210,255,40,.1);color:var(--lime);border:1px solid rgba(210,255,40,.2)}
+.cat.life{background:rgba(255,255,255,.05);color:var(--white);border:1px solid var(--dim)}
+
+.div{height:1px;background:linear-gradient(90deg,var(--dim) 0%,transparent 100%);margin:0 64px}
+
+@media(max-width:768px){
+  section{padding:60px 24px}
+  .cm{flex-direction:column;align-items:flex-start;gap:24px}
+  .cr{text-align:left}
+  .cw{grid-template-columns:1fr}
+  .idea{grid-template-columns:1fr;gap:20px}
+  #cover{padding:60px 24px}
+  .div{margin:0 24px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ COVER ═══ -->
+<section id="cover">
+  <div class="cb"></div>
+  <div class="cm">
+    <div>
+      <div class="cb2">LAB080 × LITM&circ;S</div>
+      <div class="ct">
+        10 Ideas<br>
+        <span class="accent">Creativas</span>
+        <span class="sub">Campa&ntilde;a D&iacute;a de la Madre &middot; Golden Ticket</span>
+      </div>
+    </div>
+    <div class="cr">
+      Mayo 2026<br>
+      Lifestyle &middot; Consumo &middot; Celebraci&oacute;n<br>
+      Target: Mujeres +18
+    </div>
+  </div>
+  <div class="cw">
+    <div class="cs"><span class="csl">Mec&aacute;nica 1</span><span class="csv l">Diccionario</span><span style="font-size:12px;color:var(--gray);margin-top:4px;">Engagement org&aacute;nico</span></div>
+    <div class="cs"><span class="csl">Mec&aacute;nica 2</span><span class="csv">Golden Ticket</span><span style="font-size:12px;color:var(--gray);margin-top:4px;">Tarjeta dentro del Pack x3</span></div>
+    <div class="cs"><span class="csl">Target</span><span class="csv">Mujeres +18</span><span style="font-size:12px;color:var(--gray);margin-top:4px;">Sin ni&ntilde;os &middot; Consumo &middot; Celebraci&oacute;n</span></div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- ═══ IDEAS ═══ -->
+<section>
+  <div class="sl reveal">Lifestyle &middot; Consumo &middot; Celebraci&oacute;n</div>
+  <h2 class="reveal d1">Im&aacute;genes de <em>campa&ntilde;a</em></h2>
+  <p class="lead reveal d2">Mujeres +18 disfrutando. Madres, amigas, hijas. Sin ni&ntilde;os. Consumo real, celebraci&oacute;n, el Golden Ticket como sorpresa.</p>
+
+  <div class="ideas">
+
+    <!-- 1 -->
+    <div class="idea reveal">
+      <div><div class="idea-num">01</div><div class="idea-tag">Lifestyle &middot; Grupo</div></div>
+      <div>
+        <span class="cat life">Celebraci&oacute;n</span>
+        <h3>Tres madres <em>brindando</em></h3>
+        <p>Tres mujeres (40&ndash;55 a&ntilde;os) en una terraza al atardecer. Risas, copas de LITM&circ;S Spritz en mano, el cambio de color visible. Una de ellas sostiene el sobre dorado del Golden Ticket, a&uacute;n sin abrir. Ambiente c&aacute;lido, dorado, c&oacute;mplice.</p>
+        <div class="brief"><strong>Referencia:</strong> Foto grupal estilo revista. Iluminaci&oacute;n golden hour. Copas con el rosado vibrante. El sobre dorado en primer plano, apoyado en la mesa. Texto: &ldquo;Este a&ntilde;o, mam&aacute; brinda por un a&ntilde;o de Litm&ucirc;s.&rdquo;</div>
+        <div class="mood"><span>Golden hour</span><span>Brindis</span><span>Copas rosado</span><span>Sobre dorado</span></div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="idea reveal">
+      <div><div class="idea-num">02</div><div class="idea-tag">Lifestyle &middot; Madre e hija</div></div>
+      <div>
+        <span class="cat life">Celebraci&oacute;n</span>
+        <h3>Madre e hija <em>compartiendo</em></h3>
+        <p>Mujer joven (25&ndash;30) y su mam&aacute; (50&ndash;60) sentadas en un living c&aacute;lido. La hija prepara un Litmus Spritz mientras la mam&aacute; mira curiosa el cambio de color. El sobre del Golden Ticket est&aacute; abierto sobre la mesa, la tarjeta dorada asomando.</p>
+        <div class="brief"><strong>Referencia:</strong> Ambiente acogedor, sill&oacute;n, luz c&aacute;lida. La hija exprime el lim&oacute;n y el color cambia justo frente a la mam&aacute;. Texto: &ldquo;El momento en que todo cambia.&rdquo;</div>
+        <div class="mood"><span>Madre e hija</span><span>Living</span><span>Preparando copa</span><span>Cambio de color</span><span>Sobre abierto</span></div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="idea reveal">
+      <div><div class="idea-num">03</div><div class="idea-tag">Lifestyle &middot; Golden Ticket</div></div>
+      <div>
+        <span class="cat gold">Golden Ticket</span>
+        <h3>El <em>sobre dorado</em> en la mesa</h3>
+        <p>Mesa de comedor, mantel blanco, luz natural. Un Pack x3 reci&eacute;n abierto, las tres botellas colocadas, y junto a ellas un sobre dorado con el sello &ldquo;Golden Ticket &mdash; 1 a&ntilde;o de Litm&ucirc;s&rdquo;. El sobre est&aacute; entreabierto, la tarjeta asomando.</p>
+        <div class="brief"><strong>Referencia:</strong> Flat lay desde arriba. Iluminaci&oacute;n natural lateral. Manos de mujer abriendo el sobre. Texto: &ldquo;Adentro no solo hay Litm&ucirc;s. Hay un a&ntilde;o entero.&rdquo;</div>
+        <div class="mood"><span>Flat lay</span><span>Sobre dorado</span><span>Pack x3</span><span>Tarjeta</span></div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="idea reveal">
+      <div><div class="idea-num">04</div><div class="idea-tag">Lifestyle &middot; Amigas</div></div>
+      <div>
+        <span class="cat life">Celebraci&oacute;n</span>
+        <h3>Amigas <em>celebrando</em> juntas</h3>
+        <p>Cuatro amigas (30&ndash;50) en una cena en casa. Una mesa con botellas de LITM&circ;S, hielo, limones. La conversaci&oacute;n fluye, una de ellas muestra el sobre dorado a las dem&aacute;s, todas r&iacute;en. Atm&oacute;sfera c&aacute;lida, c&oacute;mplice, festiva.</p>
+        <div class="brief"><strong>Referencia:</strong> Plano general de la mesa, las copas con el color rosado vivo contrastan con la iluminaci&oacute;n c&aacute;lida. El sobre dorado pasa de mano en mano.</div>
+        <div class="mood"><span>Cena</span><span>Amigas</span><span>Botella en mesa</span><span>Conversaci&oacute;n</span></div>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="idea reveal">
+      <div><div class="idea-num">05</div><div class="idea-tag">Consumo &middot; Primer plano</div></div>
+      <div>
+        <span class="cat life">Consumo</span>
+        <h3>El <em>cambio de color</em> en vivo</h3>
+        <p>Primer plano de manos femeninas sosteniendo una copa de LITM&circ;S. Se ve el l&iacute;quido azul. Otra mano exprime medio lim&oacute;n, y el color empieza a cambiar de azul a rosado frente a c&aacute;mara. Una copa dorada al lado, vac&iacute;a, esperando.</p>
+        <div class="brief"><strong>Referencia:</strong> Video o foto secuencial. Macro del cambio de color. Manos con u&ntilde;as cuidadas, copa de cristal, luz lateral. Texto: &ldquo;As&iacute; de f&aacute;cil. As&iacute; de m&aacute;gico.&rdquo;</div>
+        <div class="mood"><span>Cambio de color</span><span>Manos</span><span>Lim&oacute;n</span><span>Macro</span></div>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="idea reveal">
+      <div><div class="idea-num">06</div><div class="idea-tag">Lifestyle &middot; Sorpresa</div></div>
+      <div>
+        <span class="cat gold">Golden Ticket</span>
+        <h3>&laquo;Mam&aacute;, <em>abre esto</em>&raquo;</h3>
+        <p>Escena en una cocina luminosa. Una hija (25&ndash;35) le entrega el Pack x3 a su mam&aacute; envuelto en un mo&ntilde;o simple. La mam&aacute; lo recibe con sonrisa genuina, sin saber que dentro viene el sobre dorado. El momento exacto antes de abrir.</p>
+        <div class="brief"><strong>Referencia:</strong> Foto c&aacute;ndida, luz natural de ventana. La hija sostiene el pack, la mam&aacute; lo recibe. Texto: &ldquo;El mejor regalo viene con una sorpresa adentro.&rdquo;</div>
+        <div class="mood"><span>Entrega</span><span>Sorpresa</span><span>Pack x3</span><span>Mo&ntilde;o</span></div>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="idea reveal">
+      <div><div class="idea-num">07</div><div class="idea-tag">Lifestyle &middot; Atardecer</div></div>
+      <div>
+        <span class="cat life">Celebraci&oacute;n</span>
+        <h3>Atardecer con <em>Litmus</em></h3>
+        <p>Mujer (45&ndash;55) en un balc&oacute;n al atardecer. Sola, disfrutando un momento de tranquilidad. Una copa de LITM&circ;S en la mano, el cielo de fondo con tonos naranjas y rosados que combinan con el l&iacute;quido en la copa.</p>
+        <div class="brief"><strong>Referencia:</strong> Silueta o perfil, luz de atardecer. La copa capta la luz. Texto: &ldquo;Por los momentos que son solo tuyos.&rdquo;</div>
+        <div class="mood"><span>Atardecer</span><span>Sola</span><span>Balc&oacute;n</span><span>Paz</span></div>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="idea reveal">
+      <div><div class="idea-num">08</div><div class="idea-tag">Consumo &middot; Golden Ticket</div></div>
+      <div>
+        <span class="cat gold">Golden Ticket</span>
+        <h3>El sobre <em>abierto</em></h3>
+        <p>Primer plano del sobre dorado abierto sobre una mesa de madera. La tarjeta dorada asoma, se lee &ldquo;1 a&ntilde;o de LITM&circ;S GRATIS&rdquo; con tipograf&iacute;a elegante. Junto al sobre, una copa de Litmus Spritz y el Pack x3 de fondo ligeramente desenfocado.</p>
+        <div class="brief"><strong>Referencia:</strong> Foto plana detalle. Iluminaci&oacute;n suave lateral. Texto: &ldquo;No es un corcho. Es un a&ntilde;o entero de Litm&ucirc;s.&rdquo;</div>
+        <div class="mood"><span>Sobre abierto</span><span>Tarjeta dorada</span><span>Detalle</span><span>Pack x3 fondo</span></div>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="idea reveal">
+      <div><div class="idea-num">09</div><div class="idea-tag">UGC &middot; Testimonial</div></div>
+      <div>
+        <span class="cat gold">UGC / Golden Ticket</span>
+        <h3>Mam&aacute; <em>encuentra</em> la tarjeta</h3>
+        <p>Video UGC estilo c&aacute;mara en mano (mismo formato que la campa&ntilde;a ganadora con ROAS 4.29x). Una hija le regala el Pack x3 a su mam&aacute;. La mam&aacute; lo abre, saca las botellas, y encuentra el sobre dorado. Su reacci&oacute;n genuina al leer &ldquo;1 a&ntilde;o gratis&rdquo;.</p>
+        <div class="brief"><strong>Brief producci&oacute;n:</strong> Mismo equipo/tono que la campa&ntilde;a UGC Anah&iacute;. Sin libreto. Audio natural. Capturar la reacci&oacute;n real. Incluir texto superpuesto con los detalles.</div>
+        <div class="mood"><span>UGC</span><span>Reacci&oacute;n real</span><span>C&aacute;mara en mano</span><span>Unboxing</span></div>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="idea reveal">
+      <div><div class="idea-num">10</div><div class="idea-tag">Lifestyle &middot; Diccionario</div></div>
+      <div>
+        <span class="cat dict">Diccionario de Mam&aacute;</span>
+        <h3>Tres generaciones, <em>una misma frase</em></h3>
+        <p>Tres mujeres (abuela, mam&aacute;, hija) en un living. Cada una sostiene una copa de LITM&circ;S. La abuela dice una frase t&iacute;pica mientras las otras se r&iacute;en. El momento captura la complicidad entre generaciones.</p>
+        <div class="brief"><strong>Referencia:</strong> Foto c&aacute;lida, luz natural. Las tres mujeres en un sof&aacute;, copas en mano, riendo. Texto: &ldquo;Hay frases que pasan de generaci&oacute;n en generaci&oacute;n. Como el buen gusto.&rdquo;</div>
+        <div class="mood"><span>Tres generaciones</span><span>Risas</span><span>Copa en mano</span><span>Complicidad</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- ═══ FOOTER ═══ -->
+<section style="padding:60px 64px;max-width:none;">
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;">
+    <div>
+      <div style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gray);margin-bottom:8px;">Producci&oacute;n</div>
+      <div style="font-family:'Instrument Serif',serif;font-size:1.8rem;">LAB080 × LITM&circ;S</div>
+    </div>
+    <div style="text-align:right;font-size:12px;color:var(--gray);line-height:1.8;">
+      Mayo 2026 &middot; Santiago, Chile<br>
+      Target: Mujeres +18 &middot; Consumo &middot; Celebraci&oacute;n<br>
+      Mec&aacute;nica: Tarjeta dorada dentro del Pack x3
+    </div>
+  </div>
+</section>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
