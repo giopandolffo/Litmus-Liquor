@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Litmûs — Propuesta de Inversión y Estrategia de Marca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══ RESET ═══ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{font-family:'Work Sans',Arial,Helvetica,sans-serif;font-weight:400;background:#0f081a;color:#fff;line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+
+/* ═══ VARIABLES ═══ */
+:root{
+  --purple:#191029;
+  --purple-dark:#0f081a;
+  --purple-light:#2a1a45;
+  --peach:#fee5ca;
+  --peach-light:#fff0e0;
+  --red:#b00e2f;
+  --gold:#c9a84c;
+  --white:#ffffff;
+  --off-white:rgba(255,255,255,0.7);
+  --muted:rgba(255,255,255,0.35);
+  --font-heading:'Bodoni Moda',Georgia,'Times New Roman',serif;
+  --font-body:'Work Sans',Arial,Helvetica,sans-serif;
+}
+
+/* ═══ TYPOGRAPHY ═══ */
+h1,h2,h3,h4{font-family:var(--font-heading);font-weight:400;line-height:1.1}
+h1{font-size:clamp(2.8rem,8vw,6.5rem);letter-spacing:-0.02em}
+h2{font-size:clamp(2rem,5vw,4rem);letter-spacing:-0.01em}
+h3{font-size:clamp(1.3rem,2.5vw,2rem)}
+h4{font-size:clamp(1.1rem,1.8vw,1.4rem)}
+p{font-size:clamp(0.95rem,1.2vw,1.1rem);color:var(--off-white);font-weight:300}
+.small{font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.label{font-family:var(--font-body);font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);font-weight:500;display:block;margin-bottom:1rem}
+.section-title{position:relative;padding-bottom:1.5rem;margin-bottom:3rem}
+.section-title::after{content:'';position:absolute;bottom:0;left:0;width:60px;height:2px;background:var(--gold)}
+.text-center .section-title::after{left:50%;transform:translateX(-50%)}
+
+/* ═══ SCROLL PROGRESS ═══ */
+#scrollProgress{position:fixed;top:0;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--peach));z-index:999;transition:width 0.1s linear}
+
+/* ═══ ANIMATIONS ═══ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeDown{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-20px)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
+@keyframes pulse-glow{0%,100%{opacity:0.4}50%{opacity:0.8}}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes lineGrow{from{width:0}to{width:100%}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes scaleIn{from{opacity:0;transform:scale(0.92)}to{opacity:1;transform:scale(1)}}
+@keyframes slideRight{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:translateX(0)}}
+@keyframes slideLeft{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:translateX(0)}}
+@keyframes rotateGlow{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+@keyframes barGrow{from{width:0}to{width:var(--bar-w)}}
+
+/* ═══ REVEAL SYSTEM ═══ */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1),transform 0.9s cubic-bezier(0.16,1,0.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal.hidden{opacity:0;transform:translateY(-20px)}
+.reveal-d1{transition-delay:0.1s}
+.reveal-d2{transition-delay:0.2s}
+.reveal-d3{transition-delay:0.3s}
+.reveal-d4{transition-delay:0.4s}
+.reveal-d5{transition-delay:0.5s}
+.reveal-d6{transition-delay:0.6s}
+.reveal-d7{transition-delay:0.7s}
+
+/* ═══ REVEAL VARIANTS ═══ */
+.reveal-scale{opacity:0;transform:scale(0.92);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1),transform 0.9s cubic-bezier(0.16,1,0.3,1)}
+.reveal-scale.visible{opacity:1;transform:scale(1)}
+.reveal-right{opacity:0;transform:translateX(-30px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.reveal-left{opacity:0;transform:translateX(30px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+
+/* ═══ PARALLAX LAYER ═══ */
+.parallax-layer{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.parallax-layer > *{will-change:transform;transition:transform 0.05s linear}
+
+/* ═══ MOUSE GLOW ═══ */
+#mouseGlow{position:fixed;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,0.06) 0%,transparent 70%);pointer-events:none;z-index:0;transform:translate(-50%,-50%);transition:opacity 0.3s;will-change:transform}
+
+/* ═══ SCROLLBAR ═══ */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--purple-dark)}
+::-webkit-scrollbar-thumb{background:var(--purple-light);border-radius:3px}
+
+/* ═══ NAV ═══ */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 2.5rem;display:flex;justify-content:space-between;align-items:center;background:transparent;transition:all 0.5s cubic-bezier(0.16,1,0.3,1)}
+nav.scrolled{background:rgba(15,8,26,0.92);backdrop-filter:blur(20px);padding:0.8rem 2.5rem}
+nav .logo{font-family:var(--font-heading);font-size:1.3rem;letter-spacing:0.12em;text-transform:uppercase;color:#fff;font-weight:400}
+nav .nav-links{display:flex;gap:2rem;list-style:none}
+nav .nav-links a{font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);transition:color 0.3s;font-weight:400}
+nav .nav-links a:hover{color:#fff}
+.nav-toggle{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:4px}
+.nav-toggle span{display:block;width:22px;height:1.5px;background:#fff;transition:all 0.3s}
+
+/* ═══ HERO / COVER ═══ */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--purple-dark)}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg .gradient{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(42,26,69,0.6) 0%,transparent 70%),radial-gradient(ellipse 60% 50% at 80% 80%,rgba(201,168,76,0.08) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 20% 60%,rgba(254,229,202,0.05) 0%,transparent 50%)}
+.hero-bg .particle{position:absolute;border-radius:50%;background:var(--gold);opacity:0.15;animation:pulse-glow 4s ease-in-out infinite}
+.hero-bg .particle:nth-child(2){width:3px;height:3px;top:15%;left:20%;animation-delay:0s}
+.hero-bg .particle:nth-child(3){width:2px;height:2px;top:30%;right:25%;animation-delay:1s;background:var(--peach)}
+.hero-bg .particle:nth-child(4){width:4px;height:4px;top:60%;left:70%;animation-delay:2s}
+.hero-bg .particle:nth-child(5){width:2px;height:2px;top:75%;left:10%;animation-delay:0.5s;background:var(--peach)}
+.hero-bg .particle:nth-child(6){width:3px;height:3px;top:20%;right:45%;animation-delay:1.5s}
+.hero-content{position:relative;z-index:1;text-align:center;max-width:800px;padding:2rem;will-change:transform,opacity}
+.hero-content .tagline{font-family:var(--font-body);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;font-weight:500}
+.hero-content h1{color:#fff;margin-bottom:1.5rem}
+.hero-content h1 span{font-style:italic;color:var(--gold)}
+.hero-content .sub{font-size:clamp(1rem,1.5vw,1.2rem);color:var(--off-white);max-width:560px;margin:0 auto 2.5rem;font-weight:300;line-height:1.7}
+.hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:0.6rem;padding:0.9rem 2rem;border-radius:100px;font-family:var(--font-body);font-size:0.75rem;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);border:none;cursor:pointer}
+.btn-primary{background:var(--gold);color:var(--purple-dark)}
+.btn-primary:hover{background:#dbb956;transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,168,76,0.25)}
+.btn-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.2)}
+.btn-outline:hover{background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.4)}
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:1;display:flex;flex-direction:column;align-items:center;gap:0.5rem;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);animation:float 3s ease-in-out infinite}
+.hero-scroll .line{width:1px;height:40px;background:linear-gradient(to bottom,var(--gold),transparent)}
+
+/* ═══ SECTIONS ═══ */
+section{padding:6rem 2rem;position:relative;opacity:0;transform:translateY(20px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);will-change:opacity,transform}
+section.section-visible{opacity:1;transform:translateY(0)}
+section:nth-child(even){background:var(--purple)}
+section:nth-child(odd){background:var(--purple-dark)}
+.container{max-width:1100px;margin:0 auto}
+
+/* ═══ ANALYSIS BANNER ═══ */
+.analysis-banner{background:linear-gradient(135deg,rgba(201,168,76,0.08),rgba(42,26,69,0.4));border:1px solid rgba(201,168,76,0.15);border-radius:16px;padding:2.5rem;margin-bottom:4rem}
+.analysis-banner h3{font-family:var(--font-heading);color:var(--gold);margin-bottom:1rem;font-size:1.3rem}
+.analysis-banner ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.analysis-banner li{padding-left:1.5rem;position:relative;font-size:0.9rem;color:var(--off-white);font-weight:300}
+.analysis-banner li::before{content:'→';position:absolute;left:0;color:var(--gold)}
+
+/* ═══ GRID ═══ */
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2.5rem}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem}
+.grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem}
+
+/* ═══ CARDS ═══ */
+.card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:2rem;transition:all 0.4s cubic-bezier(0.16,1,0.3,1)}
+.card:hover{background:rgba(255,255,255,0.06);border-color:rgba(201,168,76,0.2);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.15)}
+.card .icon{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;font-size:1.1rem}
+.card h4{font-family:var(--font-heading);margin-bottom:0.6rem;font-size:1.1rem;color:#fff}
+.card p{font-size:0.85rem;color:var(--off-white);line-height:1.6;font-weight:300}
+
+/* ═══ CAP TABLE ═══ */
+.cap-table{width:100%;border-collapse:collapse;margin:2rem 0;font-size:0.9rem}
+.cap-table thead th{font-family:var(--font-body);font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);padding:0.8rem 1rem;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08);font-weight:500}
+.cap-table tbody td{padding:1rem;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--off-white);font-weight:300}
+.cap-table tbody tr:last-child td{border-bottom:none}
+.cap-table tbody tr:last-child{background:rgba(201,168,76,0.06)}
+.cap-table tbody tr:last-child td{color:var(--gold);font-weight:500}
+.cap-table .pct{font-family:var(--font-heading);font-size:1.1rem;color:#fff;font-weight:500}
+.cap-table .pct-new{color:var(--gold)}
+.cap-table .change{font-size:0.7rem;color:var(--muted)}
+.cap-visual{display:flex;height:40px;border-radius:8px;overflow:hidden;margin:1.5rem 0;gap:3px}
+.cap-visual .bar{display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:500;transition:flex 0.5s;font-family:var(--font-body);letter-spacing:0.02em}
+.cap-visual .bar-purple{background:var(--purple-light);color:rgba(255,255,255,0.5)}
+.cap-visual .bar-gold{background:var(--gold);color:var(--purple-dark)}
+
+/* ═══ USE OF FUNDS ═══ */
+.fund-item{display:flex;align-items:center;gap:1rem;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,0.04);transition:all 0.4s cubic-bezier(0.16,1,0.3,1)}
+.fund-item:hover{background:rgba(201,168,76,0.03);border-radius:8px;padding-left:0.5rem;padding-right:0.5rem;border-bottom-color:rgba(201,168,76,0.1)}
+.fund-item:last-child{border-bottom:none}
+.fund-item .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.fund-item .info{flex:1}
+.fund-item .info .name{font-family:var(--font-heading);color:#fff;font-size:0.95rem}
+.fund-item .info .desc{font-size:0.75rem;color:var(--muted);font-weight:300}
+.fund-item .pct{font-family:var(--font-heading);font-size:1rem;color:var(--gold);font-weight:500}
+
+/* ═══ PSYCHOLOGY ═══ */
+.psych-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:12px;padding:1.5rem;transition:all 0.4s}
+.psych-card:hover{background:rgba(201,168,76,0.04);border-color:rgba(201,168,76,0.15)}
+.psych-card h4{font-family:var(--font-heading);font-size:0.95rem;color:var(--gold);margin-bottom:0.4rem;letter-spacing:0.02em}
+.psych-card .principle{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.6rem;font-weight:500}
+.psych-card p{font-size:0.82rem;color:var(--off-white);line-height:1.6;font-weight:300}
+
+/* ═══ ROADMAP ═══ */
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--gold),var(--purple-light),transparent)}
+.timeline-item{position:relative;padding-bottom:2.5rem}
+.timeline-item:last-child{padding-bottom:0}
+.timeline-item::before{content:'';position:absolute;left:-2rem;top:0.3rem;width:9px;height:9px;border-radius:50%;background:var(--gold);border:2px solid var(--purple-dark)}
+.timeline-item .date{font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);font-weight:500;font-family:var(--font-body);margin-bottom:0.3rem}
+.timeline-item h4{color:#fff;margin-bottom:0.3rem}
+.timeline-item p{font-size:0.85rem;color:var(--muted);max-width:500px;font-weight:300}
+
+/* ═══ QUOTE ═══ */
+.quote-block{border-left:2px solid var(--gold);padding:1.5rem 2rem;margin:2rem 0;background:rgba(201,168,76,0.04);border-radius:0 12px 12px 0}
+.quote-block p{font-family:var(--font-heading);font-size:1.2rem;font-style:italic;color:var(--peach-light);line-height:1.5;font-weight:400}
+.quote-block .attr{font-size:0.75rem;color:var(--muted);margin-top:0.8rem;font-style:normal;font-family:var(--font-body);font-weight:300}
+
+/* ═══ STATS ═══ */
+.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2rem;text-align:center;margin:2.5rem 0}
+.stat .number{font-family:var(--font-heading);font-size:clamp(2rem,4vw,3rem);color:var(--gold);font-weight:500}
+.stat .label{color:var(--off-white);font-size:0.8rem;margin-top:0.3rem;font-weight:300;letter-spacing:0}
+
+/* ═══ FOOTER CTA ═══ */
+.cta-section{text-align:center;padding:8rem 2rem;background:linear-gradient(180deg,var(--purple-dark),var(--purple))}
+.cta-section h2{margin-bottom:1rem;color:#fff}
+.cta-section p{max-width:500px;margin:0 auto 2.5rem;color:var(--off-white)}
+.cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* ═══ FOOTER ═══ */
+footer{padding:3rem 2rem;text-align:center;border-top:1px solid rgba(255,255,255,0.04)}
+footer p{font-size:0.7rem;color:var(--muted)}
+footer .social{display:flex;gap:1rem;justify-content:center;margin-bottom:1.5rem}
+footer .social a{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;transition:all 0.3s;color:var(--muted)}
+footer .social a:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,0.08)}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:768px){
+  section{padding:4rem 1.25rem}
+  nav{padding:1rem 1.25rem}
+  nav.scrolled{padding:0.7rem 1.25rem}
+  nav .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(15,8,26,0.98);flex-direction:column;padding:1.5rem;gap:1.2rem;backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,0.05)}
+  nav .nav-links.open{display:flex}
+  .nav-toggle{display:flex}
+  .hero-content h1{font-size:clamp(2.2rem,10vw,3.5rem)}
+  .analysis-banner ul{grid-template-columns:1fr}
+  .cap-table{font-size:0.75rem}
+  .cap-table thead th,.cap-table tbody td{padding:0.6rem 0.5rem}
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+  .stat-row{grid-template-columns:repeat(2,1fr);gap:1.5rem}
+}
+</style>
+</head>
+<body>
+<div id="scrollProgress"></div>
+<div id="mouseGlow"></div>
+
+<!-- ═══ NAV ═══ -->
+<nav id="navbar">
+  <a href="#" class="logo">Litmûs</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Menú">
+    <span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#oportunidad">Oportunidad</a></li>
+    <li><a href="#inversion">Inversión</a></li>
+    <li><a href="#marca">Estrategia</a></li>
+    <li><a href="#psicologia">Psicología</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+  </ul>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="inicio">
+  <div class="hero-bg" id="heroBg">
+    <div class="gradient"></div>
+    <!-- Parallax particles -->
+    <div class="parallax-layer" id="parallaxLayer">
+      <div class="particle" style="top:10%;left:15%;width:4px;height:4px;animation-delay:0s"></div>
+      <div class="particle" style="top:25%;right:20%;width:2px;height:2px;animation-delay:0.5s;background:var(--peach)"></div>
+      <div class="particle" style="top:45%;left:60%;width:3px;height:3px;animation-delay:1s"></div>
+      <div class="particle" style="top:65%;left:8%;width:5px;height:5px;animation-delay:0.3s;background:var(--peach)"></div>
+      <div class="particle" style="top:20%;left:80%;width:2px;height:2px;animation-delay:1.5s"></div>
+      <div class="particle" style="top:75%;right:35%;width:3px;height:3px;animation-delay:0.8s"></div>
+      <div class="particle" style="top:35%;left:40%;width:2px;height:2px;animation-delay:2s;background:var(--gold)"></div>
+      <div class="particle" style="top:80%;left:55%;width:4px;height:4px;animation-delay:0.2s"></div>
+      <div class="particle" style="top:15%;left:30%;width:2px;height:2px;animation-delay:1.2s;background:var(--peach)"></div>
+      <div class="particle" style="top:55%;right:15%;width:3px;height:3px;animation-delay:0.7s"></div>
+    </div>
+    <!-- Floating orbs -->
+    <div class="parallax-orb" style="position:absolute;top:20%;right:10%;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,0.04) 0%,transparent 70%);animation:float 8s ease-in-out infinite"></div>
+    <div class="parallax-orb" style="position:absolute;bottom:15%;left:5%;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(254,229,202,0.03) 0%,transparent 70%);animation:float 11s ease-in-out 2s infinite"></div>
+  </div>
+  <div class="hero-content">
+    <span class="tagline" style="animation:fadeUp 0.8s 0.2s both">Destilado de autor · Chile</span>
+    <h1 style="animation:fadeUp 0.8s 0.4s both">Litmûs no es<br>una categoría.<br>Es <span>la suya propia</span>.</h1>
+    <p class="sub" style="animation:fadeUp 0.8s 0.6s both">Una marca que cambia de color frente a tus ojos. Berries del sur de Chile, albahaca, cardamomo y una flor mística. 30&deg; de alcohol. 0% convencional.</p>
+    <div class="hero-cta" style="animation:fadeUp 0.8s 0.8s both">
+      <a href="#inversion" class="btn btn-primary">Ver propuesta</a>
+      <a href="#oportunidad" class="btn btn-outline">Entender el mercado</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Despliega</span>
+    <div class="line"></div>
+  </div>
+</section>
+
+<!-- ═══ OPORTUNIDAD ═══ -->
+<section id="oportunidad">
+  <div class="container">
+    <span class="label reveal">Análisis de mercado</span>
+    <h2 class="section-title reveal">La oportunidad</h2>
+
+    <div class="reveal reveal-d1">
+      <div class="analysis-banner">
+        <h3>Resumen del diagnóstico</h3>
+        <ul>
+          <li>Litmûs compite en el segmento premium de destilados sin competencia directa: creó una categoría nueva</li>
+          <li>El mercado chileno de espirituosos boutique crece a doble dígito anual, impulsado por el consumidor que busca experiencias auténticas sobre productos masivos</li>
+          <li>La marca tiene validación temprana con reseñas orgánicas 5 estrellas y una comunidad inicial fidelizada</li>
+          <li>El desafío principal es capital para escalar: marketing, branding y stock antes de perder el momentum</li>
+          <li>La estrategia de salida (venta a distribuidora en ~12 meses) está alineada con el ciclo de maduración de marca boutique</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="quote-block reveal reveal-d2">
+      <p>El consumidor de hoy no compra un producto &mdash; compra una historia, una identidad, una experiencia sensorial que no encuentra en las grandes marcas.</p>
+      <span class="attr">Tendencia global de consumo de espirituosos premium, IWSR 2025</span>
+    </div>
+
+    <div class="stat-row reveal reveal-d3">
+      <div class="stat">
+        <div class="number">+18%</div>
+        <div class="label">Crecimiento anual destilados boutique en Latam</div>
+      </div>
+      <div class="stat">
+        <div class="number">74%</div>
+        <div class="label">Consumidores prefieren marcas con historia y propósito</div>
+      </div>
+      <div class="stat">
+        <div class="number">3.2×</div>
+        <div class="label">Valoración superior de marcas premium frente a masivas</div>
+      </div>
+      <div class="stat">
+        <div class="number">45</div>
+        <div class="label">Puntos de venta activos en etapa pre-rebranding</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ INVERSIÓN ═══ -->
+<section id="inversion">
+  <div class="container">
+    <span class="label reveal">Estructura societaria</span>
+    <h2 class="section-title reveal">Propuesta de inversión</h2>
+
+    <div class="grid-2" style="align-items:start">
+      <div class="reveal">
+        <h3 style="margin-bottom:1.2rem;color:#fff">Estructura actual vs. propuesta</h3>
+
+        <table class="cap-table">
+          <thead>
+            <tr>
+              <th>Socio</th>
+              <th>Actual</th>
+              <th>Propuesta</th>
+              <th>Diferencia</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Carlos Frazzoni</td>
+              <td class="pct">39%</td>
+              <td class="pct">34%</td>
+              <td class="change">&minus;5%</td>
+            </tr>
+            <tr>
+              <td>Juan Sebastián del Río</td>
+              <td class="pct">39%</td>
+              <td class="pct">34%</td>
+              <td class="change">&minus;5%</td>
+            </tr>
+            <tr>
+              <td>Juan S. del Río U.</td>
+              <td class="pct">22%</td>
+              <td class="pct">22%</td>
+              <td class="change">&mdash;</td>
+            </tr>
+            <tr>
+              <td style="color:var(--gold)">Nuevo inversionista</td>
+              <td class="pct">&mdash;</td>
+              <td class="pct pct-new">10%</td>
+              <td class="change" style="color:var(--gold)">Nuevo</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="cap-visual">
+          <div class="bar bar-purple" style="flex:34">34%</div>
+          <div class="bar bar-purple" style="flex:34">34%</div>
+          <div class="bar bar-purple" style="flex:22">22%</div>
+          <div class="bar bar-gold" style="flex:10">10%</div>
+        </div>
+        <p class="small" style="text-align:right;margin-top:0.3rem">Participación del nuevo socio destacada en oro</p>
+      </div>
+
+      <div class="reveal reveal-d2">
+        <h3 style="margin-bottom:1.2rem;color:#fff">Uso de los fondos</h3>
+        <div class="fund-item">
+          <div class="dot" style="background:var(--gold)"></div>
+          <div class="info">
+            <div class="name">Marketing digital (12 meses)</div>
+            <div class="desc">Campañas Meta, Google, influencers y estrategia de contenido</div>
+          </div>
+        </div>
+        <div class="fund-item">
+          <div class="dot" style="background:#fee5ca"></div>
+          <div class="info">
+            <div class="name">Honorarios profesionales</div>
+            <div class="desc">Equipo creativo y estratégico liderado por Giorgio Pandolffo</div>
+          </div>
+        </div>
+        <div class="fund-item">
+          <div class="dot" style="background:var(--purple-light)"></div>
+          <div class="info">
+            <div class="name">Nueva identidad de marca</div>
+            <div class="desc">Rebranding completo: etiquetas, identidad visual, lenguaje de marca</div>
+          </div>
+        </div>
+        <div class="fund-item">
+          <div class="dot" style="background:var(--red)"></div>
+          <div class="info">
+            <div class="name">Compra de stock (botellas HST)</div>
+            <div class="desc">Asegurar capacidad operativa y mejorar tiempos de entrega</div>
+          </div>
+        </div>
+        <div class="fund-item">
+          <div class="dot" style="background:rgba(255,255,255,0.2)"></div>
+          <div class="info">
+            <div class="name">Pago de obligaciones anteriores</div>
+            <div class="desc">Regularización de bachs antiguos</div>
+          </div>
+        </div>
+
+        <div class="quote-block" style="margin:2rem 0 0">
+          <p>Buscamos un socio estratégico, no solo capital. Alguien que entienda el valor de construir una marca con identidad propia en un mercado donde todas saben igual.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ESTRATEGIA DE MARCA ═══ -->
+<section id="marca">
+  <div class="container">
+    <span class="label reveal">Plan de desarrollo</span>
+    <h2 class="section-title reveal">Estrategia de marca</h2>
+
+    <div class="grid-3 reveal reveal-d1" style="margin-bottom:3rem">
+      <div class="card">
+        <div class="icon" style="background:rgba(201,168,76,0.12);color:var(--gold)">01</div>
+        <h4>Rebranding visual total</h4>
+        <p>Cambio completo de color, tipografía e identidad gráfica. Nuevas etiquetas que comunican el posicionamiento premium con una estética audaz y recordable.</p>
+      </div>
+      <div class="card">
+        <div class="icon" style="background:rgba(254,229,202,0.12);color:var(--peach)">02</div>
+        <h4>Humanización de contenido</h4>
+        <p>Menos protagonismo de la botella, más lifestyle y experiencia de consumo. La marca vive en cómo se disfruta, no en cómo se ve en una repisa.</p>
+      </div>
+      <div class="card">
+        <div class="icon" style="background:rgba(176,14,47,0.12);color:var(--red)">03</div>
+        <h4>Línea Ready to Drink</h4>
+        <p>Desarrollo de nuevos subproductos: Litmus Sour y cócteles listos para beber. Expansión de la experiencia Litmûs a nuevos momentos de consumo.</p>
+      </div>
+      <div class="card">
+        <div class="icon" style="background:rgba(255,255,255,0.05);color:#fff">04</div>
+        <h4>Estrategia de fidelización</h4>
+        <p>Mailing constante, promoción 3+1 (1 botella gratis al comprar 3), y programa de recompra para convertir compradores primerizos en embajadores de marca.</p>
+      </div>
+      <div class="card">
+        <div class="icon" style="background:rgba(42,26,69,0.3);color:#fff">05</div>
+        <h4>Consistencia del producto</h4>
+        <p>Evaluación técnica de fijadores y procesos para mantener la estabilidad del color natural. La magia debe ser reproducible botella tras botella.</p>
+      </div>
+      <div class="card">
+        <div class="icon" style="background:rgba(201,168,76,0.12);color:var(--gold)">06</div>
+        <h4>Campaña Kickstarter</h4>
+        <p>Evaluación de financiamiento colectivo como plataforma de validación de demanda y generación de comunidad previa al lanzamiento de la nueva identidad.</p>
+      </div>
+    </div>
+
+    <div class="reveal reveal-d3">
+      <div class="analysis-banner" style="border-color:rgba(254,229,202,0.15);background:linear-gradient(135deg,rgba(254,229,202,0.06),rgba(42,26,69,0.3))">
+        <h3 style="color:var(--peach)">Mejoras estratégicas identificadas</h3>
+        <ul>
+          <li>Priorizar el rebranding visual antes del marketing: la identidad debe estar sólida antes de escalar</li>
+          <li>Definir la imagen de campaña (IA vs. modelo real) como decisión de identidad, no solo táctica</li>
+          <li>Establecer KPIs concretos: costo de adquisición, valor de vida del cliente, tasa de recompra</li>
+          <li>La promoción 3+1 debe enmarcarse como "prueba la colección completa", no como descuento</li>
+          <li>Usar la valorización de Concha y Toro como ancla de precio en la narrativa de inversión</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PSICOLOGÍA DE MARKETING ═══ -->
+<section id="psicologia">
+  <div class="container">
+    <span class="label reveal">Principios psicológicos aplicados</span>
+    <h2 class="section-title reveal">Psicología de marketing</h2>
+    <p class="reveal" style="max-width:640px;margin-bottom:3rem">Cada decisión de marca y comunicación está respaldada por principios de comportamiento humano. Esto no es diseño decorativo; es ingeniería de percepción.</p>
+
+    <div class="grid-2 reveal reveal-d1" style="margin-bottom:3rem">
+      <div class="psych-card">
+        <h4>Anclaje & Encuadre</h4>
+        <span class="principle">Anchoring · Framing Effect</span>
+        <p>La valorización de Concha y Toro sirve como ancla de precio en la mente del inversionista y del consumidor. Al presentar primero una referencia de alta gama, el precio de Litmûs se percibe como razonable dentro del segmento premium. Cada comunicación encuadra el producto como "destilado de autor", no como "licor".</p>
+      </div>
+      <div class="psych-card">
+        <h4>Prueba social</h4>
+        <span class="principle">Social Proof · Bandwagon Effect</span>
+        <p>Las reseñas orgánicas de clientes reales (Jacqueline, Sonia, Macarena, Héctor) son activos de persuasión. El nuevo sitio las destacará como prueba social primaria. Además, el modelo de partnership con bares y cafés de especialidad crea prueba social aspiracional: "si ellos lo sirven, debe ser bueno".</p>
+      </div>
+      <div class="psych-card">
+        <h4>Escasez real</h4>
+        <span class="principle">Scarcity · Loss Aversion</span>
+        <p>La participación del 10% no es una táctica &mdash; es una restricción estructural. La escasez real de la oportunidad se comunica de forma transparente: solo 10 puntos porcentuales disponibles, cedidos equitativamente por los dos socios mayoritarios. Esto activa la aversión a la pérdida en inversionistas calificados.</p>
+      </div>
+      <div class="psych-card">
+        <h4>Efecto de mera exposición</h4>
+        <span class="principle">Mere Exposure Effect</span>
+        <p>La estrategia de mailing constante y presencia consistente en redes sociales construye familiaridad. Las personas prefieren lo que ya han visto antes. Cada touchpoint suma; ninguna exposición es "menor". La regla de 7 contactos antes de la conversión está incorporada en el plan de medios.</p>
+      </div>
+      <div class="psych-card">
+        <h4>Deseo mimético</h4>
+        <span class="principle">Mimetic Desire</span>
+        <p>La nueva estrategia de contenido muestra personas deseables disfrutando Litmûs en contextos aspiracionales. No se vende una botella; se vende ser parte de un grupo selecto que "descubrió" algo único. El partnership con locales curated refuerza: no cualquiera puede vender Litmûs.</p>
+      </div>
+      <div class="psych-card">
+        <h4>Efecto IKEA + Goal-Gradient</h4>
+        <span class="principle">IKEA Effect · Goal-Gradient</span>
+        <p>La campaña Kickstarter invita a los primeros adoptantes a ser co-creadores. Quienes participan valoran más la marca porque invirtieron en ella. El goal-gradient (barras de progreso en la campaña) acelera las contribuciones a medida que se acercan los objetivos.</p>
+      </div>
+      <div class="psych-card">
+        <h4>Paradoja de la elección</h4>
+        <span class="principle">Paradox of Choice · Hick's Law</span>
+        <p>La línea de productos se mantiene deliberadamente pequeña: botella individual, pack 3, pack 6, y cócteles. Reducir la fricción de decisión aumenta la conversión. El consumidor no quiere elegir entre 20 variantes; quiere que le recomienden la mejor opción.</p>
+      </div>
+      <div class="psych-card">
+        <h4>Compromiso y consistencia</h4>
+        <span class="principle">Commitment & Consistency</span>
+        <p>El modelo de suscripción por mailing comienza con microcompromisos (registro, primera compra, reseña) que escalan a lealtad. Quien ya probó Litmûs y opinó públicamente es mucho más probable que compre de nuevo y recomiende. Cada paso construye el siguiente.</p>
+      </div>
+    </div>
+
+    <div class="quote-block reveal reveal-d3">
+      <p>Las grandes marcas no compiten en precio. Compiten en identidad. El lujo no es caro; es escaso, es consistente, es una promesa cumplida mil veces.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ROADMAP ═══ -->
+<section id="roadmap">
+  <div class="container">
+    <span class="label reveal">Cronograma estratégico</span>
+    <h2 class="section-title reveal">Hoja de ruta</h2>
+    <p class="reveal" style="max-width:540px;margin-bottom:3rem">Doce meses para transformar la marca, capturar el mercado boutique y posicionar la empresa para una salida estratégica.</p>
+
+    <div class="grid-2 reveal reveal-d1">
+      <div>
+        <div style="margin-bottom:2rem">
+          <span class="label" style="color:var(--gold)">Trimestre 1 &mdash; Fundación</span>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="date">Mes 1</div>
+              <h4>Rebranding completo</h4>
+              <p>Nueva identidad visual, diseño de etiquetas, definición de paleta cromática y lenguaje de marca.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="date">Mes 2</div>
+              <h4>Producción y stock</h4>
+              <p>Compra de botellas HST, producción de nuevas etiquetas, regularización de bachs pendientes.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="date">Mes 3</div>
+              <h4>Lanzamiento nueva identidad</h4>
+              <p>Activación de la nueva imagen en todos los puntos de contacto. Campaña de lanzamiento.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="margin-bottom:2rem">
+          <span class="label" style="color:var(--gold)">Trimestre 2 &mdash; Crecimiento</span>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="date">Mes 4-5</div>
+              <h4>Marketing digital intensivo</h4>
+              <p>Campañas Meta y Google. Estrategia de contenido humanizado. Colaboraciones con creadores.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="date">Mes 5</div>
+              <h4>Lanzamiento RTD</h4>
+              <p>Litmus Sour y línea Ready to Drink. Nuevos formatos para nuevos momentos de consumo.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="date">Mes 6</div>
+              <h4>Kickstarter / validación</h4>
+              <p>Campaña de crowdfunding como validación de demanda y generación de comunidad embajadora.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="margin-bottom:2rem">
+          <span class="label" style="color:var(--gold)">Trimestre 3 &mdash; Escalamiento</span>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="date">Mes 7-8</div>
+              <h4>Expansión de canales</h4>
+              <p>Incorporación de nuevos puntos de venta. Programa de partnership con bares y cafés de especialidad.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="date">Mes 8-9</div>
+              <h4>Fidelización y recompra</h4>
+              <p>Automatización de mailing, promociones inteligentes, programa de referidos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="margin-bottom:2rem">
+          <span class="label" style="color:var(--gold)">Trimestre 4 &mdash; Salida</span>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="date">Mes 10-11</div>
+              <h4>Preparación para venta</h4>
+              <p>Due diligence, preparación de data room, identificación de distribuidoras target.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="date">Mes 12</div>
+              <h4>Negociación de salida</h4>
+              <p>Venta a distribuidora de mayor tamaño. Mantención de participación minoritaria para continuar vinculados al crecimiento de la marca.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal reveal-d3" style="margin-top:2rem">
+      <div class="analysis-banner" style="border-color:rgba(201,168,76,0.2)">
+        <h3 style="color:var(--gold)">Estrategia de salida</h3>
+        <p style="margin-bottom:1rem">El objetivo no es construir una empresa para siempre. Es construir una marca con suficiente identidad y tracción para que una distribuidora más grande reconozca su valor y la adquiera, integrando su red de distribución mientras los fundadores mantienen una participación minoritaria y continúan liderando la visión creativa.</p>
+        <ul>
+          <li>Las distribuidoras buscan marcas con identidad diferenciada y comunidad leal &mdash; Litmûs tendrá ambas</li>
+          <li>La consolidación en espirituosos boutique está en pleno auge: grandes grupos compran marcas nicho para diversificar portafolio</li>
+          <li>La salida no es un fracaso &mdash; es la estrategia desde el día uno: construir valor para transferirlo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="social">
+    <a href="https://www.instagram.com/litmus_liquor/" target="_blank" aria-label="Instagram">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="6"/><circle cx="18" cy="6" r="1.5"/></svg>
+    </a>
+    <a href="mailto:hello@litmus.cl" aria-label="Email">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    </a>
+  </div>
+  <p>Litmûs &mdash; Destilado de autor chileno</p>
+  <p style="margin-top:0.3rem">Propuesta de inversión confidencial &bull; 2026</p>
+</footer>
+
+<!-- ═══ SCRIPTS ═══ -->
+<script>
+(function() {
+'use strict';
+
+/* ─── Elements ─── */
+const nav = document.getElementById('navbar');
+const toggle = document.getElementById('navToggle');
+const links = document.getElementById('navLinks');
+const progress = document.getElementById('scrollProgress');
+const glow = document.getElementById('mouseGlow');
+const heroBg = document.getElementById('heroBg');
+const parallaxEls = document.querySelectorAll('.parallax-layer > *');
+const parallaxOrbs = document.querySelectorAll('.parallax-orb');
+const stats = document.querySelectorAll('.stat .number');
+let statAnimated = new Set();
+
+/* ─── Navbar ─── */
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+}, { passive: true });
+
+toggle?.addEventListener('click', () => links.classList.toggle('open'));
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => links.classList.remove('open'));
+});
+
+/* ─── Mouse glow (desktop only) ─── */
+const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+if (!isTouch && glow) {
+  document.addEventListener('mousemove', e => {
+    glow.style.transform = `translate(${e.clientX - 250}px, ${e.clientY - 250}px)`;
+  });
+} else if (glow) {
+  glow.style.display = 'none';
+}
+
+/* ─── Scroll progress ─── */
+function updateProgress() {
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.width = h > 0 ? `${(window.scrollY / h) * 100}%` : '0%';
+}
+
+/* ─── Bidirectional reveal ─── */
+function updateReveals() {
+  const reveals = document.querySelectorAll('.reveal, .reveal-scale, .reveal-right, .reveal-left');
+  const winH = window.innerHeight;
+  reveals.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    const isVisible = rect.top < winH - 80 && rect.bottom > 40;
+    el.classList.toggle('visible', isVisible);
+  });
+}
+
+/* ─── Parallax on scroll ─── */
+function updateParallax() {
+  const sy = window.scrollY;
+  parallaxEls.forEach((el, i) => {
+    const speed = 0.02 + (i % 3) * 0.015;
+    el.style.transform = `translateY(${sy * speed}px)`;
+  });
+  parallaxOrbs.forEach((el, i) => {
+    const speed = 0.015 + i * 0.01;
+    el.style.transform = `translateY(${sy * speed}px)`;
+  });
+}
+
+/* ─── Animated counters (bidirectional) ─── */
+const counterData = new Map();
+
+function initCounter(el) {
+  const text = el.textContent.trim();
+  const num = parseFloat(text.replace(/[^0-9.]/g, ''));
+  if (isNaN(num)) return;
+  counterData.set(el, {
+    original: text,
+    target: num,
+    prefix: text.startsWith('+') ? '+' : '',
+    suffix: text.includes('%') ? '%' : text.includes('×') ? '×' : ''
+  });
+}
+
+stats.forEach(initCounter);
+
+function easeOutExpo(t) {
+  return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+}
+
+function animateCounter(el) {
+  const data = counterData.get(el);
+  if (!data) return;
+  const duration = 1500;
+  const start = performance.now();
+
+  function tick(now) {
+    const t = Math.min((now - start) / duration, 1);
+    const current = Math.round(easeOutExpo(t) * data.target);
+    el.textContent = data.prefix + current + data.suffix;
+    if (t < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+function checkCounters() {
+  stats.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    const isVis = rect.top < window.innerHeight - 60 && rect.bottom > 40;
+    const wasAnimated = statAnimated.has(el);
+
+    if (isVis && !wasAnimated) {
+      statAnimated.add(el);
+      animateCounter(el);
+    } else if (!isVis && wasAnimated) {
+      // Reset so it re-animates when scrolling back
+      const data = counterData.get(el);
+      if (data) el.textContent = data.original;
+      statAnimated.delete(el);
+    }
+  });
+}
+
+/* ─── Hero shrink on scroll ─── */
+const heroContent = document.querySelector('.hero-content');
+function updateHeroParallax() {
+  const sy = window.scrollY;
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
+  const heroH = hero.offsetHeight;
+  if (sy > heroH) return;
+  const progress = sy / heroH;
+  if (heroContent) {
+    heroContent.style.transform = `translateY(${progress * 40}px) scale(${1 - progress * 0.06})`;
+    heroContent.style.opacity = 1 - progress * 0.5;
+  }
+}
+
+/* ─── Master scroll handler ─── */
+function onScroll() {
+  updateProgress();
+  updateReveals();
+  updateParallax();
+  updateHeroParallax();
+  checkCounters();
+}
+
+window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener('resize', onScroll, { passive: true });
+
+/* ─── Init ─── */
+onScroll();
+
+/* ─── Re-check on font load / after paint ─── */
+setTimeout(onScroll, 300);
+setTimeout(onScroll, 800);
+
+/* ─── Section enter/exit effects ─── */
+const sections = document.querySelectorAll('section');
+const sectionObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('section-visible');
+    }
+  });
+}, { threshold: 0.05 });
+sections.forEach(s => sectionObs.observe(s));
+
+/* ─── Cap table bar animate on intersect ─── */
+const capVis = document.querySelector('.cap-visual');
+if (capVis) {
+  const capObs = new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) {
+      capVis.querySelectorAll('.bar').forEach((bar, i) => {
+        const pct = bar.textContent.replace('%', '');
+        bar.style.width = '0%';
+        bar.style.overflow = 'hidden';
+        bar.style.transition = 'none';
+        setTimeout(() => {
+          bar.style.transition = `width 1s cubic-bezier(0.16,1,0.3,1) ${i * 0.15}s`;
+          bar.style.width = pct + '%';
+        }, 50);
+      });
+      capObs.disconnect();
+    }
+  }, { threshold: 0.5 });
+  capObs.observe(capVis);
+}
+
+/* ─── Timeline progressive reveal ─── */
+document.querySelectorAll('.timeline-item').forEach((item, i) => {
+  item.style.opacity = '0';
+  item.style.transform = 'translateX(-15px)';
+  const obs = new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        item.style.transition = `opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1)`;
+        item.style.opacity = '1';
+        item.style.transform = 'translateX(0)';
+      }, i * 100);
+      obs.disconnect();
+    }
+  }, { threshold: 0.2 });
+  obs.observe(item);
+});
+
+/* ─── Analysis list items stagger ─── */
+document.querySelectorAll('.analysis-banner ul').forEach(ul => {
+  const items = ul.querySelectorAll('li');
+  const obs = new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) {
+      items.forEach((li, i) => {
+        li.style.opacity = '0';
+        li.style.transform = 'translateX(-15px)';
+        setTimeout(() => {
+          li.style.transition = 'opacity 0.5s cubic-bezier(0.16,1,0.3,1), transform 0.5s cubic-bezier(0.16,1,0.3,1)';
+          li.style.opacity = '1';
+          li.style.transform = 'translateX(0)';
+        }, i * 100);
+      });
+      obs.disconnect();
+    }
+  }, { threshold: 0.3 });
+  obs.observe(ul);
+});
+
+/* ─── Stat items stagger ─── */
+const statRow = document.querySelector('.stat-row');
+if (statRow) {
+  const statItems = statRow.querySelectorAll('.stat');
+  const statObs = new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) {
+      statItems.forEach((st, i) => {
+        st.style.opacity = '0';
+        st.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+          st.style.transition = 'opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1)';
+          st.style.opacity = '1';
+          st.style.transform = 'translateY(0)';
+        }, i * 120);
+      });
+      statObs.disconnect();
+    }
+  }, { threshold: 0.2 });
+  statObs.observe(statRow);
+}
+
+/* ─── Fund items stagger ─── */
+const fundContainer = document.querySelector('.fund-item')?.parentElement;
+if (fundContainer) {
+  const items = fundContainer.querySelectorAll('.fund-item');
+  const fundObs = new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) {
+      items.forEach((item, i) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateX(-20px)';
+        setTimeout(() => {
+          item.style.transition = 'opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1)';
+          item.style.opacity = '1';
+          item.style.transform = 'translateX(0)';
+        }, i * 100);
+      });
+      fundObs.disconnect();
+    }
+  }, { threshold: 0.3 });
+  fundObs.observe(fundContainer);
+}
+
+/* ─── Psych cards stagger ─── */
+const psychGrid = document.querySelector('.psych-card')?.closest('.grid-2');
+if (psychGrid) {
+  const cards = psychGrid.querySelectorAll('.psych-card');
+  const psychObs = new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) {
+      cards.forEach((card, i) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+          card.style.transition = 'opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1)';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, i * 60);
+      });
+      psychObs.disconnect();
+    }
+  }, { threshold: 0.1 });
+  psychObs.observe(psychGrid);
+}
+
+/* ─── Card stagger on hover scale ─── */
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('mouseenter', function() {
+    const siblings = this.closest('.grid-3')?.querySelectorAll('.card');
+    if (siblings) {
+      siblings.forEach(s => {
+        if (s !== this) s.style.transform = 'scale(0.97)';
+      });
+    }
+  });
+  card.addEventListener('mouseleave', function() {
+    const siblings = this.closest('.grid-3')?.querySelectorAll('.card');
+    if (siblings) {
+      siblings.forEach(s => s.style.transform = '');
+    }
+  });
+});
+
+/* ─── Smooth anchor scroll (manual enhancement) ─── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href');
+    if (!id || id === '#') return;
+    const target = document.querySelector(id);
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+})();
+</script>
+
+</body>
+</html>
